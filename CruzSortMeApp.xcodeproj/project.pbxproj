@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		844D90351E14D391002684BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90341E14D391002684BA /* AppDelegate.swift */; };
+		844D90371E14D391002684BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90361E14D391002684BA /* ViewController.swift */; };
+		844D903A1E14D391002684BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90381E14D391002684BA /* Main.storyboard */; };
+		844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 844D903B1E14D391002684BA /* CruzSortMeApp.xcdatamodeld */; };
+		844D903F1E14D391002684BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844D903E1E14D391002684BA /* Assets.xcassets */; };
+		844D90421E14D391002684BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90401E14D391002684BA /* LaunchScreen.storyboard */; };
+		844D904D1E14D391002684BA /* CruzSortMeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D904C1E14D391002684BA /* CruzSortMeAppTests.swift */; };
+		844D90581E14D391002684BA /* CruzSortMeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		844D90491E14D391002684BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844D90291E14D390002684BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 844D90301E14D390002684BA;
+			remoteInfo = CruzSortMeApp;
+		};
+		844D90541E14D391002684BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844D90291E14D390002684BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 844D90301E14D390002684BA;
+			remoteInfo = CruzSortMeApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		844D90311E14D390002684BA /* CruzSortMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CruzSortMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		844D90341E14D391002684BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		844D90361E14D391002684BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		844D90391E14D391002684BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		844D903C1E14D391002684BA /* CruzSortMeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CruzSortMeApp.xcdatamodel; sourceTree = "<group>"; };
+		844D903E1E14D391002684BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		844D90411E14D391002684BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		844D90431E14D391002684BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844D90481E14D391002684BA /* CruzSortMeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CruzSortMeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		844D904C1E14D391002684BA /* CruzSortMeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruzSortMeAppTests.swift; sourceTree = "<group>"; };
+		844D904E1E14D391002684BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844D90531E14D391002684BA /* CruzSortMeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CruzSortMeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruzSortMeAppUITests.swift; sourceTree = "<group>"; };
+		844D90591E14D391002684BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		844D902E1E14D390002684BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844D90451E14D391002684BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844D90501E14D391002684BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		844D90281E14D390002684BA = {
+			isa = PBXGroup;
+			children = (
+				844D90331E14D390002684BA /* CruzSortMeApp */,
+				844D904B1E14D391002684BA /* CruzSortMeAppTests */,
+				844D90561E14D391002684BA /* CruzSortMeAppUITests */,
+				844D90321E14D390002684BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		844D90321E14D390002684BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				844D90311E14D390002684BA /* CruzSortMeApp.app */,
+				844D90481E14D391002684BA /* CruzSortMeAppTests.xctest */,
+				844D90531E14D391002684BA /* CruzSortMeAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		844D90331E14D390002684BA /* CruzSortMeApp */ = {
+			isa = PBXGroup;
+			children = (
+				844D90341E14D391002684BA /* AppDelegate.swift */,
+				844D90361E14D391002684BA /* ViewController.swift */,
+				844D90381E14D391002684BA /* Main.storyboard */,
+				844D903E1E14D391002684BA /* Assets.xcassets */,
+				844D90401E14D391002684BA /* LaunchScreen.storyboard */,
+				844D90431E14D391002684BA /* Info.plist */,
+				844D903B1E14D391002684BA /* CruzSortMeApp.xcdatamodeld */,
+			);
+			path = CruzSortMeApp;
+			sourceTree = "<group>";
+		};
+		844D904B1E14D391002684BA /* CruzSortMeAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				844D904C1E14D391002684BA /* CruzSortMeAppTests.swift */,
+				844D904E1E14D391002684BA /* Info.plist */,
+			);
+			path = CruzSortMeAppTests;
+			sourceTree = "<group>";
+		};
+		844D90561E14D391002684BA /* CruzSortMeAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */,
+				844D90591E14D391002684BA /* Info.plist */,
+			);
+			path = CruzSortMeAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		844D90301E14D390002684BA /* CruzSortMeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844D905C1E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeApp" */;
+			buildPhases = (
+				844D902D1E14D390002684BA /* Sources */,
+				844D902E1E14D390002684BA /* Frameworks */,
+				844D902F1E14D390002684BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CruzSortMeApp;
+			productName = CruzSortMeApp;
+			productReference = 844D90311E14D390002684BA /* CruzSortMeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		844D90471E14D391002684BA /* CruzSortMeAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844D905F1E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppTests" */;
+			buildPhases = (
+				844D90441E14D391002684BA /* Sources */,
+				844D90451E14D391002684BA /* Frameworks */,
+				844D90461E14D391002684BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				844D904A1E14D391002684BA /* PBXTargetDependency */,
+			);
+			name = CruzSortMeAppTests;
+			productName = CruzSortMeAppTests;
+			productReference = 844D90481E14D391002684BA /* CruzSortMeAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		844D90521E14D391002684BA /* CruzSortMeAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844D90621E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppUITests" */;
+			buildPhases = (
+				844D904F1E14D391002684BA /* Sources */,
+				844D90501E14D391002684BA /* Frameworks */,
+				844D90511E14D391002684BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				844D90551E14D391002684BA /* PBXTargetDependency */,
+			);
+			name = CruzSortMeAppUITests;
+			productName = CruzSortMeAppUITests;
+			productReference = 844D90531E14D391002684BA /* CruzSortMeAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		844D90291E14D390002684BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Gopal Gupta";
+				TargetAttributes = {
+					844D90301E14D390002684BA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					844D90471E14D391002684BA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 844D90301E14D390002684BA;
+					};
+					844D90521E14D391002684BA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 844D90301E14D390002684BA;
+					};
+				};
+			};
+			buildConfigurationList = 844D902C1E14D390002684BA /* Build configuration list for PBXProject "CruzSortMeApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 844D90281E14D390002684BA;
+			productRefGroup = 844D90321E14D390002684BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				844D90301E14D390002684BA /* CruzSortMeApp */,
+				844D90471E14D391002684BA /* CruzSortMeAppTests */,
+				844D90521E14D391002684BA /* CruzSortMeAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		844D902F1E14D390002684BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844D90421E14D391002684BA /* LaunchScreen.storyboard in Resources */,
+				844D903F1E14D391002684BA /* Assets.xcassets in Resources */,
+				844D903A1E14D391002684BA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844D90461E14D391002684BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844D90511E14D391002684BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		844D902D1E14D390002684BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844D90371E14D391002684BA /* ViewController.swift in Sources */,
+				844D90351E14D391002684BA /* AppDelegate.swift in Sources */,
+				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844D90441E14D391002684BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844D904D1E14D391002684BA /* CruzSortMeAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844D904F1E14D391002684BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844D90581E14D391002684BA /* CruzSortMeAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		844D904A1E14D391002684BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 844D90301E14D390002684BA /* CruzSortMeApp */;
+			targetProxy = 844D90491E14D391002684BA /* PBXContainerItemProxy */;
+		};
+		844D90551E14D391002684BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 844D90301E14D390002684BA /* CruzSortMeApp */;
+			targetProxy = 844D90541E14D391002684BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		844D90381E14D391002684BA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				844D90391E14D391002684BA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		844D90401E14D391002684BA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				844D90411E14D391002684BA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		844D905A1E14D391002684BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		844D905B1E14D391002684BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		844D905D1E14D391002684BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.media.mosaic.CruzSortMeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		844D905E1E14D391002684BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.media.mosaic.CruzSortMeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		844D90601E14D391002684BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CruzSortMeAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.media.mosaic.CruzSortMeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CruzSortMeApp.app/CruzSortMeApp";
+			};
+			name = Debug;
+		};
+		844D90611E14D391002684BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CruzSortMeAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.media.mosaic.CruzSortMeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CruzSortMeApp.app/CruzSortMeApp";
+			};
+			name = Release;
+		};
+		844D90631E14D391002684BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = CruzSortMeAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.media.mosaic.CruzSortMeAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CruzSortMeApp;
+			};
+			name = Debug;
+		};
+		844D90641E14D391002684BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = CruzSortMeAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.media.mosaic.CruzSortMeAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CruzSortMeApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		844D902C1E14D390002684BA /* Build configuration list for PBXProject "CruzSortMeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844D905A1E14D391002684BA /* Debug */,
+				844D905B1E14D391002684BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		844D905C1E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844D905D1E14D391002684BA /* Debug */,
+				844D905E1E14D391002684BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		844D905F1E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844D90601E14D391002684BA /* Debug */,
+				844D90611E14D391002684BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		844D90621E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844D90631E14D391002684BA /* Debug */,
+				844D90641E14D391002684BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		844D903B1E14D391002684BA /* CruzSortMeApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				844D903C1E14D391002684BA /* CruzSortMeApp.xcdatamodel */,
+			);
+			currentVersion = 844D903C1E14D391002684BA /* CruzSortMeApp.xcdatamodel */;
+			path = CruzSortMeApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 844D90291E14D390002684BA /* Project object */;
+}
