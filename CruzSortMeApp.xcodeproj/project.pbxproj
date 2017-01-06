@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19F0829297F5B0FF772AAB6F /* Pods_CruzSortMeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */; };
+		2483D3C3DE8AB9A9B616A3B9 /* Pods_CruzSortMeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */; };
 		844D90351E14D391002684BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90341E14D391002684BA /* AppDelegate.swift */; };
 		844D90371E14D391002684BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90361E14D391002684BA /* ViewController.swift */; };
 		844D903A1E14D391002684BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90381E14D391002684BA /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 		844D90421E14D391002684BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90401E14D391002684BA /* LaunchScreen.storyboard */; };
 		844D904D1E14D391002684BA /* CruzSortMeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D904C1E14D391002684BA /* CruzSortMeAppTests.swift */; };
 		844D90581E14D391002684BA /* CruzSortMeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */; };
+		84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */; };
+		BC9C4E4EB1D5CBDC13D475CD /* Pods_CruzSortMeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8178AB875D723DEE2E6DDB8 /* Pods_CruzSortMeAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24044ECDF78D80663A24FAEC /* Pods-CruzSortMeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		3F6A47A73BF1E8A92FA8BF5F /* Pods-CruzSortMeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeApp/Pods-CruzSortMeApp.release.xcconfig"; sourceTree = "<group>"; };
+		4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F13DDE74F1B6A798AF83012 /* Pods-CruzSortMeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6CE0EB4EF675A31C9909DBF5 /* Pods-CruzSortMeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		844D90311E14D390002684BA /* CruzSortMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CruzSortMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D90341E14D391002684BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844D90361E14D391002684BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +58,11 @@
 		844D90531E14D391002684BA /* CruzSortMeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CruzSortMeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruzSortMeAppUITests.swift; sourceTree = "<group>"; };
 		844D90591E14D391002684BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		A225756BD8285E7956009A69 /* Pods-CruzSortMeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8178AB875D723DEE2E6DDB8 /* Pods_CruzSortMeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E004CC5C9764C5CCB3558FE9 /* Pods-CruzSortMeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeApp/Pods-CruzSortMeApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2483D3C3DE8AB9A9B616A3B9 /* Pods_CruzSortMeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9C4E4EB1D5CBDC13D475CD /* Pods_CruzSortMeAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +86,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F0829297F5B0FF772AAB6F /* Pods_CruzSortMeAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4509CB696858B0C55FE347E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */,
+				D8178AB875D723DEE2E6DDB8 /* Pods_CruzSortMeAppTests.framework */,
+				4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		844D90281E14D390002684BA = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +110,8 @@
 				844D904B1E14D391002684BA /* CruzSortMeAppTests */,
 				844D90561E14D391002684BA /* CruzSortMeAppUITests */,
 				844D90321E14D390002684BA /* Products */,
+				E20FE21E105C0764506B9440 /* Pods */,
+				4509CB696858B0C55FE347E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +128,8 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				84EF9A1A1E1E643E000E33A6 /* LoginAndSignUp */,
 				844D90341E14D391002684BA /* AppDelegate.swift */,
-				844D90361E14D391002684BA /* ViewController.swift */,
 				844D90381E14D391002684BA /* Main.storyboard */,
 				844D903E1E14D391002684BA /* Assets.xcassets */,
 				844D90401E14D391002684BA /* LaunchScreen.storyboard */,
@@ -128,6 +157,28 @@
 			path = CruzSortMeAppUITests;
 			sourceTree = "<group>";
 		};
+		84EF9A1A1E1E643E000E33A6 /* LoginAndSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				844D90361E14D391002684BA /* ViewController.swift */,
+				84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */,
+			);
+			name = LoginAndSignUp;
+			sourceTree = "<group>";
+		};
+		E20FE21E105C0764506B9440 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E004CC5C9764C5CCB3558FE9 /* Pods-CruzSortMeApp.debug.xcconfig */,
+				3F6A47A73BF1E8A92FA8BF5F /* Pods-CruzSortMeApp.release.xcconfig */,
+				A225756BD8285E7956009A69 /* Pods-CruzSortMeAppTests.debug.xcconfig */,
+				24044ECDF78D80663A24FAEC /* Pods-CruzSortMeAppTests.release.xcconfig */,
+				4F13DDE74F1B6A798AF83012 /* Pods-CruzSortMeAppUITests.debug.xcconfig */,
+				6CE0EB4EF675A31C9909DBF5 /* Pods-CruzSortMeAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844D905C1E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeApp" */;
 			buildPhases = (
+				22EDE85508333A2D6F68E728 /* [CP] Check Pods Manifest.lock */,
 				844D902D1E14D390002684BA /* Sources */,
 				844D902E1E14D390002684BA /* Frameworks */,
 				844D902F1E14D390002684BA /* Resources */,
+				8197FE401A91B5B5D48F9172 /* [CP] Embed Pods Frameworks */,
+				6B456D62A856057B91F05D81 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844D905F1E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppTests" */;
 			buildPhases = (
+				F3623313FA5CDBFC53205194 /* [CP] Check Pods Manifest.lock */,
 				844D90441E14D391002684BA /* Sources */,
 				844D90451E14D391002684BA /* Frameworks */,
 				844D90461E14D391002684BA /* Resources */,
+				46C6FD45D799D15941D61953 /* [CP] Embed Pods Frameworks */,
+				9D155C28AABAFC72F11B5188 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844D90621E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppUITests" */;
 			buildPhases = (
+				67B777F0D8C6AD56C310AC63 /* [CP] Check Pods Manifest.lock */,
 				844D904F1E14D391002684BA /* Sources */,
 				844D90501E14D391002684BA /* Frameworks */,
 				844D90511E14D391002684BA /* Resources */,
+				2574495317DA0F0C177A3829 /* [CP] Embed Pods Frameworks */,
+				8601A7C3086BE24943CA6FF8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,6 +317,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22EDE85508333A2D6F68E728 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2574495317DA0F0C177A3829 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46C6FD45D799D15941D61953 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67B777F0D8C6AD56C310AC63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6B456D62A856057B91F05D81 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CruzSortMeApp/Pods-CruzSortMeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8197FE401A91B5B5D48F9172 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CruzSortMeApp/Pods-CruzSortMeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8601A7C3086BE24943CA6FF8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D155C28AABAFC72F11B5188 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3623313FA5CDBFC53205194 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		844D902D1E14D390002684BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -264,6 +462,7 @@
 			files = (
 				844D90371E14D391002684BA /* ViewController.swift in Sources */,
 				844D90351E14D391002684BA /* AppDelegate.swift in Sources */,
+				84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */,
 				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +611,7 @@
 		};
 		844D905D1E14D391002684BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E004CC5C9764C5CCB3558FE9 /* Pods-CruzSortMeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
@@ -425,6 +625,7 @@
 		};
 		844D905E1E14D391002684BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F6A47A73BF1E8A92FA8BF5F /* Pods-CruzSortMeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
@@ -438,6 +639,7 @@
 		};
 		844D90601E14D391002684BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A225756BD8285E7956009A69 /* Pods-CruzSortMeAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -452,6 +654,7 @@
 		};
 		844D90611E14D391002684BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24044ECDF78D80663A24FAEC /* Pods-CruzSortMeAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -466,6 +669,7 @@
 		};
 		844D90631E14D391002684BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F13DDE74F1B6A798AF83012 /* Pods-CruzSortMeAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CruzSortMeAppUITests/Info.plist;
@@ -479,6 +683,7 @@
 		};
 		844D90641E14D391002684BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CE0EB4EF675A31C9909DBF5 /* Pods-CruzSortMeAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CruzSortMeAppUITests/Info.plist;
@@ -509,6 +714,7 @@
 				844D905E1E14D391002684BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		844D905F1E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +723,7 @@
 				844D90611E14D391002684BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		844D90621E14D391002684BA /* Build configuration list for PBXNativeTarget "CruzSortMeAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +732,7 @@
 				844D90641E14D391002684BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

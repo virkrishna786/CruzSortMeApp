@@ -1,0 +1,6 @@
+framework module Pods_CruzSortMeAppTests {
+  umbrella header "Pods-CruzSortMeAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
