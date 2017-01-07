@@ -7,9 +7,35 @@
 //
 
 import UIKit
+import Alamofire
 
 class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBAction func datePickerAction(_ sender: UIDatePicker) {
+        self.setDateAndTime()
+    }
+    @IBOutlet weak var CnfirmPasswordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBAction func femaleButtonAction(_ sender: UIButton) {
+    }
+    @IBOutlet weak var femaleButton: UIButton!
+    @IBAction func maleButtonAction(_ sender: UIButton) {
+    }
+    @IBOutlet weak var maleButton: UIButton!
+    @IBAction func dobButtonAction(_ sender: UIButton) {
+        self.datePicker.isHidden = false
+    }
+    @IBOutlet weak var dobButton: UIButton!
+    
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
 
+    @IBAction func backButtonAction(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
+
+    }
     @IBOutlet weak var signUpButton: UIButton!
     {
         didSet{
@@ -18,6 +44,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         }
     }
     @IBAction func signUpButtonAction(_ sender: UIButton) {
+        self.signUpApi()
     }
     @IBAction func camaraButtonAction(_ sender: UIButton) {
         
@@ -41,14 +68,31 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     @IBOutlet weak var profileImageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
+    let dateFormatter = DateFormatter()
+    var dateString : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        self.datePicker.isHidden = true
+        
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
     
+    
+    func dismissKeyboard() {
+        self.datePicker.isHidden = true
+        self.view.endEditing(true)
+ 
+        
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage  {
             profileImageView.contentMode = .scaleAspectFit
@@ -77,6 +121,28 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    // api for SignUp 
+    
+    func signUpApi() {
+        
+        let parameter = ["name","krishna",
+                         "":""]
+    }
+    
+  // MARK -: set date of birth
+    func setDateAndTime() {
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.dateFormat = "dd/MM/YYYY"
+        dobButton.titleLabel?.text = dateFormatter.string(from: datePicker.date)
+    }
+
+//    var dateFormatter = NSDateFormatter()
+//    dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+//    var strDate = dateFormatter.stringFromDate(myDatePicker.date)
+//    self.selectedDate.text = strDate
+//    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
