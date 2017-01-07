@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		19F0829297F5B0FF772AAB6F /* Pods_CruzSortMeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */; };
 		2483D3C3DE8AB9A9B616A3B9 /* Pods_CruzSortMeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */; };
+		842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EF8731E1F5D610079EB2D /* SignUpViewController.swift */; };
+		842EF8761E1FB4190079EB2D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8751E1FB4190079EB2D /* Alamofire.framework */; };
+		842EF8781E1FB4210079EB2D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */; };
+		842EF8791E1FB4620079EB2D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8751E1FB4190079EB2D /* Alamofire.framework */; };
+		842EF87A1E1FB4620079EB2D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8751E1FB4190079EB2D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		844D90351E14D391002684BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90341E14D391002684BA /* AppDelegate.swift */; };
 		844D90371E14D391002684BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90361E14D391002684BA /* ViewController.swift */; };
 		844D903A1E14D391002684BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90381E14D391002684BA /* Main.storyboard */; };
@@ -38,12 +43,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		842EF87B1E1FB4620079EB2D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				842EF87A1E1FB4620079EB2D /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		24044ECDF78D80663A24FAEC /* Pods-CruzSortMeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F6A47A73BF1E8A92FA8BF5F /* Pods-CruzSortMeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeApp/Pods-CruzSortMeApp.release.xcconfig"; sourceTree = "<group>"; };
 		4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F13DDE74F1B6A798AF83012 /* Pods-CruzSortMeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6CE0EB4EF675A31C9909DBF5 /* Pods-CruzSortMeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		842EF8731E1F5D610079EB2D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		842EF8751E1FB4190079EB2D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		844D90311E14D390002684BA /* CruzSortMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CruzSortMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D90341E14D391002684BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844D90361E14D391002684BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +92,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842EF8781E1FB4210079EB2D /* SwiftyJSON.framework in Frameworks */,
+				842EF8761E1FB4190079EB2D /* Alamofire.framework in Frameworks */,
 				2483D3C3DE8AB9A9B616A3B9 /* Pods_CruzSortMeApp.framework in Frameworks */,
+				842EF8791E1FB4620079EB2D /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +121,8 @@
 		4509CB696858B0C55FE347E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */,
+				842EF8751E1FB4190079EB2D /* Alamofire.framework */,
 				B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */,
 				D8178AB875D723DEE2E6DDB8 /* Pods_CruzSortMeAppTests.framework */,
 				4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */,
@@ -162,6 +189,7 @@
 			children = (
 				844D90361E14D391002684BA /* ViewController.swift */,
 				84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */,
+				842EF8731E1F5D610079EB2D /* SignUpViewController.swift */,
 			);
 			name = LoginAndSignUp;
 			sourceTree = "<group>";
@@ -192,6 +220,7 @@
 				844D902F1E14D390002684BA /* Resources */,
 				8197FE401A91B5B5D48F9172 /* [CP] Embed Pods Frameworks */,
 				6B456D62A856057B91F05D81 /* [CP] Copy Pods Resources */,
+				842EF87B1E1FB4620079EB2D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -464,6 +493,7 @@
 				844D90351E14D391002684BA /* AppDelegate.swift in Sources */,
 				84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */,
 				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,
+				842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

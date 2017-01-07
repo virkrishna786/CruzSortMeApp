@@ -8,14 +8,16 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var myScrollView: UIScrollView!
     @IBOutlet weak var loginButton: UIButton!
     {
         didSet{
-            
             loginButton.layer.cornerRadius = 30
         }
     }
@@ -25,28 +27,47 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
+    
+    @IBAction func signUpButtonAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "signUp", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.apiCall()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     
     func apiCall(){
+        let urlString = "http://182.73.133.220/CruzSortMe/Apis/login"
+        let userString = "\(usernameTextField.text!)"
+        let passwordString = "\(passwordTextField.text!)"
         
-    let headers: HTTPHeaders = [
-            "Accept": "application/json"
-        ]
-        Alamofire.request("", method: .post, parameters: ["username": "krishna" , "password": "12345"], encoding: JSONEncoding.default , headers: headers)
+       let  parameter = ["username" : userString
+            , "password" : passwordString]
+        
+        print("dfd \(parameter)")
+        
+        Alamofire.request(urlString, method: .post, parameters: parameter)
             .responseJSON { response in
-                print(response.request as Any)  // original URL request
-                print(response.response as Any) // URL response
-                print(response.result.value as Any)   // result of response serialization
+                print("Success: \(response.result.isSuccess)")
+                print("Response String: \(response.result.value)")
         }
+
+//                //to get JSON return value
+//                if let result = response.result.value {
+//                    let JSON = result as! NSDictionary
+//                    print("json \(JSON)")
+//                }
+//        }
+        
     }
     
     
     @IBAction func loginButtonAction(_ sender: UIButton) {
-
+        
+        
         DispatchQueue.global(qos: .background).async {
             self.apiCall()
         }
