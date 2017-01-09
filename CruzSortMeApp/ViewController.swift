@@ -37,9 +37,14 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         super.viewDidLoad()
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.gestureFunction))
+        myScrollView.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func gestureFunction(){
+        myScrollView.endEditing(true)
+    }
     
     func apiCall(){
         let urlString = "http://182.73.133.220/CruzSortMe/Apis/login"
@@ -63,64 +68,55 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             }
         }
 
-
+    }
+    
+    //MARK: - HANDLE KEYBOARD
+    func handleKeyBoardWillShow(notification: NSNotification) {
+        
+        let dictionary = notification.userInfo
+        let value = dictionary?[UIKeyboardFrameBeginUserInfoKey]
+        let keyboardSize = (value as AnyObject).cgRectValue.size
+        
+        let inset = UIEdgeInsetsMake(0.0, 0.0, (keyboardSize.height) + 30, 0.0)
+         myScrollView.contentInset = inset
+        myScrollView.scrollIndicatorInsets = inset
         
     }
     
-    // MARK:- Keyboard notification
+    //MARK: HANDLE KEYBOARD
+    func handleKeyBoardWillHide(sender: NSNotification) {
+        
+        let inset1 = UIEdgeInsets.zero
+        myScrollView.contentInset = inset1
+        myScrollView.scrollIndicatorInsets = inset1
+        myScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        
+    }
     
-//    func registerForKeyboardNotifications(){
-//        //Adding notifies on keyboard appearing
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    
-//    func deregisterFromKeyboardNotifications(){
-//        //Removing notifies on keyboard appearing
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    }
-//    
-//    
-//    
-//    func keyboardWasShown(notification: NSNotification){
-//        //Need to calculate keyboard exact size due to Apple suggestions
-//        self.myScrollView.isScrollEnabled = true
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-//        
-//        self.myScrollView.contentInset = contentInsets
-//        self.myScrollView.scrollIndicatorInsets = contentInsets
-//        
-//        var aRect : CGRect = self.view.frame
-//        aRect.size.height -= keyboardSize!.height
-//        if let activeField = self.activeField {
-//            if (!aRect.contains(activeField.)){
-//                self.myScrollView.scrollRectToVisible(activeField.frame, animated: true)
-//            }
-//        }
-//    }
-//    
-//    func keyboardWillBeHidden(notification: NSNotification){
-//        //Once keyboard disappears, restore original positions
-//        var info = notification.userInfo!
-//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
-//        self.myScrollView.contentInset = contentInsets
-//        self.myScrollView.scrollIndicatorInsets = contentInsets
-//        self.view.endEditing(true)
-//        self.myScrollView.isScrollEnabled = false
-//    }
-//    
-//    func textFieldDidBeginEditing(_ textField: UITextField){
-//        activeField = textField
-//    }
-//    
-//    func textFieldDidEndEditing(_ textField: UITextField){
-//        activeField = nil
-//    }
-//    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+      //  myScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        self.view.endEditing(true)
+        
+    }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        myScrollView.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        myScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
     @IBAction func loginButtonAction(_ sender: UIButton) {
         

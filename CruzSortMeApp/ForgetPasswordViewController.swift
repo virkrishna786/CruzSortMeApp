@@ -48,8 +48,15 @@ class ForgetPasswordViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.gestureFunction))
+        self.view.addGestureRecognizer(tapGesture)
 
         // Do any additional setup after loading the view.
+    }
+    
+    func gestureFunction(){
+        emailTextField.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
     
@@ -57,8 +64,9 @@ class ForgetPasswordViewController: UIViewController {
         
         let urlString = "http://182.73.133.220/CruzSortMe/Apis/forgotPassword"
         let userString = "\(emailTextField.text!)"
+        print("userString = \(userString)")
         
-        let  parameter = ["username" : userString]
+        let  parameter = ["email" : userString]
         print("dfd \(parameter)")
         
         Alamofire.request(urlString, method: .post, parameters: parameter)
@@ -69,7 +77,20 @@ class ForgetPasswordViewController: UIViewController {
                 //to get JSON return value
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
-                    print("json \(JSON)")
+                    let response_Json = JSON.object(forKey: "CruzSortMe_app") as! NSDictionary
+                   let res_message = response_Json.object(forKey: "res_msg") as! String
+                    if res_message == "Password Send Successfully on Your mail" {
+                        
+                        let alertVC = UIAlertController(title: "Alert", message: "Password Send Successfully on Your mail", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                        alertVC.addAction(okAction)
+                        self.present(alertVC, animated: true, completion: nil)
+                    }else {
+                        let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email Address", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                        alertVC.addAction(okAction)
+                        self.present(alertVC, animated: true, completion: nil)
+                    }
             }
         }
     }

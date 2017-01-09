@@ -9,14 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CruzSortMeApp/SignUpViewController.swift"
-            timestampString = "505468125.88112"
+            filePath = "CruzSortMeApp/Config.swift"
+            timestampString = "505633981.718236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "signUpButtonAction(_:)"
-            landmarkType = "7">
+            startingLineNumber = "66"
+            endingLineNumber = "66">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
