@@ -10,8 +10,9 @@ import UIKit
 
 class ReviewTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var reviewDetailLabel: UILabel!
-    @IBOutlet weak var reviewCustomView: UIView!
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     override func awakeFromNib() {

@@ -42,12 +42,13 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     }
     
     
-    
     func eventApiHit() {
         
         let url = "http://182.73.133.220/CruzSortMe/Apis/getAllEvent"
         
-        Alamofire.request( url, method : .get ).responseJSON { (responseObject) -> Void in
+        let parameter = ["end_value": "1"]
+        
+        Alamofire.request( url, method : .post , parameters: parameter).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             
@@ -87,7 +88,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
             }
             if responseObject.result.isFailure {
                 let error  = responseObject.result.error!  as NSError
-                print("\(error)")
+                print("failuredata \(error)")
                 
             }
         }
@@ -104,11 +105,14 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.postTableView.dataSource = self
         
         let useriDstring = defaults.string(forKey: "userId")
-        print("userid \(useriDstring)")
+        print("userid \(useriDstring!)")
         
         self.postTableView.register(UINib(nibName : "PostCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.navigationController?.isNavigationBarHidden = false
-        self.eventApiHit()
+        
+        DispatchQueue.global(qos: .background).async {
+            self.eventApiHit()
+        }
         self.addChildViewController(appDelegate.menuTableViewController)
 
         // Do any additional setup after loading the view.
@@ -186,7 +190,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
          let eventList = homeEventArray[indexPath.row]
           self.eventIdString = eventList.eventID!
         self.performSegue(withIdentifier: "eventDetail", sender: self)
-         print("eventIDString \(self.eventIdString)")
+         print("eventIDString \(self.eventIdString!)")
         
         
     }
@@ -203,9 +207,10 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-         if segue.identifier == "QSpecialistProfileView" {
+         if segue.identifier == "eventDetail" {
              let eventDetailView = segue.destination as! EventDetailViewController
               eventDetailView.eventIdString = self.eventIdString!
+            print("homepage eventIDString \(eventDetailView.eventIdString)")
         
         }
         // Get the new view controller using segue.destinationViewController.

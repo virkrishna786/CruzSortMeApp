@@ -10,6 +10,7 @@ import UIKit
 
 class EventDetailCell: UITableViewCell {
 
+    @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!

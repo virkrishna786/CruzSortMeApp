@@ -16,9 +16,9 @@ class EventDetailClass: NSObject {
     var eventDateString : String!
     var eventTimeString  : String!
     var profileImage : String!
-    var reviewerNameString : String!
-    var reviewDetail : String!
     var numberOfReviewString : String!
     var eventIdString : String!
     var ratingString : String!
+    var eventName : String!
+    var eventEndTime : String!
 }

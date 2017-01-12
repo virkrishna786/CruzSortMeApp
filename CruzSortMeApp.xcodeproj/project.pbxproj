@@ -39,6 +39,7 @@
 		8482EA561E275441009D1AA7 /* ParentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA551E275441009D1AA7 /* ParentClass.swift */; };
 		8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA571E2754E8009D1AA7 /* AppDelegate.swift */; };
 		8482EA5A1E27559C009D1AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA591E27559C009D1AA7 /* ViewController.swift */; };
+		8482EA601E27A04F009D1AA7 /* ReviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA5F1E27A04F009D1AA7 /* ReviewClass.swift */; };
 		84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */; };
 		BC9C4E4EB1D5CBDC13D475CD /* Pods_CruzSortMeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8178AB875D723DEE2E6DDB8 /* Pods_CruzSortMeAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,7 @@
 		8482EA551E275441009D1AA7 /* ParentClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentClass.swift; sourceTree = "<group>"; };
 		8482EA571E2754E8009D1AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8482EA591E27559C009D1AA7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8482EA5F1E27A04F009D1AA7 /* ReviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewClass.swift; sourceTree = "<group>"; };
 		84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		A225756BD8285E7956009A69 /* Pods-CruzSortMeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +253,7 @@
 				8482EA3E1E2753E5009D1AA7 /* EventDetailViewController.swift */,
 				8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */,
 				8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */,
+				8482EA5F1E27A04F009D1AA7 /* ReviewClass.swift */,
 				8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */,
 				8482EA3F1E2753E5009D1AA7 /* ReviewCell.xib */,
 				8482EA401E2753E5009D1AA7 /* ReviewTableViewCell.swift */,
@@ -593,6 +596,7 @@
 				8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */,
 				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
 				8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */,
+				8482EA601E27A04F009D1AA7 /* ReviewClass.swift in Sources */,
 				8482EA4E1E27541A009D1AA7 /* HomeViewController.swift in Sources */,
 				84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */,
 				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,

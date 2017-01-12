@@ -15,15 +15,22 @@
             <rect key="frame" x="0.0" y="0.0" width="351" height="102"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F7I-3Q-KCa" id="hwL-zO-SKM">
-                <rect key="frame" x="0.0" y="0.0" width="351" height="102"/>
+                <rect key="frame" x="0.0" y="0.0" width="351" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fQY-Uo-wHP" customClass="re">
-                        <rect key="frame" x="8" y="29" width="60" height="60"/>
+                        <rect key="frame" x="8" y="25" width="60" height="60"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxJ-qS-MyS">
                         <rect key="frame" x="83" y="24" width="109" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVF-0J-Glm">
+                        <rect key="frame" x="271" y="24" width="68" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -36,17 +43,12 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHP-QZ-WQZ">
-                        <rect key="frame" x="189" y="24" width="154" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.62623188780000005" green="0.62529855450000005" blue="0.6416015625" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="MxJ-qS-MyS" id="8jG-sd-m5z"/>
                 <outlet property="profileImageView" destination="fQY-Uo-wHP" id="20I-Wd-oHT"/>
-                <outlet property="reviewCustomView" destination="qHP-QZ-WQZ" id="KvB-6S-xgF"/>
+                <outlet property="ratingLabel" destination="KVF-0J-Glm" id="g21-uQ-0Xq"/>
                 <outlet property="reviewDetailLabel" destination="bgy-c8-07O" id="kC2-EY-eMy"/>
             </connections>
             <point key="canvasLocation" x="-354.5" y="-19"/>
