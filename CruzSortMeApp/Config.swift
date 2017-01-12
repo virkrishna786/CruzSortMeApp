@@ -63,6 +63,7 @@ func print(items: Any..., separator: String = " ", terminator: String = "\n") {
 // END OF K
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let defaults =  UserDefaults.standard
 // let deviceType = UIDevice.currentDevice().deviceType
 
 

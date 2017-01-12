@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5D37499C92D08538034DCC32F324C8DE"
+               BlueprintIdentifier = "9C4462AFC749D8DE37115514C37141DD"
                BuildableName = "Pods_CruzSortMeApp.framework"
                BlueprintName = "Pods-CruzSortMeApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5D37499C92D08538034DCC32F324C8DE"
+            BlueprintIdentifier = "9C4462AFC749D8DE37115514C37141DD"
             BuildableName = "Pods_CruzSortMeApp.framework"
             BlueprintName = "Pods-CruzSortMeApp"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CruzSortMeApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4AB072A7F0A5B9772D141C9DE63EE483</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>59C71F5ECCA55A0B69A8EA597BC73967</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5D37499C92D08538034DCC32F324C8DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6BDF877A98ED68FBCA348D6E2ED17770</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81DC209B5DEFC0670BA102601F8C3A00</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9C4462AFC749D8DE37115514C37141DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A9D7623CF57177B63FE7EBA9E21019C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF7C750624606B0B3C4642CC599FA64B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

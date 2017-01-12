@@ -17,24 +17,24 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         self.setDateAndTime()
     }
     
-//    override func viewDidLayoutSubviews() {
-//        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
-//        profileImageView.clipsToBounds = true
-//        self.viewDidLayoutSubviews()
-//        
-//    }
+    //    override func viewDidLayoutSubviews() {
+    //        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
+    //        profileImageView.clipsToBounds = true
+    //        self.viewDidLayoutSubviews()
+    //
+    //    }
     @IBOutlet weak var CnfirmPasswordTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBAction func femaleButtonAction(_ sender: UIButton) {
-       
+        
         if (femaleButton.currentImage?.isEqual(UIImage(named: "genderIcon")))! {
             let image = UIImage(named: "genderColorIcon")
             femaleButton.setImage(image, for: UIControlState.normal)
         }else {
             let imageIcon = UIImage(named: "genderIcon")
-         femaleButton.setImage(imageIcon, for: UIControlState.normal)
+            femaleButton.setImage(imageIcon, for: UIControlState.normal)
         }
-       
+        
     }
     @IBOutlet weak var femaleButton: UIButton!
     @IBAction func maleButtonAction(_ sender: UIButton) {
@@ -57,13 +57,13 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
-
+    
     @IBAction func backButtonAction(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
-
+        
     }
     @IBOutlet weak var signUpButton: UIButton!
-    {
+        {
         didSet{
             
             signUpButton.layer.cornerRadius = 30
@@ -94,7 +94,9 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
             present(alertVC,animated: true,completion: nil)
             
         } else {
-           self.signUpApi()
+            DispatchQueue.global(qos: .background).async {
+                self.signUpApi()
+            }
         }
     }
     @IBAction func camaraButtonAction(_ sender: UIButton) {
@@ -106,9 +108,9 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
             imagePicker.modalPresentationStyle = .fullScreen
             present(imagePicker,animated: true,completion: nil)
         } else if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true, completion: nil)
             
         }else {
             
@@ -117,7 +119,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     }
     @IBOutlet weak var camaraButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
-    {
+        {
         didSet {
             
             profileImageView.layer.borderWidth = 1
@@ -137,6 +139,9 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         imagePicker.delegate = self
         self.datePicker.isHidden = true
         datePicker.backgroundColor = .red
+        self.navigationController?.navigationBar.isHidden = true
+        
+        myScroolView.contentSize = CGSize(width: self.view.frame.size.width, height: 1500)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
@@ -144,7 +149,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         
         myScroolView.addGestureRecognizer(tap)
         
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -157,7 +162,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         phoneNumberTextField.resignFirstResponder()
         self.datePicker.isHidden = true
         self.view.endEditing(true)
- 
+        
         
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -190,7 +195,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     }
     
     
-    // api for SignUp 
+    // api for SignUp
     
     func signUpApi() {
         
@@ -220,7 +225,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                          ]
         
         
-      //  let URL = "http://182.73.133.220/CruzSortMe/Apis/signUp"
+        //  let URL = "http://182.73.133.220/CruzSortMe/Apis/signUp"
         let image = UIImage(named: "krish.png")
         let   imagedata  = UIImagePNGRepresentation(image!)
         
@@ -244,8 +249,38 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                         print(response.data! )     // server data
                         print(response.result)   // result of response serialization
                         
-                        if let JSON = response.result.value {
-                            print("JSON: \(JSON)")
+                        if let result = response.result.value {
+                            
+                            let JSON = result as! NSDictionary
+                            
+                            let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
+                            
+                            print("response code \(responseCode)")
+                            
+                            let responseMessage = responseCode["res_msg"] as! String
+                            print("response message \(responseMessage)")
+                            
+                            if responseMessage == "signup Successfully" {
+                                
+                                let userIdString = responseCode["user_id"] as! String
+                                defaults.set(userIdString, forKey: "userId")
+                                
+                                self.performSegue(withIdentifier: "homeView", sender: self)
+                                
+                            }else {
+                                
+                                let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
+                                let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                                alertVC.addAction(okAction)
+                                self.present(alertVC, animated: true, completion: nil)
+                                
+                            }
+                            
+                            
+                            print("JSON: \(result)")
+                            if let JSON = response.result.value {
+                                print("JSON: \(JSON)")
+                            }
                         }
                     }
                 case .failure(let encodingError):
@@ -254,7 +289,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         })
     }
     
-  // MARK -: set date of birth
+    // MARK -: set date of birth
     func setDateAndTime() {
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.dateFormat = "dd/MM/YYYY"
@@ -294,46 +329,40 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         
     }
     
-    
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
-//        if textField == nameTextField || textField == usernameTextField {
-//            myScroolView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-//        }else {
-        myScroolView.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
-//        }
+        if textField.isEqual(passwordTextField ) || textField.isEqual(CnfirmPasswordTextField) {
+            myScroolView.setContentOffset(CGPoint(x: 0, y: 400), animated: true)
+            
+        } else {
+            myScroolView.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
+        }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        myScroolView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-
-
-//    var dateFormatter = NSDateFormatter()
-//    dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-//    var strDate = dateFormatter.stringFromDate(myDatePicker.date)
-//    self.selectedDate.text = strDate
-//    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        func textFieldDidEndEditing(_ textField: UITextField) {
+            myScroolView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        }
+        
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+        
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+        
+        
+        /*
+         // MARK: - Navigation
+         
+         // In a storyboard-based application, you will often want to do a little preparation before navigation
+         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destinationViewController.
+         // Pass the selected object to the new view controller.
+         }
+         */
+        
 }

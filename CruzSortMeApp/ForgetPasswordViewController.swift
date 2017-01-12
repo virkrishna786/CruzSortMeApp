@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class ForgetPasswordViewController: UIViewController {
-
+    
     @IBOutlet weak var resetButton: UIButton!
-    {
+        {
         didSet {
             resetButton.layer.cornerRadius = 30
         }
@@ -21,7 +21,7 @@ class ForgetPasswordViewController: UIViewController {
     @IBAction func resetLinkButtonAction(_ sender: UIButton) {
         
         if emailTextField.text == "" {
-         
+            
             let alertVC = UIAlertController(
                 title: "Alert",
                 message: "Please enter your email",
@@ -37,9 +37,9 @@ class ForgetPasswordViewController: UIViewController {
                 completion: nil)
             
         }else {
-        DispatchQueue.global(qos: .background).async {
-            self.forgetApiCall()
-        }
+            DispatchQueue.global(qos: .background).async {
+                self.forgetApiCall()
+            }
         }
     }
     @IBOutlet weak var emailTextField: UITextField!
@@ -48,9 +48,10 @@ class ForgetPasswordViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.gestureFunction))
         self.view.addGestureRecognizer(tapGesture)
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -78,7 +79,7 @@ class ForgetPasswordViewController: UIViewController {
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
                     let response_Json = JSON.object(forKey: "CruzSortMe_app") as! NSDictionary
-                   let res_message = response_Json.object(forKey: "res_msg") as! String
+                    let res_message = response_Json.object(forKey: "res_msg") as! String
                     if res_message == "Password Send Successfully on Your mail" {
                         
                         let alertVC = UIAlertController(title: "Alert", message: "Password Send Successfully on Your mail", preferredStyle: .alert)
@@ -86,30 +87,31 @@ class ForgetPasswordViewController: UIViewController {
                         alertVC.addAction(okAction)
                         self.present(alertVC, animated: true, completion: nil)
                     }else {
+                        
                         let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email Address", preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
                         alertVC.addAction(okAction)
                         self.present(alertVC, animated: true, completion: nil)
                     }
-            }
+                }
         }
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -13,9 +13,23 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigationController: UINavigationController?
+    var menuTableViewController=MenuTVC()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "first")
+        //let firstView = LoginVC(nibName:"LoginVC",bundle:nil)
+        //navigationController = UINavigationController(rootViewController:firstView)
+        navigationController = UINavigationController(rootViewController:self.menuTableViewController)
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.pushViewController(myVC, animated:false)
+        navigationController?.interactivePopGestureRecognizer!.isEnabled=false
+        window!.backgroundColor = UIColor.white
+        window!.rootViewController=navigationController
+        window!.makeKeyAndVisible()
         // Override point for customization after application launch.
         return true
     }

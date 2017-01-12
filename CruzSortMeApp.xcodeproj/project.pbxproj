@@ -17,14 +17,28 @@
 		842EF8761E1FB4190079EB2D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8751E1FB4190079EB2D /* Alamofire.framework */; };
 		842EF8781E1FB4210079EB2D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */; };
 		842EF87A1E1FB4620079EB2D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8751E1FB4190079EB2D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		844D90351E14D391002684BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90341E14D391002684BA /* AppDelegate.swift */; };
-		844D90371E14D391002684BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90361E14D391002684BA /* ViewController.swift */; };
 		844D903A1E14D391002684BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90381E14D391002684BA /* Main.storyboard */; };
 		844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 844D903B1E14D391002684BA /* CruzSortMeApp.xcdatamodeld */; };
 		844D903F1E14D391002684BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844D903E1E14D391002684BA /* Assets.xcassets */; };
 		844D90421E14D391002684BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90401E14D391002684BA /* LaunchScreen.storyboard */; };
 		844D904D1E14D391002684BA /* CruzSortMeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D904C1E14D391002684BA /* CruzSortMeAppTests.swift */; };
 		844D90581E14D391002684BA /* CruzSortMeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */; };
+		8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */; };
+		8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */; };
+		8482EA431E2753E5009D1AA7 /* EventDetailClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */; };
+		8482EA441E2753E5009D1AA7 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3E1E2753E5009D1AA7 /* EventDetailViewController.swift */; };
+		8482EA451E2753E5009D1AA7 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482EA3F1E2753E5009D1AA7 /* ReviewCell.xib */; };
+		8482EA461E2753E5009D1AA7 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA401E2753E5009D1AA7 /* ReviewTableViewCell.swift */; };
+		8482EA4D1E27541A009D1AA7 /* HomeArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA471E27541A009D1AA7 /* HomeArrayClass.swift */; };
+		8482EA4E1E27541A009D1AA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA481E27541A009D1AA7 /* HomeViewController.swift */; };
+		8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA491E27541A009D1AA7 /* InterestArrayClass.swift */; };
+		8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA4A1E27541A009D1AA7 /* InterestViewController.swift */; };
+		8482EA511E27541A009D1AA7 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA4B1E27541A009D1AA7 /* PostCell.swift */; };
+		8482EA521E27541A009D1AA7 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482EA4C1E27541A009D1AA7 /* PostCell.xib */; };
+		8482EA541E27542D009D1AA7 /* MenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA531E27542D009D1AA7 /* MenuTVC.swift */; };
+		8482EA561E275441009D1AA7 /* ParentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA551E275441009D1AA7 /* ParentClass.swift */; };
+		8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA571E2754E8009D1AA7 /* AppDelegate.swift */; };
+		8482EA5A1E27559C009D1AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA591E27559C009D1AA7 /* ViewController.swift */; };
 		84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */; };
 		BC9C4E4EB1D5CBDC13D475CD /* Pods_CruzSortMeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8178AB875D723DEE2E6DDB8 /* Pods_CruzSortMeAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -74,8 +88,6 @@
 		842EF8751E1FB4190079EB2D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		844D90311E14D390002684BA /* CruzSortMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CruzSortMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		844D90341E14D391002684BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		844D90361E14D391002684BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		844D90391E14D391002684BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		844D903C1E14D391002684BA /* CruzSortMeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CruzSortMeApp.xcdatamodel; sourceTree = "<group>"; };
 		844D903E1E14D391002684BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +99,22 @@
 		844D90531E14D391002684BA /* CruzSortMeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CruzSortMeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruzSortMeAppUITests.swift; sourceTree = "<group>"; };
 		844D90591E14D391002684BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetail.xib; path = CruzSortMeApp/EventDetail.xib; sourceTree = SOURCE_ROOT; };
+		8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailCell.swift; path = CruzSortMeApp/EventDetailCell.swift; sourceTree = SOURCE_ROOT; };
+		8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailClass.swift; path = CruzSortMeApp/EventDetailClass.swift; sourceTree = SOURCE_ROOT; };
+		8482EA3E1E2753E5009D1AA7 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailViewController.swift; path = CruzSortMeApp/EventDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		8482EA3F1E2753E5009D1AA7 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewCell.xib; path = ../ReviewCell.xib; sourceTree = "<group>"; };
+		8482EA401E2753E5009D1AA7 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewTableViewCell.swift; path = ../ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		8482EA471E27541A009D1AA7 /* HomeArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeArrayClass.swift; path = ../HomeArrayClass.swift; sourceTree = "<group>"; };
+		8482EA481E27541A009D1AA7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = CruzSortMeApp/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		8482EA491E27541A009D1AA7 /* InterestArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestArrayClass.swift; path = ../InterestArrayClass.swift; sourceTree = "<group>"; };
+		8482EA4A1E27541A009D1AA7 /* InterestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestViewController.swift; path = CruzSortMeApp/InterestViewController.swift; sourceTree = SOURCE_ROOT; };
+		8482EA4B1E27541A009D1AA7 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = ../PostCell.swift; sourceTree = "<group>"; };
+		8482EA4C1E27541A009D1AA7 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostCell.xib; path = ../PostCell.xib; sourceTree = "<group>"; };
+		8482EA531E27542D009D1AA7 /* MenuTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuTVC.swift; path = ../MenuTVC.swift; sourceTree = "<group>"; };
+		8482EA551E275441009D1AA7 /* ParentClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentClass.swift; sourceTree = "<group>"; };
+		8482EA571E2754E8009D1AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8482EA591E27559C009D1AA7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		A225756BD8285E7956009A69 /* Pods-CruzSortMeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +167,7 @@
 		842138701E23550700A44646 /* SingltonClass */ = {
 			isa = PBXGroup;
 			children = (
+				8482EA551E275441009D1AA7 /* ParentClass.swift */,
 				8421386E1E234B2C00A44646 /* Config.swift */,
 				8421386C1E234AEF00A44646 /* Validator.swift */,
 				8421386A1E234ADB00A44646 /* CommonClass.swift */,
@@ -171,9 +200,12 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				8482EA5E1E276EC7009D1AA7 /* InterestView */,
+				8482EA5D1E276EBE009D1AA7 /* LeftMenu */,
+				8482EA5C1E276EA5009D1AA7 /* EventDetail */,
+				8482EA5B1E276E0C009D1AA7 /* HomeView */,
 				842138701E23550700A44646 /* SingltonClass */,
 				84EF9A1A1E1E643E000E33A6 /* LoginAndSignUp */,
-				844D90341E14D391002684BA /* AppDelegate.swift */,
 				844D90381E14D391002684BA /* Main.storyboard */,
 				842138711E23619200A44646 /* krish.png */,
 				844D903E1E14D391002684BA /* Assets.xcassets */,
@@ -202,10 +234,52 @@
 			path = CruzSortMeAppUITests;
 			sourceTree = "<group>";
 		};
+		8482EA5B1E276E0C009D1AA7 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				8482EA471E27541A009D1AA7 /* HomeArrayClass.swift */,
+				8482EA481E27541A009D1AA7 /* HomeViewController.swift */,
+				8482EA4C1E27541A009D1AA7 /* PostCell.xib */,
+				8482EA4B1E27541A009D1AA7 /* PostCell.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		8482EA5C1E276EA5009D1AA7 /* EventDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8482EA3E1E2753E5009D1AA7 /* EventDetailViewController.swift */,
+				8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */,
+				8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */,
+				8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */,
+				8482EA3F1E2753E5009D1AA7 /* ReviewCell.xib */,
+				8482EA401E2753E5009D1AA7 /* ReviewTableViewCell.swift */,
+			);
+			path = EventDetail;
+			sourceTree = "<group>";
+		};
+		8482EA5D1E276EBE009D1AA7 /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8482EA531E27542D009D1AA7 /* MenuTVC.swift */,
+			);
+			path = LeftMenu;
+			sourceTree = "<group>";
+		};
+		8482EA5E1E276EC7009D1AA7 /* InterestView */ = {
+			isa = PBXGroup;
+			children = (
+				8482EA491E27541A009D1AA7 /* InterestArrayClass.swift */,
+				8482EA4A1E27541A009D1AA7 /* InterestViewController.swift */,
+			);
+			path = InterestView;
+			sourceTree = "<group>";
+		};
 		84EF9A1A1E1E643E000E33A6 /* LoginAndSignUp */ = {
 			isa = PBXGroup;
 			children = (
-				844D90361E14D391002684BA /* ViewController.swift */,
+				8482EA571E2754E8009D1AA7 /* AppDelegate.swift */,
+				8482EA591E27559C009D1AA7 /* ViewController.swift */,
 				84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */,
 				842EF8731E1F5D610079EB2D /* SignUpViewController.swift */,
 			);
@@ -345,7 +419,10 @@
 				842138721E23619300A44646 /* krish.png in Resources */,
 				844D90421E14D391002684BA /* LaunchScreen.storyboard in Resources */,
 				844D903F1E14D391002684BA /* Assets.xcassets in Resources */,
+				8482EA521E27541A009D1AA7 /* PostCell.xib in Resources */,
 				844D903A1E14D391002684BA /* Main.storyboard in Resources */,
+				8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */,
+				8482EA451E2753E5009D1AA7 /* ReviewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,13 +585,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844D90371E14D391002684BA /* ViewController.swift in Sources */,
-				844D90351E14D391002684BA /* AppDelegate.swift in Sources */,
+				8482EA511E27541A009D1AA7 /* PostCell.swift in Sources */,
+				8482EA5A1E27559C009D1AA7 /* ViewController.swift in Sources */,
+				8482EA4D1E27541A009D1AA7 /* HomeArrayClass.swift in Sources */,
+				8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */,
+				8482EA461E2753E5009D1AA7 /* ReviewTableViewCell.swift in Sources */,
+				8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */,
+				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
+				8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */,
+				8482EA4E1E27541A009D1AA7 /* HomeViewController.swift in Sources */,
 				84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */,
 				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,
 				8421386D1E234AEF00A44646 /* Validator.swift in Sources */,
+				8482EA541E27542D009D1AA7 /* MenuTVC.swift in Sources */,
+				8482EA431E2753E5009D1AA7 /* EventDetailClass.swift in Sources */,
 				8421386F1E234B2C00A44646 /* Config.swift in Sources */,
+				8482EA561E275441009D1AA7 /* ParentClass.swift in Sources */,
 				842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */,
+				8482EA441E2753E5009D1AA7 /* EventDetailViewController.swift in Sources */,
 				8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

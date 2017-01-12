@@ -23,7 +23,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     }
     @IBOutlet weak var googleSignInButton: UIButton!
     @IBAction func forgetPasswordButtonAction(_ sender: UIButton) {
-       self.performSegue(withIdentifier: "forgetPassword", sender: self)
+               self.performSegue(withIdentifier: "forgetPassword", sender: self)
     }
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
@@ -35,6 +35,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.gestureFunction))
@@ -64,12 +65,37 @@ class ViewController: UIViewController ,UITextFieldDelegate {
                 //to get JSON return value
                 if let result = response.result.value {
                                     let JSON = result as! NSDictionary
+                    
+                    let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
+                    
+                    print("response code \(responseCode)")
+                    
+                    let responseMessage = responseCode["res_msg"] as! String
+                    print("response message \(responseMessage)")
+                    
+                    if responseMessage == "Login has been Successfully" {
+                        
+                        let userIdString = responseCode["user_id"] as! String
+                        
+                        defaults.set(userIdString, forKey: "userId")
+                        defaults.synchronize()
+                        self.performSegue(withIdentifier: "homeView", sender: self)
+   
+                    }else {
+                        
+                        let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                        alertVC.addAction(okAction)
+                        self.present(alertVC, animated: true, completion: nil)
+  
+                    }
                                     print("json \(JSON)")
-            }
+                    
+                              }
         }
 
     }
-    
+
     //MARK: - HANDLE KEYBOARD
     func handleKeyBoardWillShow(notification: NSNotification) {
         
@@ -118,10 +144,25 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     }
     
     
+  
+    
+       
+    
     @IBAction func loginButtonAction(_ sender: UIButton) {
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "homeView")
+//        self.navigationController?.pushViewController(controller!, animated: true)
         
+        if usernameTextField.text == "" || passwordTextField.text == "" {
+            
+            let alertVC = UIAlertController(title: "Alert", message: "Please enter  email and password", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+            alertVC.addAction(okAction)
+            self.present(alertVC, animated: true, completion: nil)
+
+        }else{
         DispatchQueue.global(qos: .background).async {
-            self.apiCall()
+             self.apiCall()
+        }
         }
     }
     @IBAction func facebookButtonAction(_ sender: UIButton) {
