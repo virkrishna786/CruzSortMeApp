@@ -16,7 +16,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func intrestButtonAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "interestView", sender: self)
+        self.performSegue(withIdentifier: "friendList", sender: self)
     }
     
     let cellIdentifier = "postCellIdentifier"
@@ -103,6 +103,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         super.viewDidLoad()
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
+        self.postTableView.backgroundColor = UIColor.clear
         
         let useriDstring = defaults.string(forKey: "userId")
         print("userid \(useriDstring!)")

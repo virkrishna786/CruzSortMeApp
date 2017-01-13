@@ -51,7 +51,7 @@
                 <outlet property="ratingLabel" destination="KVF-0J-Glm" id="g21-uQ-0Xq"/>
                 <outlet property="reviewDetailLabel" destination="bgy-c8-07O" id="kC2-EY-eMy"/>
             </connections>
-            <point key="canvasLocation" x="-354.5" y="-19"/>
+            <point key="canvasLocation" x="-479" y="-12"/>
         </tableViewCell>
     </objects>
 </document>

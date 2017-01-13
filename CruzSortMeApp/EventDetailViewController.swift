@@ -48,11 +48,10 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
         self.eventDetailTableView.delegate = self
         self.eventDetailTableView.dataSource = self
         
-       
         
         self.navigationController?.navigationBar.isHidden = true
         self.eventDetailTableView.register(UINib(nibName : "EventDetail" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        self.eventDetailTableView.register(UINib(nibName : "ReviewTableViewCell" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
+        self.eventDetailTableView.register(UINib(nibName : "ReviewCell" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
 
         
 
@@ -86,15 +85,16 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 
-                print("resJson \(resJson)")
-                let  res_message = resJson["res_msg"].string
+                print("resJsonf \(resJson)")
+                let  res_message  = (resJson["res_msg"].string)!
+                print("res_messafe \(res_message)")
                 
-                if res_message == "Record Found Successfully" {
+                if res_message == "Record  Found Successfully" {
                     
                      let dataResponse = resJson["CruzSortMe"].array
                     
                     self.numberofEvents = dataResponse?.count
-                    print("numberofEvents \(self.numberofEvents)")
+                    print("numberofEventsdetail \(self.numberofEvents)")
                     
                     for eventArray in dataResponse! {
                         let eventArrayClass = EventDetailClass()
@@ -113,27 +113,33 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
                       //  eventArrayClass.reviewerNameString = eventArray
                         self.eventDetailArray.append(eventArrayClass)
                     }
-                    print("homeEventArray : \(self.eventDetailArray)")
-                    print("dataArray \(dataResponse)")
+                    print("EventdetailArray : \(self.eventDetailArray)")
+                    print("dataArrayList \(dataResponse)")
                     
-//                    let reviewData = resJson["Rating"].array
-//                         print("reviewDataArray  \(reviewData)")
-//                     for reviewArray in reviewData!   {
-//                        let reviewClassArray = ReviewClass()
-//                        reviewClassArray.reviewerNameString = reviewArray["username"].string
-//                        reviewClassArray.reviewDetail = reviewArray["review"].string
-//                        reviewClassArray.numberOfRating = reviewArray["rating"].string
-//                        reviewClassArray.userImageString = reviewArray["profile_image"].string
-//                        self.reviewDetailArray.append(reviewClassArray)
-//                    }
-//                    
+                    let reviewData = resJson["Rating"].array
+                         print("reviewDataArray  \(reviewData)")
+                     for reviewArray in reviewData!   {
+                        let reviewClassArray = ReviewClass()
+                        reviewClassArray.reviewerNameString = reviewArray["username"].string
+                        reviewClassArray.reviewDetail = reviewArray["review"].string
+                        reviewClassArray.numberOfRating = reviewArray["rating"].string
+                        reviewClassArray.userImageString = reviewArray["profile_image"].string
+                        self.reviewDetailArray.append(reviewClassArray)
+                        
+                        print("self.reviewDetailArray \(self.reviewDetailArray)")
+                    }
                     
+                    DispatchQueue.main.async {
+                        self.eventDetailTableView.reloadData()
+                    }
+                    print("dsfs \(resJson)")
+                    
+                }else {
+                    
+                    print("sdkgdksbhgks")
                 }
                 
-                DispatchQueue.main.async {
-                    self.eventDetailTableView.reloadData()
-                }
-                print("dsfs \(resJson)")
+                
             }
             if responseObject.result.isFailure {
                 let error  = responseObject.result.error!  as NSError
@@ -144,37 +150,37 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
    
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return eventDetailArray.count
+     //   return eventDetailArray.count
         
-//        switch section {
-//        case 0:
-//            print("eventdetailArray.count \(eventDetailArray.count)")
-//            return eventDetailArray.count
-//        case 1 :
-//            print("reviewDetailArray \(reviewDetailArray.count)")
-//            return reviewDetailArray.count
-//        default:
-//           return   1
-//        }
+        switch section {
+        case 0:
+            print("eventdetailArray.count \(eventDetailArray.count)")
+            return eventDetailArray.count
+        case 1 :
+            print("reviewDetailArray \(reviewDetailArray.count)")
+            return reviewDetailArray.count
+        default:
+           return   1
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 400
+     //   return 400
         
-//        switch indexPath.section {
-//        case 0:
-//            return 400
-//        case 1:
-//            return 200
-//        default:
-//            return 400
-//        }
+        switch indexPath.section {
+        case 0:
+            return 400
+        case 1:
+            return 100
+        default:
+            return 100
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -251,53 +257,53 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             return cell
         case 1 :
             
-//            let cell = tableView.dequeueReusableCell(withIdentifier: reviewCellIdentifier)! as! ReviewTableViewCell
-//            let reviewList = reviewDetailArray[indexPath.row]
-//            print("eventLsit\(reviewList)")
-//            
-//            print("event imageString = \(reviewList.userImageString!)")
-//            let URL = NSURL(string: "\(reviewList.userImageString!)")
-//            print("urlsfgds \(URL)")
-//            let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-//            mutableUrlRequest.httpMethod = "get"
-//            
-//            mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-//            
-//            
-//            let headers = [
-//                "Accept"  :  "image/jpeg"
-//            ]
-//            print(" headers \(headers)")
-//            print("mutable Request : \(mutableUrlRequest)")
-//            //  request.addAcceptableImageContentTypes(["image/jpeg"])
-//            
-//            Alamofire.request("\(URL!)").responseImage { response in
-//                debugPrint(response)
-//                
-//                print("adsfdfs \(response.request!)")
-//                print("dskjfd \(response.response!)")
-//                print(" response.result \(response.result)")
-//                
-//                if let image = response.result.value {
-//                    DispatchQueue.global().async(execute: {
-//                        
-//                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-//                            
-//                            print("\(cellToUpdate)")
-//                            cell.profileImageView.image = image
-//                        }
-//                        
-//                    })
-//                    
-//                }
-//            }
-//
-//            cell.nameLabel.text = reviewList.reviewerNameString!
-//            cell.reviewDetailLabel.text = reviewList.reviewDetail!
-//            cell.ratingLabel.text = reviewList.numberOfRating! + "/5"
-//            
-//            return cell
-                print("krish")
+            let cell = tableView.dequeueReusableCell(withIdentifier: reviewCellIdentifier)! as! ReviewTableViewCell
+            let reviewList = reviewDetailArray[indexPath.row]
+            print("eventLsit\(reviewList)")
+            
+            print("event imageString = \(reviewList.userImageString!)")
+            let URL = NSURL(string: "\(reviewList.userImageString!)")
+            print("urlsfgds \(URL)")
+            let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
+            mutableUrlRequest.httpMethod = "get"
+            
+            mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
+            
+            
+            let headers = [
+                "Accept"  :  "image/jpeg"
+            ]
+            print(" headers \(headers)")
+            print("mutable Request : \(mutableUrlRequest)")
+            //  request.addAcceptableImageContentTypes(["image/jpeg"])
+            
+            Alamofire.request("\(URL!)").responseImage { response in
+                debugPrint(response)
+                
+                print("adsfdfs \(response.request!)")
+                print("dskjfd \(response.response!)")
+                print(" response.result \(response.result)")
+                
+                if let image = response.result.value {
+                    DispatchQueue.global().async(execute: {
+                        
+                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                            
+                            print("\(cellToUpdate)")
+                            cell.profileImageView.image = image
+                        }
+                        
+                    })
+                    
+                }
+            }
+
+            cell.nameLabel.text = reviewList.reviewerNameString!
+            cell.reviewDetailLabel.text = reviewList.reviewDetail!
+            cell.ratingLabel.text = reviewList.numberOfRating! + "/5"
+            print("krish")
+
+            return cell
         default:
             print("sadfas")
         }

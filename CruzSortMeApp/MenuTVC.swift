@@ -78,10 +78,46 @@ class MenuTVC: UITableViewController {
     }
     func selectRow(at indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition){
    
+        let indexPath = indexPath?.row
         
+        print("indexPath \(indexPath)")
         //print(self.navigationController?.viewControllers)
         
-            }
+        if( indexPath == 0){
+            
+                   }
+        else if( indexPath == 1){
+        }
+        
+    }
+    
+//            hideMenu()
+//            let firstView: InterestViewController = InterestViewController(nibName:"InterestViewController",bundle:Bundle.main)
+//            var fcheck=Bool()
+//            fcheck=false
+//            let viewArray=self.navigationController?.viewControllers as NSArray!
+//            if((viewArray) != nil){
+//                if (((viewArray?.lastObject as Any) as AnyObject) .isKind(of: InterestViewController.self(<#T##NSObject#>))) {
+//                    for views in self.navigationController?.viewControllers as NSArray!
+//                    {
+//                        if(((views as AnyObject).isKind(InterestViewController))
+//                        {
+//                            fcheck=true
+//                            self.navigationController?.popToViewController(views as! UIViewController, animated: false)
+//                        }
+//                    }
+//                    if(fcheck==false){
+//                        
+//                        self.navigationController?.pushViewController(firstView, animated: true)
+//                    }
+//                }
+//                else{
+//                    
+//                    //reset button
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+//                }
+           
+       
     
     // Override to support rearranging the table view.
   
