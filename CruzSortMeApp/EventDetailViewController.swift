@@ -11,8 +11,24 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 
-class EventDetailViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource{
+class EventDetailViewController: UIViewController , ratingViewControllerDelegate , UITableViewDelegate ,UITableViewDataSource{
 
+    
+    @IBAction func postReviewButtonAction(_ sender: UIButton) {
+        
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ratingView") as! RatingAndReviewController
+        vc.delegate = self
+        vc.view.backgroundColor = color_app_backgroundView_trasnparent
+        vc.modalPresentationStyle = UIModalPresentationStyle.custom
+        present(vc, animated: true, completion: nil)
+    }
+    @IBOutlet weak var postReviewButton: UIButton!
+    @IBAction func backButtonAction(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
+        
+    }
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var eventDetailTableView: UITableView!
     
@@ -32,7 +48,9 @@ class EventDetailViewController: UIViewController , UITableViewDelegate ,UITable
         self.eventDetailTableView.delegate = self
         self.eventDetailTableView.dataSource = self
         
-        self.navigationController?.navigationBar.isHidden = false
+       
+        
+        self.navigationController?.navigationBar.isHidden = true
         self.eventDetailTableView.register(UINib(nibName : "EventDetail" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.eventDetailTableView.register(UINib(nibName : "ReviewTableViewCell" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
 
@@ -48,6 +66,11 @@ class EventDetailViewController: UIViewController , UITableViewDelegate ,UITable
         // Do any additional setup after loading the view.
     }
     
+    func backFromRatingController(info: Bool) {
+        
+        print("krish")
+    }
+    
     func eventDetailApiHit() {
         
         let url = "http://182.73.133.220/CruzSortMe/Apis/eventDtail"
@@ -55,7 +78,7 @@ class EventDetailViewController: UIViewController , UITableViewDelegate ,UITable
         let parameter = ["event_id" : "3"]
         print("parameter \(parameter)")
         
-        Alamofire.request( url, method : .get, parameters: parameter).responseJSON { (responseObject) -> Void in
+        Alamofire.request( url, method : .post, parameters: parameter).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             
@@ -119,20 +142,9 @@ class EventDetailViewController: UIViewController , UITableViewDelegate ,UITable
         }
     }
    
-//    
-//    "Rating" : [
-//    {
-//    "username" : "krishna",
-//    "id" : "2",
-//    "profile_image" : "http:\/\/182.73.133.220\/CruzSortMe\/images\/temp\/dumi_profile_pic.jpeg",
-//    "user_id" : "18",
-//    "review" : "Lorem Ipsum copy in various charsets and languages for layouts.",
-//    "rating" : "4"
-//},
-
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -153,14 +165,16 @@ class EventDetailViewController: UIViewController , UITableViewDelegate ,UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        switch indexPath.section {
-        case 0:
-            return 400
-        case 1:
-            return 200
-        default:
-            return 400
-        }
+        return 400
+        
+//        switch indexPath.section {
+//        case 0:
+//            return 400
+//        case 1:
+//            return 200
+//        default:
+//            return 400
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -313,14 +327,22 @@ class EventDetailViewController: UIViewController , UITableViewDelegate ,UITable
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ratingView" {
+            let eventDetailView = segue.destination as! RatingAndReviewController
+            eventDetailView.eventIDString = self.eventIdString!
+            print("homepage eventIDString \(eventDetailView.eventIDString)")
+            
+        }
+
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

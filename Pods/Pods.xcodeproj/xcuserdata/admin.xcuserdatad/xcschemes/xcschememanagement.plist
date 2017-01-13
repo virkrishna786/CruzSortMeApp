@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FloatRatingView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CruzSortMeApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +47,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>14A34CC7ADBBB2443AFB881D58EBC537</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B9181E04BF8A1AA337B8939BF48F0AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40E7A090146785AC7A642E344551A196</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6BDF877A98ED68FBCA348D6E2ED17770</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>81DC209B5DEFC0670BA102601F8C3A00</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9C4462AFC749D8DE37115514C37141DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF7C750624606B0B3C4642CC599FA64B</key>
+		<key>E10250FECAFAA00B2CAAF40A7178BE26</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '40E7A090146785AC7A642E344551A196'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = 'E10250FECAFAA00B2CAAF40A7178BE26'
+               BlueprintName = 'FloatRatingView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'FloatRatingView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

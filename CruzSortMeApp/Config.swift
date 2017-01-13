@@ -61,7 +61,7 @@ func print(items: Any..., separator: String = " ", terminator: String = "\n") {
 
 
 // END OF K
-
+let color_app_backgroundView_trasnparent =  UIColor(red: 121.0/255, green:106.0/255, blue: 145.0/255, alpha: 0.6)
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let defaults =  UserDefaults.standard
 // let deviceType = UIDevice.currentDevice().deviceType

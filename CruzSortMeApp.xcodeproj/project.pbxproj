@@ -40,6 +40,8 @@
 		8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA571E2754E8009D1AA7 /* AppDelegate.swift */; };
 		8482EA5A1E27559C009D1AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA591E27559C009D1AA7 /* ViewController.swift */; };
 		8482EA601E27A04F009D1AA7 /* ReviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA5F1E27A04F009D1AA7 /* ReviewClass.swift */; };
+		84940B7F1E28A6F200F94254 /* RatingAndReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84940B7E1E28A6F200F94254 /* RatingAndReviewController.swift */; };
+		84940B811E28A92A00F94254 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84940B801E28A92A00F94254 /* FloatRatingView.swift */; };
 		84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */; };
 		BC9C4E4EB1D5CBDC13D475CD /* Pods_CruzSortMeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8178AB875D723DEE2E6DDB8 /* Pods_CruzSortMeAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -117,6 +119,8 @@
 		8482EA571E2754E8009D1AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8482EA591E27559C009D1AA7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8482EA5F1E27A04F009D1AA7 /* ReviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewClass.swift; sourceTree = "<group>"; };
+		84940B7E1E28A6F200F94254 /* RatingAndReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingAndReviewController.swift; sourceTree = "<group>"; };
+		84940B801E28A92A00F94254 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		84EF9A1B1E1E64CD000E33A6 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		A225756BD8285E7956009A69 /* Pods-CruzSortMeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppTests/Pods-CruzSortMeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +206,7 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				84940B7D1E28A6A500F94254 /* ReviewController */,
 				8482EA5E1E276EC7009D1AA7 /* InterestView */,
 				8482EA5D1E276EBE009D1AA7 /* LeftMenu */,
 				8482EA5C1E276EA5009D1AA7 /* EventDetail */,
@@ -276,6 +281,15 @@
 				8482EA4A1E27541A009D1AA7 /* InterestViewController.swift */,
 			);
 			path = InterestView;
+			sourceTree = "<group>";
+		};
+		84940B7D1E28A6A500F94254 /* ReviewController */ = {
+			isa = PBXGroup;
+			children = (
+				84940B7E1E28A6F200F94254 /* RatingAndReviewController.swift */,
+				84940B801E28A92A00F94254 /* FloatRatingView.swift */,
+			);
+			path = ReviewController;
 			sourceTree = "<group>";
 		};
 		84EF9A1A1E1E643E000E33A6 /* LoginAndSignUp */ = {
@@ -595,6 +609,7 @@
 				8482EA461E2753E5009D1AA7 /* ReviewTableViewCell.swift in Sources */,
 				8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */,
 				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
+				84940B7F1E28A6F200F94254 /* RatingAndReviewController.swift in Sources */,
 				8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */,
 				8482EA601E27A04F009D1AA7 /* ReviewClass.swift in Sources */,
 				8482EA4E1E27541A009D1AA7 /* HomeViewController.swift in Sources */,
@@ -605,6 +620,7 @@
 				8482EA431E2753E5009D1AA7 /* EventDetailClass.swift in Sources */,
 				8421386F1E234B2C00A44646 /* Config.swift in Sources */,
 				8482EA561E275441009D1AA7 /* ParentClass.swift in Sources */,
+				84940B811E28A92A00F94254 /* FloatRatingView.swift in Sources */,
 				842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */,
 				8482EA441E2753E5009D1AA7 /* EventDetailViewController.swift in Sources */,
 				8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */,

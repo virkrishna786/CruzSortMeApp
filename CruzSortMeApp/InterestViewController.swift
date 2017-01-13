@@ -10,8 +10,31 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class InterestViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
+ var boolValueKey = 0
 
+class InterestViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    
+    @IBAction func menuButtonAction(_ sender: UIButton) {
+        
+        if boolValueKey == 0 {
+            appDelegate.menuTableViewController.showMenu()
+            self.view .addSubview(appDelegate.menuTableViewController.view)
+            
+            boolValueKey = 1
+            
+        } else {
+            
+            appDelegate.menuTableViewController.hideMenu()
+            self.view .addSubview(appDelegate.menuTableViewController.view)
+            boolValueKey = 0
+        }
+
+        
+    }
+ 
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var staticLabel: UILabel!
     @IBAction func submitButtonAction(_ sender: UIButton) {
         
@@ -30,7 +53,7 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
     var selectedInterestArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
+    self.navigationController?.navigationBar.isHidden = true
         self.InterestTableView.delegate = self
         self.InterestTableView.dataSource = self
         
@@ -40,6 +63,8 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
         print("self.userid \(self.userIdString)")
         
         self.InterestTableView.allowsMultipleSelection = true
+        self.addChildViewController(appDelegate.menuTableViewController)
+
         DispatchQueue.global(qos: .background).async {
             self.interestApiHit()
         }
@@ -117,6 +142,12 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier")!
         cell.accessoryType = cell.isSelected ? .checkmark : .none
         cell.selectionStyle = .none // to prevent cells from being "highlighted"
+        
+//        let separatorView = UIView(frame: CGRect(x: 0, y: cell.contentView.frame.size.height-1, width: cell.contentView.frame.size.width, height: 10))
+//        separatorView.backgroundColor = UIColor.red
+//        cell.contentView.addSubview(separatorView)
+        
+//        
         let eventList = InterestArray[indexPath.row]
         print("eventLsit\(eventList)")
         
