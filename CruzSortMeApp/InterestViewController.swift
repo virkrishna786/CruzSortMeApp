@@ -45,6 +45,12 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
  
     }
     @IBOutlet weak var submitButton: UIButton!
+    {
+        didSet{
+            
+            self.submitButton.layer.cornerRadius = 25
+        }
+    }
     @IBOutlet weak var InterestTableView: UITableView!
     var InterestArray = [InterestArrayClass]()
     var IntrestIdString : String!

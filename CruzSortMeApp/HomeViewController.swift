@@ -30,11 +30,9 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         if boolValue == 0 {
             appDelegate.menuTableViewController.showMenu()
             self.view .addSubview(appDelegate.menuTableViewController.view)
-            
             boolValue = 1
             
         } else {
-            
             appDelegate.menuTableViewController.hideMenu()
             self.view .addSubview(appDelegate.menuTableViewController.view)
            boolValue = 0

@@ -12,117 +12,217 @@ class MenuTVC: UITableViewController {
  
     let LeftMenuWidth = 100.0
     var headerView:UIView?
-    var SA_Choice=["Home","Movements","Vehicle","Customer","Reservation","Deposite List","Contact Us","Privacy Policy","Copyright(c)","Log Out",""]
-    var SA_Icons=["homeIcon.png","movementsIcon.png","movementsIcon.png","vehicle-class.png","customerIcon.png","customerIcon.png","contactusIcon.png","privacyIcon.png","copyrightIcon.png","logoutIcon.png",""]
+    var SA_Choice = ["Home","Account","My Events","Interest","Explore","Friends","Friend Request","Messages","Around","Calender","About Us","Logout"]
+    var SA_Icons = ["home","account","myEvent","myEvent","search","group","request","message","search","calender","aboutUs","account"]
+  
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         self.view .backgroundColor=UIColor.black.withAlphaComponent(0.8)
+        tableView.dataSource = self
+        tableView.delegate = self
         //MenuTVC .frame.size.height=800
         tableView.isScrollEnabled=true
         headerView=UIView()
         setTableviewHeader()
-        super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        DispatchQueue.main.async(){
+            //code
+            self.tableView.reloadData()
+        }
+    }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(true)
+//        tableView.reloadData()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     func setTableviewHeader(){
-        
         //let headerView=UIView()
-        headerView!.frame=CGRect(x: 0, y: 0, width: 150, height: 150)//CGRect(0, 0, 220, 200)
+        headerView!.frame=CGRect(x: 0, y: 0, width: 100, height: 150)//CGRect(0, 0, 220, 200)
         let imageIcon=UIImageView()
-        imageIcon.frame=CGRect(x: 53, y: 9, width: 100, height: 100)//CGRect(53,9,150,145)
-        imageIcon.image=UIImage(named:"logoRoll.png")
-        let imageLabel=UIImageView()
-        imageLabel.image=UIImage(named:"myrent.png")
-        imageLabel.frame=CGRect(x: 60, y: 150, width:85, height:30)//CGRectMake(60,150, 85, 30)
+        
+        imageIcon.layer.borderWidth = 1
+        imageIcon.layer.masksToBounds = false
+        imageIcon.layer.borderColor = UIColor.white.cgColor
+        imageIcon.layer.cornerRadius = imageIcon.frame.height/2
+        imageIcon.clipsToBounds = true
+
+        imageIcon.frame=CGRect(x: 10, y: 5, width: 80, height: 80)//CGRect(53,9,150,145)
+        imageIcon.image=UIImage(named:"home")
+        let nameLabel=UILabel()
+        nameLabel.frame=CGRect(x: 10, y: 100 , width:85, height:30)//CGRectMake(60,150, 85, 30)
+        nameLabel.text = "Krishna"
+        nameLabel.textColor = UIColor.white
+        nameLabel.textAlignment = NSTextAlignment.center
         headerView!.backgroundColor=UIColor.white.withAlphaComponent(0.5)
         headerView!.addSubview(imageIcon)
-        //headerView.addSubview(imageLabel)
+        headerView?.addSubview(nameLabel)
         headerView!.clipsToBounds=true
         self.tableView.tableHeaderView=headerView
         
     }
     // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-      return 1
+        return 1
     }
     
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 70
-    }
-    func numberOfRows(inSection section: Int) -> Int{
-        
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("asjkhask \(SA_Choice.count)")
         return SA_Choice.count
+
     }
-   
-    func cellForRow(at indexPath: IndexPath) -> UITableViewCell?{
-        
     
-        
-        let cell=UITableViewCell()
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete method implementation.
+//        // Return the number of rows in the section.
+//        
+//        print("hjgjhg \(SA_Choice.count)")
+//        return SA_Choice.count
+//    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        
+//        return 75
+//    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("sadjksdshsd")
+
+        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")!
+        print("sadjkhsd")
         // Configure the cell...
-        tableView.separatorStyle=UITableViewCellSeparatorStyle.none
-        cell.backgroundColor=UIColor.clear
-        cell.textLabel?.textColor=UIColor.white
-        cell.textLabel?.font=UIFont (name: "Avenir-Medium", size: 20)
-        cell.textLabel!.text=SA_Choice[indexPath.row] as String
+        tableView.separatorStyle=UITableViewCellSeparatorStyle.singleLine
+        cell.backgroundColor=UIColor.white
+        cell.textLabel?.textColor=UIColor.darkGray
+        cell.textLabel?.font=UIFont (name: "Helvetica Neue", size: 15)
+        cell.textLabel!.text=SA_Choice[indexPath.row]
         //icons
         cell.imageView?.image=UIImage(named:(SA_Icons[indexPath.row] as String))
         return cell
     }
-    func selectRow(at indexPath: IndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition){
-   
-        let indexPath = indexPath?.row
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("indexPath \(indexPath)")
-        //print(self.navigationController?.viewControllers)
+        print("dkdakshgasjkga")
         
-        if( indexPath == 0){
+        if (indexPath.row == 0) {
             
-                   }
-        else if( indexPath == 1){
+            hideMenu()
+           let firstView:HomeViewController
+            = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeView") as! HomeViewController
+            //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: HomeViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: HomeViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+            
+
+            
+        }else if (indexPath.row == 1) {
+            
+        
+            
+        }else if (indexPath.row == 2) {
+            
+            
+            
+        }else if (indexPath.row == 3){
+            
+            
+            let firstView:InterestViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InterestViewController") as! InterestViewController
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: InterestViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: InterestViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+            
+
+            
+            
         }
+        
+        
+        
         
     }
     
-//            hideMenu()
-//            let firstView: InterestViewController = InterestViewController(nibName:"InterestViewController",bundle:Bundle.main)
-//            var fcheck=Bool()
-//            fcheck=false
-//            let viewArray=self.navigationController?.viewControllers as NSArray!
-//            if((viewArray) != nil){
-//                if (((viewArray?.lastObject as Any) as AnyObject) .isKind(of: InterestViewController.self(<#T##NSObject#>))) {
-//                    for views in self.navigationController?.viewControllers as NSArray!
-//                    {
-//                        if(((views as AnyObject).isKind(InterestViewController))
-//                        {
-//                            fcheck=true
-//                            self.navigationController?.popToViewController(views as! UIViewController, animated: false)
-//                        }
-//                    }
-//                    if(fcheck==false){
-//                        
-//                        self.navigationController?.pushViewController(firstView, animated: true)
-//                    }
-//                }
-//                else{
-//                    
-//                    //reset button
-//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
-//                }
-           
-       
+    
     
     // Override to support rearranging the table view.
-  
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
     }
     // MARK: Custom Method
     func showMenu(){
@@ -132,12 +232,12 @@ class MenuTVC: UITableViewController {
         //self.view.backgroundColor=UIColor.blackColor()
         UIView.animate(withDuration: 0.3, animations: {
            
-            self.view.frame=CGRect(x:0.0,y:70,width:180.0,height:self.view.frame.size.height)
+            self.view.frame=CGRect(x:0.0,y:70,width:200.0,height:self.view.frame.size.height)
         })
     }
     func hideMenu(){
 
-        let initialFrame=CGRect(x:-280.0,y:self.view.frame.origin.y,width:280,height:self.view.frame.size.height)
+        let initialFrame=CGRect(x:-200.0,y:self.view.frame.origin.y,width:200,height:self.view.frame.size.height)
         UIView.animate(withDuration: 0.3, animations:{
             self.view.frame=initialFrame
         })

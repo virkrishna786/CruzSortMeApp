@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,29 +16,43 @@
             <rect key="frame" x="0.0" y="0.0" width="355" height="117"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d9P-MG-Nmx" id="nXz-ks-VZc">
-                <rect key="frame" x="0.0" y="0.0" width="355" height="117"/>
+                <rect key="frame" x="0.0" y="0.0" width="355" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-vR-c6V">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-vR-c6V">
                         <rect key="frame" x="12" y="19" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="ihA-NB-Z7U"/>
+                        </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-ho-SRC">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-ho-SRC">
                         <rect key="frame" x="262" y="41" width="74" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="74" id="Yi1-RG-COp"/>
+                        </constraints>
                         <state key="normal" title="Block"/>
                         <connections>
                             <action selector="blockButtonAction:" destination="d9P-MG-Nmx" eventType="touchUpInside" id="8Wf-tb-oOE"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcW-E5-l9J">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcW-E5-l9J">
                         <rect key="frame" x="112" y="40" width="143" height="35"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="wcW-E5-l9J" firstAttribute="leading" secondItem="dKa-vR-c6V" secondAttribute="trailing" constant="20" id="KN4-5F-QnK"/>
+                    <constraint firstItem="bBn-ho-SRC" firstAttribute="leading" secondItem="wcW-E5-l9J" secondAttribute="trailing" constant="7" id="OFK-Au-1Fh"/>
+                    <constraint firstItem="bBn-ho-SRC" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="33" id="PjT-tZ-XQX"/>
+                    <constraint firstItem="dKa-vR-c6V" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="11" id="USM-PT-TKh"/>
+                    <constraint firstItem="dKa-vR-c6V" firstAttribute="leading" secondItem="nXz-ks-VZc" secondAttribute="leadingMargin" constant="4" id="X4v-NT-Zzu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dKa-vR-c6V" secondAttribute="bottom" constant="9" id="blM-Iq-Wlk"/>
+                    <constraint firstItem="wcW-E5-l9J" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="32" id="eqp-bR-Eja"/>
+                    <constraint firstItem="wcW-E5-l9J" firstAttribute="centerY" secondItem="nXz-ks-VZc" secondAttribute="centerY" id="hTH-5Q-FPi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bBn-ho-SRC" secondAttribute="trailing" constant="11" id="p8f-7K-qo6"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="blockButton" destination="bBn-ho-SRC" id="sSE-a3-3yk"/>

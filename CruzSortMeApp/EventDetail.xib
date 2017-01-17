@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="334" height="366"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9aQ-95-ZYd" id="35p-BS-JY9">
-                <rect key="frame" x="0.0" y="0.0" width="334" height="366"/>
+                <rect key="frame" x="0.0" y="0.0" width="334" height="365"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evk-sF-nYf">
@@ -73,10 +73,11 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLk-4D-FTd">
-                                <rect key="frame" x="244" y="133" width="71" height="30"/>
+                                <rect key="frame" x="244" y="131" width="71" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="oXT-Ab-LO5"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="4.7/5">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
