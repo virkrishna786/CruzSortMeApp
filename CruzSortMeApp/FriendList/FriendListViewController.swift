@@ -15,6 +15,10 @@ import SwiftyJSON
 
 class FriendListViewController: UIViewController ,UITableViewDataSource ,UITableViewDelegate , UISearchBarDelegate ,UISearchDisplayDelegate  ,UISearchControllerDelegate {
     
+    @IBAction func createGroupButtonAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "friendGroup", sender: self)
+        
+    }
    var boolValue = 0 
     @IBAction func menuButtonAction(_ sender: UIButton) {
         if boolValue == 0 {
@@ -128,11 +132,13 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
 //            return friendsListArray.count
 //        }
         
-        if tableView == self.searchDisplayController!.searchResultsTableView {
-            return self.marrFilteredFriendList.count
-        } else {
-            return self.friendsListArray.count
-        }
+        return self.friendsListArray.count
+        
+//        if tableView == self.searchDisplayController!.searchResultsTableView {
+//            return self.marrFilteredFriendList.count
+//        } else {
+//            return self.friendsListArray.count
+//        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -143,19 +149,19 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! FriendListCellType
-        var friendName : String!
+     //   var friendName : String!
 
         let eventList = friendsListArray[indexPath.row]
         print("eventLsit\(eventList)")
         
-        if tableView == self.searchController!.searchResultsController {
-            friendName = marrFilteredFriendList[indexPath.row].friendNameString
-        } else {
-            friendName = friendsListArray[indexPath.row].friendNameString
-        }
-        
-       cell.friendNameLabel.text = friendName!
-//        cell.friendNameLabel.text = eventList.friendNameString!
+//        if tableView == self.searchController!.searchResultsController {
+//            friendName = marrFilteredFriendList[indexPath.row].friendNameString
+//        } else {
+//            friendName = friendsListArray[indexPath.row].friendNameString
+//        }
+//        
+   //    cell.friendNameLabel.text = friendName!
+       cell.friendNameLabel.text = eventList.friendNameString!
 //        
 //        if shouldShowSearchResults {
 //            cell.textLabel?.text = marrFilteredFriendList[indexPath.row]
@@ -232,9 +238,7 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
         self.friendListTableView.reloadData()
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        <#code#>
-    }
+    
     
     func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
         self.filterTableViewForEnterText(searchString!)

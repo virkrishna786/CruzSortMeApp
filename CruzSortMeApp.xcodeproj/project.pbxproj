@@ -29,6 +29,11 @@
 		844D90421E14D391002684BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D90401E14D391002684BA /* LaunchScreen.storyboard */; };
 		844D904D1E14D391002684BA /* CruzSortMeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D904C1E14D391002684BA /* CruzSortMeAppTests.swift */; };
 		844D90581E14D391002684BA /* CruzSortMeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */; };
+		8470453C1E2E2000002632BE /* FriendGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470453B1E2E2000002632BE /* FriendGroupViewController.swift */; };
+		8470453E1E2E245A002632BE /* FriendGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470453D1E2E245A002632BE /* FriendGroupCell.swift */; };
+		847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */; };
+		847045421E2E26BC002632BE /* FriendGroupListClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847045411E2E26BC002632BE /* FriendGroupListClass.swift */; };
+		847045441E2E2E4C002632BE /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847045431E2E2E4C002632BE /* CreateGroupViewController.swift */; };
 		8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */; };
 		8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */; };
 		8482EA431E2753E5009D1AA7 /* EventDetailClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */; };
@@ -118,6 +123,11 @@
 		844D90531E14D391002684BA /* CruzSortMeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CruzSortMeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D90571E14D391002684BA /* CruzSortMeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruzSortMeAppUITests.swift; sourceTree = "<group>"; };
 		844D90591E14D391002684BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8470453B1E2E2000002632BE /* FriendGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupViewController.swift; sourceTree = "<group>"; };
+		8470453D1E2E245A002632BE /* FriendGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupCell.swift; sourceTree = "<group>"; };
+		8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendGroupCellType.xib; sourceTree = "<group>"; };
+		847045411E2E26BC002632BE /* FriendGroupListClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupListClass.swift; sourceTree = "<group>"; };
+		847045431E2E2E4C002632BE /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetail.xib; path = CruzSortMeApp/EventDetail.xib; sourceTree = SOURCE_ROOT; };
 		8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailCell.swift; path = CruzSortMeApp/EventDetailCell.swift; sourceTree = SOURCE_ROOT; };
 		8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailClass.swift; path = CruzSortMeApp/EventDetailClass.swift; sourceTree = SOURCE_ROOT; };
@@ -226,6 +236,7 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				8470453A1E2E1F73002632BE /* FriendGroup */,
 				84940B821E28E07900F94254 /* FriendList */,
 				84940B7D1E28A6A500F94254 /* ReviewController */,
 				8482EA5E1E276EC7009D1AA7 /* InterestView */,
@@ -260,6 +271,18 @@
 				844D90591E14D391002684BA /* Info.plist */,
 			);
 			path = CruzSortMeAppUITests;
+			sourceTree = "<group>";
+		};
+		8470453A1E2E1F73002632BE /* FriendGroup */ = {
+			isa = PBXGroup;
+			children = (
+				8470453B1E2E2000002632BE /* FriendGroupViewController.swift */,
+				847045431E2E2E4C002632BE /* CreateGroupViewController.swift */,
+				847045411E2E26BC002632BE /* FriendGroupListClass.swift */,
+				8470453D1E2E245A002632BE /* FriendGroupCell.swift */,
+				8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */,
+			);
+			path = FriendGroup;
 			sourceTree = "<group>";
 		};
 		8482EA5B1E276E0C009D1AA7 /* HomeView */ = {
@@ -478,6 +501,7 @@
 				8482EA521E27541A009D1AA7 /* PostCell.xib in Resources */,
 				844D903A1E14D391002684BA /* Main.storyboard in Resources */,
 				8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */,
+				847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */,
 				8482EA451E2753E5009D1AA7 /* ReviewCell.xib in Resources */,
 				84940B881E28F32700F94254 /* FriendListCell.xib in Resources */,
 			);
@@ -648,7 +672,9 @@
 				8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */,
 				8482EA461E2753E5009D1AA7 /* ReviewTableViewCell.swift in Sources */,
 				8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */,
+				847045441E2E2E4C002632BE /* CreateGroupViewController.swift in Sources */,
 				843868061E2CF80B0056062F /* FriendDetailViewController.swift in Sources */,
+				8470453C1E2E2000002632BE /* FriendGroupViewController.swift in Sources */,
 				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
 				8438680C1E2CFB410056062F /* FriendDetailCellType.swift in Sources */,
 				84940B7F1E28A6F200F94254 /* RatingAndReviewController.swift in Sources */,
@@ -662,6 +688,7 @@
 				843867F31E2CE4DB0056062F /* CustomSearchController.swift in Sources */,
 				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,
 				8421386D1E234AEF00A44646 /* Validator.swift in Sources */,
+				8470453E1E2E245A002632BE /* FriendGroupCell.swift in Sources */,
 				8482EA541E27542D009D1AA7 /* MenuTVC.swift in Sources */,
 				843868081E2CF83E0056062F /* FriendDetailClass.swift in Sources */,
 				8482EA431E2753E5009D1AA7 /* EventDetailClass.swift in Sources */,
@@ -672,6 +699,7 @@
 				842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */,
 				8482EA441E2753E5009D1AA7 /* EventDetailViewController.swift in Sources */,
 				8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */,
+				847045421E2E26BC002632BE /* FriendGroupListClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

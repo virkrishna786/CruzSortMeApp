@@ -41,14 +41,14 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.gestureFunction))
         myScrollView.addGestureRecognizer(tapGesture)
        
-       // let useriDstring = defaults.string(forKey: "userId")
+        let useriDstring = defaults.string(forKey: "userId")
         
-//        if useriDstring == "" {
-//            
-//        }else {
-//            self.performSegue(withIdentifier: "homeView", sender: self)
-//        }
-//        print("userid \(useriDstring!)")
+        if useriDstring == "" {
+            
+        }else {
+            self.performSegue(withIdentifier: "homeView", sender: self)
+        }
+        print("userid \(useriDstring!)")
         
         // Do any additional setup after loading the view, typically from a nib.
     }
