@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		19F0829297F5B0FF772AAB6F /* Pods_CruzSortMeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */; };
 		2483D3C3DE8AB9A9B616A3B9 /* Pods_CruzSortMeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */; };
+		841BBE421E30859E00F984E7 /* FriendGroupClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BBE411E30859E00F984E7 /* FriendGroupClass.swift */; };
 		8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386A1E234ADB00A44646 /* CommonClass.swift */; };
 		8421386D1E234AEF00A44646 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386C1E234AEF00A44646 /* Validator.swift */; };
 		8421386F1E234B2C00A44646 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386E1E234B2C00A44646 /* Config.swift */; };
@@ -32,7 +33,6 @@
 		8470453C1E2E2000002632BE /* FriendGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470453B1E2E2000002632BE /* FriendGroupViewController.swift */; };
 		8470453E1E2E245A002632BE /* FriendGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470453D1E2E245A002632BE /* FriendGroupCell.swift */; };
 		847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */; };
-		847045421E2E26BC002632BE /* FriendGroupListClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847045411E2E26BC002632BE /* FriendGroupListClass.swift */; };
 		847045441E2E2E4C002632BE /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847045431E2E2E4C002632BE /* CreateGroupViewController.swift */; };
 		8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */; };
 		8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */; };
@@ -98,6 +98,7 @@
 		4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F13DDE74F1B6A798AF83012 /* Pods-CruzSortMeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6CE0EB4EF675A31C9909DBF5 /* Pods-CruzSortMeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		841BBE411E30859E00F984E7 /* FriendGroupClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupClass.swift; sourceTree = "<group>"; };
 		8421386A1E234ADB00A44646 /* CommonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
 		8421386C1E234AEF00A44646 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		8421386E1E234B2C00A44646 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -126,7 +127,6 @@
 		8470453B1E2E2000002632BE /* FriendGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupViewController.swift; sourceTree = "<group>"; };
 		8470453D1E2E245A002632BE /* FriendGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupCell.swift; sourceTree = "<group>"; };
 		8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendGroupCellType.xib; sourceTree = "<group>"; };
-		847045411E2E26BC002632BE /* FriendGroupListClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupListClass.swift; sourceTree = "<group>"; };
 		847045431E2E2E4C002632BE /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetail.xib; path = CruzSortMeApp/EventDetail.xib; sourceTree = SOURCE_ROOT; };
 		8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailCell.swift; path = CruzSortMeApp/EventDetailCell.swift; sourceTree = SOURCE_ROOT; };
@@ -277,8 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				8470453B1E2E2000002632BE /* FriendGroupViewController.swift */,
+				841BBE411E30859E00F984E7 /* FriendGroupClass.swift */,
 				847045431E2E2E4C002632BE /* CreateGroupViewController.swift */,
-				847045411E2E26BC002632BE /* FriendGroupListClass.swift */,
 				8470453D1E2E245A002632BE /* FriendGroupCell.swift */,
 				8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */,
 			);
@@ -669,6 +669,7 @@
 				8482EA511E27541A009D1AA7 /* PostCell.swift in Sources */,
 				8482EA5A1E27559C009D1AA7 /* ViewController.swift in Sources */,
 				8482EA4D1E27541A009D1AA7 /* HomeArrayClass.swift in Sources */,
+				841BBE421E30859E00F984E7 /* FriendGroupClass.swift in Sources */,
 				8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */,
 				8482EA461E2753E5009D1AA7 /* ReviewTableViewCell.swift in Sources */,
 				8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */,
@@ -699,7 +700,6 @@
 				842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */,
 				8482EA441E2753E5009D1AA7 /* EventDetailViewController.swift in Sources */,
 				8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */,
-				847045421E2E26BC002632BE /* FriendGroupListClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

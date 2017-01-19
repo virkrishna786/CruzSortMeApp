@@ -11,8 +11,17 @@ import UIKit
 
 class FriendGroupCell: UITableViewCell {
 
+    @IBOutlet weak var numberOfMemberLabel: UILabel!
     @IBOutlet weak var groupNamelabel: UILabel!
-    @IBOutlet weak var friendGroupImageView: UIImageView!
+    @IBOutlet weak var friendGroupImageView: UIImageView!{
+        didSet{
+            friendGroupImageView.layer.borderWidth = 1
+            friendGroupImageView.layer.masksToBounds = false
+            friendGroupImageView.layer.borderColor = UIColor.white.cgColor
+            friendGroupImageView.layer.cornerRadius = friendGroupImageView.frame.height/2
+            friendGroupImageView.clipsToBounds = true
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

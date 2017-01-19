@@ -12,6 +12,10 @@ import AlamofireImage
 import SwiftyJSON
 
 class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+    
+    @IBAction func backButtonAction(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
+    }
 
     @IBAction func createGroupButtonAction(_ sender: UIButton) {
         self.performSegue(withIdentifier : "createGroup" ,sender: self)
@@ -31,7 +35,7 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
     
     var userIdString : String!
     var numberOfEvents : Int!
-    var friendsListArray = [FriendGroupListClass]()
+    var friendsListArray = [FriendGroupClass]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,14 +44,20 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
         print("self.userid \(self.userIdString)")
         
         self.friendGroupTableView.register(UINib(nibName : "FriendGroupCellType" ,bundle: nil), forCellReuseIdentifier: "friendGroupCellIdentifier")
+        self.friendGroupListApi()
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.friendGroupListApi()
+    }
     
-    func friendListApi() {
+    
+    func friendGroupListApi() {
         
-        let url = "http://182.73.133.220/CruzSortMe/Apis/friendList"
+        let url = "http://182.73.133.220/CruzSortMe/Apis/groupList"
         
         let paramter = ["user_id": self.userIdString!]
         
@@ -58,24 +68,37 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 
-                let dataResponse = resJson["Friend"].array
+                let reMessage = resJson["res_msg"].string
+                if reMessage == "Record  Found Successfully" {
+                let dataResponse = resJson["CruzSortMe"].array
                 
                 self.numberOfEvents = dataResponse?.count
                 print("numberofEvents \(self.numberOfEvents)")
                 
                 for eventArray in dataResponse! {
-                    let eventArrayClass = FriendGroupListClass()
+                    let eventArrayClass = FriendGroupClass()
                     
-                    eventArrayClass.friendNameString = eventArray["username"].string
-                    eventArrayClass.friendIdString = eventArray["friend_id"].string
-                    eventArrayClass.friendProfileImage = eventArray["profile_image"].string
+                    eventArrayClass.groupNameString = eventArray["group_name"].string
+                    eventArrayClass.groupIdString = eventArray["id"].string
+                    eventArrayClass.groupImageViewString = eventArray["group_img"].string
+                    eventArrayClass.numberOfMembersString = eventArray["no_of_friend"].string
                     self.friendsListArray.append(eventArrayClass)
                 }
-                print("homeEventArray : \(self.friendsListArray)")
+                print("groupEventArray : \(self.friendsListArray)")
                 print("dataArray \(dataResponse)")
                 DispatchQueue.main.async {
                     self.friendGroupTableView.reloadData()
                 }
+                    
+                }else {
+                    self.friendGroupTableView.isHidden = true
+                    let customLable = UILabel()
+                    customLable.center.x = self.view.center.x
+                    customLable.center.y = self.view.center.y
+                    let parentClass = ParentClass()
+                    self.view.addSubview(parentClass.setBlankView(label: customLable))
+                }
+
                 
                 print("dsfs \(resJson)")
             }
@@ -111,8 +134,8 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
         let eventList = friendsListArray[indexPath.row]
         print("eventLsit\(eventList)")
         
-        
-        cell.groupNamelabel.text = eventList.friendNameString!
+        cell.groupNamelabel.text = eventList.groupNameString!
+        cell.numberOfMemberLabel.text = "No of Members :" + eventList.numberOfMembersString!
         //        cell.friendNameLabel.text = eventList.friendNameString!
         //
         //        if shouldShowSearchResults {
@@ -122,8 +145,8 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
         //            cell.textLabel?.text = friendsListArray[indexPath.row].friendNameString!
         //        }
         
-        print("event imageString = \(eventList.friendProfileImage!)")
-        let URL = NSURL(string: "\(eventList.friendProfileImage!)")
+        print("event imageString = \(eventList.groupImageViewString!)")
+        let URL = NSURL(string: "\(eventList.groupImageViewString!)")
         print("urlsfgds \(URL)")
         let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
         mutableUrlRequest.httpMethod = "get"
@@ -149,7 +172,6 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
                 DispatchQueue.global().async(execute: {
                     
                     if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                        
                         print("\(cellToUpdate)")
                         cell.friendGroupImageView.image = image
                     }
@@ -165,7 +187,7 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let eventList = friendsListArray[indexPath.row]
+       // let eventList = friendsListArray[indexPath.row]
       //  self.friendIdString = eventList.friendIdString!
         self.performSegue(withIdentifier: "friendDetail", sender: self)
         

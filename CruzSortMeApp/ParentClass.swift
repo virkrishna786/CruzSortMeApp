@@ -50,6 +50,17 @@ class ParentClass : NSObject {
         
     }
     
+    func setBlankView(label : UILabel)  -> UILabel {
+        
+        let customView = UILabel(frame: CGRect(x: 50, y: 200, width: 200, height: 30))
+        customView.backgroundColor = UIColor.clear
+        customView.text = "No Record Found"
+        customView.textAlignment = NSTextAlignment.center
+        customView.textColor = UIColor.white
+        
+        return customView
+    }
+    
     
     
     //MARK: CHECK INTERNET CONNECTION

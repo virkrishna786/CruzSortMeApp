@@ -684,7 +684,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SsP-AN-Sku" id="PdQ-8g-fyk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -694,6 +694,11 @@ Signup from your existing account</string>
                                     <outlet property="delegate" destination="fvA-8g-5Oz" id="sRH-sz-Cue"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="P6R-gG-dAZ">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="color" red="0.88408380750000004" green="0.28044429110000002" blue="0.30341285620000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -720,6 +725,7 @@ Signup from your existing account</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="actvityIndicator" destination="P6R-gG-dAZ" id="cWh-tl-sua"/>
                         <outlet property="postTableView" destination="0xe-Bs-Yp8" id="iha-uS-LDg"/>
                         <segue destination="lqR-4S-PvD" kind="show" identifier="interestView" id="5EN-am-okC"/>
                         <segue destination="l3V-C7-oHi" kind="show" identifier="eventDetail" id="Omb-QO-LsN"/>
@@ -1117,6 +1123,7 @@ Signup from your existing account</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="createGroupButton" destination="6uM-xR-7h0" id="YW4-CI-v8q"/>
                         <outlet property="friendListTableView" destination="wjy-AP-LgO" id="atm-hj-Sb0"/>
                         <outlet property="friendSearchBar" destination="aVm-ou-UXh" id="1Ie-y7-dUe"/>
                         <segue destination="zmy-s9-2Dx" kind="show" identifier="friendDetail" id="AEl-Dj-bJq"/>
@@ -1181,7 +1188,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5vQ-k0-WW2" id="Mzw-LB-Ok5">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1271,11 +1278,11 @@ Signup from your existing account</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ca-k5-UaP">
-                                <rect key="frame" x="300" y="550" width="46" height="34"/>
+                                <rect key="frame" x="260" y="500" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="8Jr-T4-DJa"/>
-                                    <constraint firstAttribute="width" constant="46" id="dSt-D2-bWW"/>
+                                    <constraint firstAttribute="height" constant="80" id="8Jr-T4-DJa"/>
+                                    <constraint firstAttribute="width" constant="80" id="dSt-D2-bWW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="6"/>
                                 <state key="normal" title="create Group"/>
@@ -1293,6 +1300,9 @@ Signup from your existing account</string>
                                             <constraint firstAttribute="width" constant="40" id="ahj-ja-qeF"/>
                                         </constraints>
                                         <state key="normal" image="backArrow"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="fxQ-We-yez" eventType="touchUpInside" id="eMY-Ow-wad"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -1327,12 +1337,12 @@ Signup from your existing account</string>
                             <constraint firstItem="WrP-7u-Jw5" firstAttribute="centerY" secondItem="xCD-yL-1xU" secondAttribute="centerY" id="biQ-ed-B2R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sQh-IT-8md" secondAttribute="trailing" constant="91" id="h1W-Ws-65Z"/>
                             <constraint firstAttribute="trailing" secondItem="WrP-7u-Jw5" secondAttribute="trailing" id="hEd-n1-OUD"/>
-                            <constraint firstItem="4K0-n5-bRj" firstAttribute="top" secondItem="6ca-k5-UaP" secondAttribute="bottom" constant="83" id="huw-S3-08g"/>
+                            <constraint firstItem="4K0-n5-bRj" firstAttribute="top" secondItem="6ca-k5-UaP" secondAttribute="bottom" constant="87" id="huw-S3-08g"/>
                             <constraint firstAttribute="bottom" secondItem="zIt-x8-BYT" secondAttribute="bottom" constant="20" symbolic="YES" id="izE-CB-Cyp"/>
                             <constraint firstItem="WrP-7u-Jw5" firstAttribute="leading" secondItem="QaM-Na-VfI" secondAttribute="leading" id="oHC-Jw-gMv"/>
                             <constraint firstItem="sQh-IT-8md" firstAttribute="trailing" secondItem="xCD-yL-1xU" secondAttribute="trailing" id="s6O-ny-fwP"/>
                             <constraint firstItem="4K0-n5-bRj" firstAttribute="top" secondItem="QaM-Na-VfI" secondAttribute="bottom" constant="10" id="tGC-GS-i80"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6ca-k5-UaP" secondAttribute="trailing" constant="13" id="vm5-KQ-dA5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6ca-k5-UaP" secondAttribute="trailing" constant="19" id="vm5-KQ-dA5"/>
                             <constraint firstItem="WrP-7u-Jw5" firstAttribute="leading" secondItem="gqc-65-ipi" secondAttribute="leading" id="yGR-Ub-KRh"/>
                         </constraints>
                     </view>
@@ -1433,13 +1443,26 @@ Signup from your existing account</string>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jgI-Ot-tRK" id="RsJ-Rd-Eh7"/>
+                                </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXO-fA-vy5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xXO-fA-vy5">
                                 <rect key="frame" x="16" y="320" width="343" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendListCellTypee" id="dFe-rb-VT4">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFe-rb-VT4" id="sSZ-gz-qHw">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="jgI-Ot-tRK" id="0nw-V1-XdQ"/>
-                                    <outlet property="delegate" destination="jgI-Ot-tRK" id="h54-Md-Edo"/>
+                                    <outlet property="dataSource" destination="jgI-Ot-tRK" id="NPj-Oo-UrP"/>
+                                    <outlet property="delegate" destination="jgI-Ot-tRK" id="I4r-os-w3C"/>
                                 </connections>
                             </tableView>
                         </subviews>

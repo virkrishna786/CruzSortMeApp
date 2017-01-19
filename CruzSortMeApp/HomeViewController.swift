@@ -15,6 +15,7 @@ var boolValue = 0
 class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    @IBOutlet weak var actvityIndicator: UIActivityIndicatorView!
     @IBAction func intrestButtonAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "friendList", sender: self)
     }
@@ -46,6 +47,8 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         
         let parameter = ["end_value": "1"]
         
+        self.view.addSubview(actvityIndicator)
+        
         Alamofire.request( url, method : .post , parameters: parameter).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
@@ -56,6 +59,8 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
                 let  res_message = resJson["res_msg"].string
                 
                 if res_message == "Record  Found Successfully" {
+                    
+                    self.actvityIndicator.removeFromSuperview()
                     
                 let dataResponse = resJson["CruzSortMe"].array
                     

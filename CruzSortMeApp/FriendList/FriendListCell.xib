@@ -26,7 +26,7 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-ho-SRC">
-                        <rect key="frame" x="262" y="41" width="74" height="30"/>
+                        <rect key="frame" x="262" y="43" width="74" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="74" id="Yi1-RG-COp"/>
                         </constraints>
@@ -36,20 +36,21 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcW-E5-l9J">
-                        <rect key="frame" x="112" y="40" width="143" height="35"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="112" y="33" width="143" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="wcW-E5-l9J" firstAttribute="centerY" secondItem="bBn-ho-SRC" secondAttribute="centerY" id="1Iz-qV-RJ9"/>
                     <constraint firstItem="wcW-E5-l9J" firstAttribute="leading" secondItem="dKa-vR-c6V" secondAttribute="trailing" constant="20" id="KN4-5F-QnK"/>
                     <constraint firstItem="bBn-ho-SRC" firstAttribute="leading" secondItem="wcW-E5-l9J" secondAttribute="trailing" constant="7" id="OFK-Au-1Fh"/>
-                    <constraint firstItem="bBn-ho-SRC" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="33" id="PjT-tZ-XQX"/>
+                    <constraint firstItem="bBn-ho-SRC" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="35" id="PjT-tZ-XQX"/>
                     <constraint firstItem="dKa-vR-c6V" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="11" id="USM-PT-TKh"/>
                     <constraint firstItem="dKa-vR-c6V" firstAttribute="leading" secondItem="nXz-ks-VZc" secondAttribute="leadingMargin" constant="4" id="X4v-NT-Zzu"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dKa-vR-c6V" secondAttribute="bottom" constant="9" id="blM-Iq-Wlk"/>
-                    <constraint firstItem="wcW-E5-l9J" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="32" id="eqp-bR-Eja"/>
+                    <constraint firstItem="wcW-E5-l9J" firstAttribute="top" secondItem="nXz-ks-VZc" secondAttribute="topMargin" constant="25" id="eqp-bR-Eja"/>
                     <constraint firstItem="wcW-E5-l9J" firstAttribute="centerY" secondItem="nXz-ks-VZc" secondAttribute="centerY" id="hTH-5Q-FPi"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bBn-ho-SRC" secondAttribute="trailing" constant="11" id="p8f-7K-qo6"/>
                 </constraints>
@@ -59,7 +60,7 @@
                 <outlet property="friendNameLabel" destination="wcW-E5-l9J" id="J2O-8K-fS0"/>
                 <outlet property="friendProfileImageView" destination="dKa-vR-c6V" id="vGQ-VY-ojD"/>
             </connections>
-            <point key="canvasLocation" x="-176" y="-403"/>
+            <point key="canvasLocation" x="-176.5" y="-403.5"/>
         </tableViewCell>
     </objects>
 </document>

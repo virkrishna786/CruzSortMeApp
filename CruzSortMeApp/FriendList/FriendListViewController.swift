@@ -15,6 +15,11 @@ import SwiftyJSON
 
 class FriendListViewController: UIViewController ,UITableViewDataSource ,UITableViewDelegate , UISearchBarDelegate ,UISearchDisplayDelegate  ,UISearchControllerDelegate {
     
+    @IBOutlet weak var createGroupButton: UIButton!{
+        didSet{
+            self.createGroupButton.layer.cornerRadius = 30
+        }
+    }
     @IBAction func createGroupButtonAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "friendGroup", sender: self)
         
