@@ -7,33 +7,33 @@
 //
 
 import Foundation
-import ReachabilitySwift
+import UIKit
 
 
 class ParentClass : NSObject {
     
-    func getYCordinateAccordingToScreenSize(getValue: CGFloat) -> CGFloat {
-        return ((getValue * (UIScreen.main.bounds.size.height))/kHeight)
-    }
-    
-    func getXCordinateAccordingToScreenSize(getValue: CGFloat) -> CGFloat {
-        return ((getValue * (UIScreen.main.bounds.size.width))/kWidth)
-    }
-    
-    // MARk :  SETWIDTH
-    
-    func setWidth(width: CGFloat) -> CGFloat {
-        return (width * (UIScreen.main.bounds.size.height))/kHeight
-    }
-    
-    
-    func setHeight(height: CGFloat) -> CGFloat {
-        return (height * (UIScreen.main.bounds.size.height))/kHeight
-    }
-    
-    func setFont(fontSize: CGFloat)-> CGFloat {
-        return (fontSize * (UIScreen.main.bounds.size.width))/kWidth
-    }
+//    func getYCordinateAccordingToScreenSize(getValue: Float) -> Float {
+//        return ((getValue * (UIScreen.main.bounds.size.height))/kHeight)
+//    }
+//    
+//    func getXCordinateAccordingToScreenSize(getValue: Float) -> Float {
+//        return ((getValue * (UIScreen.main.bounds.size.width))/kWidth)
+//    }
+//    
+//    // MARk :  SETWIDTH
+//    
+//    func setWidth(width: Float) -> Float {
+//        return (width * (UIScreen.main.bounds.size.height))/kHeight
+//    }
+//    
+//    
+//    func setHeight(height: Float) -> Float {
+//        return (height * (UIScreen.main.bounds.size.height))/kHeight
+//    }
+//    
+//    func setFont(fontSize: Float)-> Float {
+//        return (fontSize * (UIScreen.main.bounds.size.width))/kWidth
+//    }
     
     //MARK: VALID PHONE NUMBER CHECK
     
@@ -50,45 +50,64 @@ class ParentClass : NSObject {
         
     }
     
-    func setBlankView(label : UILabel)  -> UILabel {
+    func setBlankView()  -> UILabel{
         
-        let customView = UILabel(frame: CGRect(x: 50, y: 200, width: 200, height: 30))
+        var customView = UILabel()
+        customView = UILabel(frame: CGRect(x: 50, y: 200, width: 200, height: 30))
         customView.backgroundColor = UIColor.clear
         customView.text = "No Record Found"
         customView.textAlignment = NSTextAlignment.center
         customView.textColor = UIColor.white
-        
         return customView
     }
     
+   
+        func msg(message: String, title: String = "")
+        {
+            let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertView, animated: true, completion: nil)
+        }
     
+  
+    func showAlert(){
+        let Alert = ParentClass()
+        Alert.msg(message: "please check the internet connection", title: "Alert")
+    }
     
+    func showAlertWithApiFailure() {
+    let Alert = ParentClass()
+      Alert.msg(message: "Some thing went wrong" ,title:  "Alert")
+}
     //MARK: CHECK INTERNET CONNECTION
     
-    func checkInternetConnection() -> Bool {
-        
-        var reachability: Reachability
-        do {
-            reachability = try Reachability.init()!
-            //  try reachability.startNotifier()
-            
-        } catch {
-            print("Unable to create Reachability")
-            return false
-        }
-        
-        
-        //       NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CommonClass.checkForReachability(_:)), name: ReachabilityChangedNotification, object: nil);
-        if (reachability.currentReachabilityStatus == .notReachable)
-        {
-            return false
-        }
-        else
-        {
-            return true
-        }
-        
-    }
+//    func checkInternetConnection() -> Bool {
+//        
+//        let  reachability: Reachability
+//        do {
+//            reachability = try Reachability.NetworkStatus
+//            //  try reachability.startNotifier()
+//            
+//        } catch {
+//            print("Unable to create Reachability")
+//            return false
+//        }
+//        
+//        
+//        //       NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CommonClass.checkForReachability(_:)), name: ReachabilityChangedNotification, object: nil);
+//        if(reachability.currentReachabilityStatus ==  .NotReachable)
+//        {
+//            return false
+//        }
+//        else
+//        {
+//            return true
+//        }
+//        
+//    }
+//    
 
     
 }

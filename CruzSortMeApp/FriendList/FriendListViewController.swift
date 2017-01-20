@@ -12,7 +12,6 @@ import AlamofireImage
 import SwiftyJSON
 
 
-
 class FriendListViewController: UIViewController ,UITableViewDataSource ,UITableViewDelegate , UISearchBarDelegate ,UISearchDisplayDelegate  ,UISearchControllerDelegate {
     
     @IBOutlet weak var createGroupButton: UIButton!{

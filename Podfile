@@ -9,7 +9,7 @@ target 'CruzSortMeApp' do
 
 pod 'Alamofire', '~> 4.2'
 pod 'SwiftyJSON', '~> 3.1'
-pod 'ReachabilitySwift', '~> 3'
+#pod 'ReachabilitySwift', '~> 3'
 pod 'AlamofireImage', '~> 3.1'
 pod 'FloatRatingView', '~> 2.0.0'
 

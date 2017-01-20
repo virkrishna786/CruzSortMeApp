@@ -27,7 +27,7 @@ import UIKit
 
 let openTokStage = "45440642"  // opentok production key
 let productionUrl = "web.getvisitapp.com" // PRODUCTION URL
-let baseUrl = "https://api.getvisitapp.com/apiv2" //  PROD API CALL URL
+let baseUrl = "http://182.73.133.220/CruzSortMe/Apis/" //  PROD API CALL URL
 let baseImageUrl = "https://api.getvisitapp.com"
 
 
@@ -64,6 +64,8 @@ func print(items: Any..., separator: String = " ", terminator: String = "\n") {
 let color_app_backgroundView_trasnparent =  UIColor(red: 121.0/255, green:106.0/255, blue: 145.0/255, alpha: 0.6)
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let defaults =  UserDefaults.standard
+let parentClass = ParentClass()
+let hudClass  = JHProgressHUD()
 // let deviceType = UIDevice.currentDevice().deviceType
 
 

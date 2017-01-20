@@ -42,7 +42,8 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         myScrollView.addGestureRecognizer(tapGesture)
        
         let useriDstring = defaults.string(forKey: "userId")
-        
+
+       
         if useriDstring == "" {
             
         }else {
@@ -58,52 +59,61 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     }
     
     func apiCall(){
-        let urlString = "http://182.73.133.220/CruzSortMe/Apis/login"
-        let userString = "\(usernameTextField.text!)"
-        let passwordString = "\(passwordTextField.text!)"
-        
-       let  parameter = ["username" : userString
-            , "password" : passwordString]
-        
-        print("dfd \(parameter)")
-        
-        Alamofire.request(urlString, method: .post, parameters: parameter)
-            .responseJSON { response in
-                print("Success: \(response.result.isSuccess)")
-                print("Response String: \(response.result.value)")
-                
-                //to get JSON return value
-                if let result = response.result.value {
-                                    let JSON = result as! NSDictionary
+       
+        if currentReachabilityStatus != .notReachable {
+            
+            let  urlString = "http://var.73.133.220/CruzSortMe/Apis/login"
+            let userString = "\(usernameTextField.text!)"
+            let passwordString = "\(passwordTextField.text!)"
+            
+            let  parameter = ["username" : userString
+                , "password" : passwordString]
+            
+            print("dfd \(parameter)")
+            
+            Alamofire.request(urlString, method: .post, parameters: parameter)
+                .responseJSON { response in
+                    print("Success: \(response.result.isSuccess)")
+                    print("Response String: \(response.result.value)")
                     
-                    let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
-                    
-                    print("response code \(responseCode)")
-                    
-                    let responseMessage = responseCode["res_msg"] as! String
-                    print("response message \(responseMessage)")
-                    
-                    if responseMessage == "Login has been Successfully" {
+                    //to get JSON return value
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
                         
-                        let userIdString = responseCode["user_id"] as! String
+                        let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
                         
-                        defaults.set(userIdString, forKey: "userId")
-                        defaults.synchronize()
-                        self.performSegue(withIdentifier: "homeView", sender: self)
-   
-                    }else {
+                        print("response code \(responseCode)")
                         
-                        let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
-                        alertVC.addAction(okAction)
-                        self.present(alertVC, animated: true, completion: nil)
-  
+                        let responseMessage = responseCode["res_msg"] as! String
+                        print("response message \(responseMessage)")
+                        
+                        if responseMessage == "Login has been Successfully" {
+                            
+                            let userIdString = responseCode["user_id"] as! String
+                            
+                            defaults.set(userIdString, forKey: "userId")
+                            defaults.synchronize()
+                            self.performSegue(withIdentifier: "homeView", sender: self)
+                            
+                        }else {
+                            
+                            let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                            alertVC.addAction(okAction)
+                            self.present(alertVC, animated: true, completion: nil)
+                            
+                        }
+                        print("json \(JSON)")
+                        
                     }
-                                    print("json \(JSON)")
-                    
-                              }
+            }
+
+            
+        }else {
+           parentClass.showAlert()
         }
 
+       
     }
 
     //MARK: - HANDLE KEYBOARD

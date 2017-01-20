@@ -17,6 +17,7 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
         _ = navigationController?.popViewController(animated: true)
     }
     @IBAction func submitButtonAction(_ sender: UIButton) {
+        hudClass.showInView(view: self.view)
         self.makeGroupApi()
     }
     @IBOutlet weak var submitButton: UIButton!
@@ -264,10 +265,10 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
                 
        // let indexPath = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
         
+        let eventArray = friendsListInGroupArray[indexPath.row]
         let cell = tableView.cellForRow(at: indexPath) as! FriendListCellType
             cell.accessoryType = .checkmark
-            self.selectedInterestArray.append((cell.friendNameLabel?.text)!)
-        
+            self.selectedInterestArray.append((eventArray.friendIdString)!)
         
         
             print("selecgted \(self.selectedInterestArray)")
@@ -281,6 +282,10 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! FriendListCellType
         cell.accessoryType = .none
+        self.selectedInterestArray.remove(at: indexPath.row)
+        
+        print("\(self.selectedInterestArray)")
+
         
     }
     
@@ -288,24 +293,24 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
     
     func makeGroupApi() {
         
+        if currentReachabilityStatus != .notReachable {
+        
+        
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
         
-//        let stringArray = selectedInterestArray
-//        let string = stringArray.joined(separator: ",")
-//        print("stringd \(string)")
+        let stringArray = selectedInterestArray
+        let string = stringArray.joined(separator: ",")
+        print("stringd \(string)")
         
-//        if self.groupImageView.image = nil {
-//            
-//        }
+        
         let parameter = ["user_id": self.userIdString!,
-                         "group_friend_id" : "11,13",
+                         "group_friend_id" : string,
                          "group_name" : self.groupTextField.text!,
                          ]
         print("parameter is \(parameter)")
         
-        //  let URL = "http://182.73.133.220/CruzSortMe/Apis/createGroup"
         
         let image = self.groupImage!
         print("imagefh \(image)")
@@ -362,6 +367,9 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
                     print(encodingError)
                 }
         })
+        }else {
+            parentClass.showAlert()
+        }
     }
     
     override func didReceiveMemoryWarning() {

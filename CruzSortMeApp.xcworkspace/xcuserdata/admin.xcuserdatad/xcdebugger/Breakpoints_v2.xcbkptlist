@@ -10,11 +10,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/Config.swift"
-            timestampString = "505897958.369943"
+            timestampString = "506589099.487362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67">
+            startingLineNumber = "69"
+            endingLineNumber = "69">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_3168CFE709C7E5787461DDDDF6F9FC98_func16"
+                  moduleName = "CruzSortMeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/MediaMosaicProject/CruzSortMeApp/CruzSortMeApp/Config.swift"
+                  timestampString = "506591287.028459"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CruzSortMeApp.window.unsafeMutableAddressor : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIWindow&gt;"
+                  moduleName = "CruzSortMeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/MediaMosaicProject/CruzSortMeApp/CruzSortMeApp/Config.swift"
+                  timestampString = "506591287.030467"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -104,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendList/FriendDetailViewController.swift"
-            timestampString = "506330102.406244"
+            timestampString = "506604513.737806"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendList/FriendDetailViewController.swift"
-            timestampString = "506330103.750291"
+            timestampString = "506604513.737806"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendGroup/CreateGroupViewController.swift"
-            timestampString = "506523492.611821"
+            timestampString = "506591926.801537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendGroup/CreateGroupViewController.swift"
-            timestampString = "506523492.611821"
+            timestampString = "506591926.801537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -168,7 +200,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendGroup/CreateGroupViewController.swift"
-            timestampString = "506523492.611821"
+            timestampString = "506591926.801537"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/FriendGroup/CreateGroupViewController.swift"
+            timestampString = "506591926.801537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "263"
@@ -184,27 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendGroup/CreateGroupViewController.swift"
-            timestampString = "506523492.611821"
+            timestampString = "506591926.801537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CruzSortMeApp/FriendGroup/CreateGroupViewController.swift"
-            timestampString = "506523492.611821"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -215,13 +247,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CruzSortMeApp/FriendGroup/CreateGroupViewController.swift"
-            timestampString = "506523492.611821"
+            filePath = "CruzSortMeApp/ViewController.swift"
+            timestampString = "506589099.487362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "setImage(image:)"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "apiCall()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

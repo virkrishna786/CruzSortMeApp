@@ -11,7 +11,6 @@ let kWidth : CGFloat = 667
 //let kClientId = "121724468489-rj2akndnt2fvkntbpgpp5bomqk37p3p8.apps.googleusercontent.com";
 
 import UIKit
-import ReachabilitySwift
 // import MBProgressHUD
 
 extension UIViewController {
@@ -94,33 +93,7 @@ func showHud() {
 
     }
     
-     //MARK: CHECK INTERNET CONNECTION
-    
-    func checkInternetConnection() -> Bool {
-      
-        var reachability: Reachability
-        do {
-            reachability = try Reachability.init()!
-         //  try reachability.startNotifier()
            
-        } catch {
-            print("Unable to create Reachability")
-            return false
-        }
-        
-        
-//       NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CommonClass.checkForReachability(_:)), name: ReachabilityChangedNotification, object: nil);
-        if (reachability.currentReachabilityStatus == .notReachable)
-        {
-            return false
-        }
-        else
-        {
-            return true
-        }
-        
-    }
-        
     
     //MARK: - IMAGE RESIZE FUNCTION
 //    

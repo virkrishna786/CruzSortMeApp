@@ -15,7 +15,9 @@ var boolValue = 0
 class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    @IBOutlet weak var actvityIndicator: UIActivityIndicatorView!
+    @IBAction func createEventButttonAction(_ sender: UIButton) {
+    }
+    @IBOutlet weak var createEventButton: UIButton!
     @IBAction func intrestButtonAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "friendList", sender: self)
     }
@@ -43,24 +45,26 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     func eventApiHit() {
         
+        if currentReachabilityStatus != .notReachable {
         let url = "http://182.73.133.220/CruzSortMe/Apis/getAllEvent"
+         
+        hudClass.showInView(view: self.view)
         
         let parameter = ["end_value": "1"]
-        
-        self.view.addSubview(actvityIndicator)
         
         Alamofire.request( url, method : .post , parameters: parameter).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             
             if responseObject.result.isSuccess {
+                self.postTableView.isHidden = false
+                hudClass.hide()
                 let resJson = JSON(responseObject.result.value!)
                 
                 let  res_message = resJson["res_msg"].string
                 
                 if res_message == "Record  Found Successfully" {
                     
-                    self.actvityIndicator.removeFromSuperview()
                     
                 let dataResponse = resJson["CruzSortMe"].array
                     
@@ -90,10 +94,15 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
                 print("dsfs \(resJson)")
             }
             if responseObject.result.isFailure {
+                hudClass.hide()
                 let error  = responseObject.result.error!  as NSError
+                parentClass.showAlertWithApiFailure()
                 print("failuredata \(error)")
                 
             }
+        }
+        }else {
+            parentClass.showAlert()
         }
     }
     
@@ -108,6 +117,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.postTableView.dataSource = self
         self.postTableView.backgroundColor = UIColor.clear
         
+        self.postTableView.isHidden = true
         let useriDstring = defaults.string(forKey: "userId")
         print("userid \(useriDstring!)")
         
@@ -115,6 +125,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.navigationController?.isNavigationBarHidden = false
         
         DispatchQueue.global(qos: .background).async {
+            hudClass.showInView(view: self.view)
             self.eventApiHit()
         }
         self.addChildViewController(appDelegate.menuTableViewController)

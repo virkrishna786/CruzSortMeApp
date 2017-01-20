@@ -36,6 +36,7 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
     var userIdString : String!
     var numberOfEvents : Int!
     var friendsListArray = [FriendGroupClass]()
+    var groupIdString : String!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,11 +93,8 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
                     
                 }else {
                     self.friendGroupTableView.isHidden = true
-                    let customLable = UILabel()
-                    customLable.center.x = self.view.center.x
-                    customLable.center.y = self.view.center.y
                     let parentClass = ParentClass()
-                    self.view.addSubview(parentClass.setBlankView(label: customLable))
+                    self.view.addSubview(parentClass.setBlankView())
                 }
 
                 
@@ -136,15 +134,6 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
         
         cell.groupNamelabel.text = eventList.groupNameString!
         cell.numberOfMemberLabel.text = "No of Members :" + eventList.numberOfMembersString!
-        //        cell.friendNameLabel.text = eventList.friendNameString!
-        //
-        //        if shouldShowSearchResults {
-        //            cell.textLabel?.text = marrFilteredFriendList[indexPath.row]
-        //        }
-        //        else {
-        //            cell.textLabel?.text = friendsListArray[indexPath.row].friendNameString!
-        //        }
-        
         print("event imageString = \(eventList.groupImageViewString!)")
         let URL = NSURL(string: "\(eventList.groupImageViewString!)")
         print("urlsfgds \(URL)")
@@ -187,9 +176,10 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // let eventList = friendsListArray[indexPath.row]
-      //  self.friendIdString = eventList.friendIdString!
-        self.performSegue(withIdentifier: "friendDetail", sender: self)
+        let eventList = friendsListArray[indexPath.row]
+        self.groupIdString = eventList.groupIdString!
+        print("sfjdsfs\(self.groupIdString)")
+        self.performSegue(withIdentifier: "groupDetail", sender: self)
         
     }
     
@@ -204,14 +194,21 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "groupDetail" {
+            let eventDetailView = segue.destination as! GroupDetailViewController
+            print("groupIdString")
+            eventDetailView.previousGroupId = self.groupIdString!
+            print("homepage eventIDString \(eventDetailView.friendIdString)")
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

@@ -90,12 +90,18 @@ class FriendDetailViewController: UIViewController ,UITableViewDelegate ,UITable
                     }
                     print("homeEventArray : \(self.friendEventDetailArray)")
                     print("dataArray \(dataResponse)")
+                    DispatchQueue.main.async {
+                        self.friendDetailTableView.reloadData()
+                    }
+                    print("dsfs \(resJson)")
+                }else {
+                    self.friendDetailTableView.isHidden = true
+                    let parentClass = ParentClass()
+                    self.view.addSubview(parentClass.setBlankView())
+                    
                 }
                 
-                DispatchQueue.main.async {
-                    self.friendDetailTableView.reloadData()
-                }
-                print("dsfs \(resJson)")
+               
             }
             if responseObject.result.isFailure {
                 let error  = responseObject.result.error!  as NSError
