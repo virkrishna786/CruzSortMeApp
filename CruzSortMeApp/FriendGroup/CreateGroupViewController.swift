@@ -316,8 +316,9 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
         print("imagefh \(image)")
         let   imagedata  = UIImagePNGRepresentation(image)
         print("imageDatadd \(imagedata!)")
+         hudClass.showInView(view: self.view)
         
-        let URL = try! URLRequest(url: "http://182.73.133.220/CruzSortMe/Apis/createGroup", method: .post, headers: headers)
+        let URL = try! URLRequest(url: "\(baseUrl)createGroup", method: .post, headers: headers)
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(imagedata!, withName: "group_img", fileName: "krish.png", mimeType: "image/png")
@@ -337,6 +338,7 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
                         print(response.data! )     // server data
                         print(response.result)   // result of response serialization
                         
+                       hudClass.hide()
                         if let result = response.result.value {
                             
                             let JSON = result as! NSDictionary
@@ -364,6 +366,8 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
                         }
                     }
                 case .failure(let encodingError):
+                    hudClass.hide()
+                    parentClass.showAlertWithApiFailure()
                     print(encodingError)
                 }
         })

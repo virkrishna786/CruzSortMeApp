@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="392" height="127"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="byw-d4-UcN" id="zMw-0O-1eW">
-                <rect key="frame" x="0.0" y="0.0" width="392" height="127"/>
+                <rect key="frame" x="0.0" y="0.0" width="392" height="126"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YrR-bm-hJA">
@@ -31,7 +31,7 @@
                             <constraint firstAttribute="height" constant="46" id="TJU-F2-K3q"/>
                             <constraint firstAttribute="width" constant="283" id="dgX-k6-8BQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -50,7 +50,7 @@
                 <outlet property="groupFriendImageView" destination="YrR-bm-hJA" id="yqw-Ym-sz6"/>
                 <outlet property="groupFriendNameLabel" destination="wBy-qQ-GHq" id="SdU-ci-Lf3"/>
             </connections>
-            <point key="canvasLocation" x="-143" y="-425.5"/>
+            <point key="canvasLocation" x="-307" y="-427"/>
         </tableViewCell>
     </objects>
 </document>

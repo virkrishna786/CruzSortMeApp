@@ -57,6 +57,8 @@
 		84940B861E28F1C100F94254 /* FriendListClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84940B851E28F1C100F94254 /* FriendListClass.swift */; };
 		84940B881E28F32700F94254 /* FriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84940B871E28F32700F94254 /* FriendListCell.xib */; };
 		84940B8A1E28F36200F94254 /* FriendListCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84940B891E28F36200F94254 /* FriendListCellType.swift */; };
+		84B4F84F1E3329FC00FF4D3F /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4F84E1E3329FC00FF4D3F /* AboutUsViewController.swift */; };
+		84B4F8521E333E9400FF4D3F /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4F8511E333E9400FF4D3F /* CreateEventViewController.swift */; };
 		84E5360B1E31D6D20064A280 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5360A1E31D6D20064A280 /* Network.swift */; };
 		84E5360D1E31D6F50064A280 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E5360C1E31D6F50064A280 /* SystemConfiguration.framework */; };
 		84E5360F1E31DF6C0064A280 /* JHProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5360E1E31DF6C0064A280 /* JHProgressHUD.swift */; };
@@ -159,6 +161,8 @@
 		84940B851E28F1C100F94254 /* FriendListClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListClass.swift; sourceTree = "<group>"; };
 		84940B871E28F32700F94254 /* FriendListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendListCell.xib; sourceTree = "<group>"; };
 		84940B891E28F36200F94254 /* FriendListCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListCellType.swift; sourceTree = "<group>"; };
+		84B4F84E1E3329FC00FF4D3F /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		84B4F8511E333E9400FF4D3F /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		84E5360A1E31D6D20064A280 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		84E5360C1E31D6F50064A280 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84E5360E1E31DF6C0064A280 /* JHProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHProgressHUD.swift; sourceTree = "<group>"; };
@@ -256,6 +260,8 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				84B4F8501E333E7F00FF4D3F /* CreateEvent */,
+				84B4F84D1E3329E700FF4D3F /* AboutUs */,
 				84E536191E3234CC0064A280 /* Explore */,
 				84E536101E321BFE0064A280 /* GroupDetail */,
 				8470453A1E2E1F73002632BE /* FriendGroup */,
@@ -373,6 +379,22 @@
 				84940B891E28F36200F94254 /* FriendListCellType.swift */,
 			);
 			path = FriendList;
+			sourceTree = "<group>";
+		};
+		84B4F84D1E3329E700FF4D3F /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				84B4F84E1E3329FC00FF4D3F /* AboutUsViewController.swift */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
+		84B4F8501E333E7F00FF4D3F /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				84B4F8511E333E9400FF4D3F /* CreateEventViewController.swift */,
+			);
+			path = CreateEvent;
 			sourceTree = "<group>";
 		};
 		84E536101E321BFE0064A280 /* GroupDetail */ = {
@@ -724,6 +746,8 @@
 				84E536121E321C250064A280 /* GroupDetailViewController.swift in Sources */,
 				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
 				8438680C1E2CFB410056062F /* FriendDetailCellType.swift in Sources */,
+				84B4F84F1E3329FC00FF4D3F /* AboutUsViewController.swift in Sources */,
+				84B4F8521E333E9400FF4D3F /* CreateEventViewController.swift in Sources */,
 				84940B7F1E28A6F200F94254 /* RatingAndReviewController.swift in Sources */,
 				84E536181E321CA10064A280 /* GroupDetailCellType.swift in Sources */,
 				84940B8A1E28F36200F94254 /* FriendListCellType.swift in Sources */,

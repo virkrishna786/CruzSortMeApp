@@ -13,6 +13,7 @@ import SwiftyJSON
 class GroupDetailViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
     
     @IBAction func backButtonAction(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var groupDetailTableView: UITableView!
     @IBOutlet weak var  groupImageView: UIImageView!{
@@ -51,15 +52,20 @@ class GroupDetailViewController: UIViewController ,UITableViewDelegate ,UITableV
     
     func groupFriendListApi() {
         
+        if currentReachabilityStatus != .notReachable {
+
+        
         let url = "\(baseUrl)groupDetail"
 
         
         let paramter = ["group_id": self.previousGroupId!]
-        
+        hudClass.showInView(view: self.view)
+            
         Alamofire.request( url, method : .post  ,parameters : paramter).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             
+            hudClass.hide()
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 
@@ -67,8 +73,8 @@ class GroupDetailViewController: UIViewController ,UITableViewDelegate ,UITableV
                 if res_message == "Record  Found Successfully" {
                 
                 self.groupIdString = resJson["g_id"].string
-                self.groupNameLabel.text = resJson["group_name"].string
-                self.noOfLabels.text = resJson["no_of_friend"].string
+                self.groupNameLabel.text = "GroupName : \(resJson["group_name"].string)"
+                self.noOfLabels.text =  "No of members :\(resJson["no_of_friend"].string)"
                 self.downloadImage(string: (resJson["group_img"].string)!)
                 let dataResponse = resJson["CruzSortMe"].array
                     
@@ -94,10 +100,15 @@ class GroupDetailViewController: UIViewController ,UITableViewDelegate ,UITableV
                 print("dsfs \(resJson)")
             }
             if responseObject.result.isFailure {
+                hudClass.hide()
+                parentClass.showAlertWithApiFailure()
                 let error  = responseObject.result.error!  as NSError
                 print("\(error)")
                 
             }
+        }
+        }else{
+            parentClass.showAlert()
         }
     }
     

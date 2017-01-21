@@ -12,14 +12,25 @@ import SwiftyJSON
 import AlamofireImage
 
 var boolValue = 0
-class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource , creatEventBackDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func createEventButttonAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "createEvent", sender: self)
     }
+    
     @IBOutlet weak var createEventButton: UIButton!
+    {
+        didSet{
+            createEventButton.layer.borderWidth = 1
+            createEventButton.layer.masksToBounds = false
+            createEventButton.layer.borderColor = UIColor.white.cgColor
+            createEventButton.layer.cornerRadius = createEventButton.frame.height/2
+            createEventButton.clipsToBounds = true
+        }
+    }
     @IBAction func intrestButtonAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "friendList", sender: self)
+       // self.performSegue(withIdentifier: "friendList", sender: self)
     }
     
     let cellIdentifier = "postCellIdentifier"
@@ -42,11 +53,18 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         }
     }
     
+    func sendBoolValue(bool: Bool) {
+        if bool == true {
+            self.eventApiHit()
+        }
+    }
     
     func eventApiHit() {
         
         if currentReachabilityStatus != .notReachable {
-        let url = "http://182.73.133.220/CruzSortMe/Apis/getAllEvent"
+            
+        hudClass.showInView(view: self.view)
+        let url = "\(baseUrl)getAllEvent"
          
         hudClass.showInView(view: self.view)
         
@@ -117,17 +135,13 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.postTableView.dataSource = self
         self.postTableView.backgroundColor = UIColor.clear
         
-        self.postTableView.isHidden = true
         let useriDstring = defaults.string(forKey: "userId")
         print("userid \(useriDstring!)")
         
         self.postTableView.register(UINib(nibName : "PostCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.navigationController?.isNavigationBarHidden = false
         
-        DispatchQueue.global(qos: .background).async {
-            hudClass.showInView(view: self.view)
-            self.eventApiHit()
-        }
+        self.eventApiHit()
         self.addChildViewController(appDelegate.menuTableViewController)
 
         // Do any additional setup after loading the view.
@@ -210,7 +224,6 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         
     }
     
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -224,6 +237,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         
          if segue.identifier == "eventDetail" {
              let eventDetailView = segue.destination as! EventDetailViewController
+                  // eventDetailView.delegate = self
               eventDetailView.eventIdString = self.eventIdString!
             print("homepage eventIDString \(eventDetailView.eventIdString)")
         

@@ -72,10 +72,13 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
     
     func eventDetailApiHit() {
         
+         if currentReachabilityStatus != .notReachable {
+        
         let url = "http://182.73.133.220/CruzSortMe/Apis/eventDtail"
         
-        let parameter = ["event_id" : "3"]
+        let parameter = ["event_id" : "\(self.eventIdString!)"]
         print("parameter \(parameter)")
+            hudClass.showInView(view: self.view)
         
         Alamofire.request( url, method : .post, parameters: parameter).responseJSON { (responseObject) -> Void in
             
@@ -83,6 +86,7 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             
             print("rsposneIbekjds \(responseObject)")
             if responseObject.result.isSuccess {
+                hudClass.hide()
                 let resJson = JSON(responseObject.result.value!)
                 
                 print("resJsonf \(resJson)")
@@ -116,16 +120,21 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
                     print("EventdetailArray : \(self.eventDetailArray)")
                     print("dataArrayList \(dataResponse)")
                     
-                    let reviewData = resJson["Rating"].array
+                    guard   let reviewData = resJson["Rating"].array else {
+                        print("soemthing withds")
+                        DispatchQueue.main.async {
+                            self.eventDetailTableView.reloadData()
+                        }
+                        return
+                    }
                          print("reviewDataArray  \(reviewData)")
-                     for reviewArray in reviewData!   {
+                       for reviewArray in reviewData  {
                         let reviewClassArray = ReviewClass()
                         reviewClassArray.reviewerNameString = reviewArray["username"].string
                         reviewClassArray.reviewDetail = reviewArray["review"].string
                         reviewClassArray.numberOfRating = reviewArray["rating"].string
                         reviewClassArray.userImageString = reviewArray["profile_image"].string
                         self.reviewDetailArray.append(reviewClassArray)
-                        
                         print("self.reviewDetailArray \(self.reviewDetailArray)")
                     }
                     
@@ -133,30 +142,41 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
                         self.eventDetailTableView.reloadData()
                     }
                     print("dsfs \(resJson)")
-                    
                 }else {
-                    
                     print("sdkgdksbhgks")
                 }
-                
-                
             }
             if responseObject.result.isFailure {
+                hudClass.hide()
+                parentClass.showAlertWithApiFailure()
                 let error  = responseObject.result.error!  as NSError
                 print("\(error)")
             }
+        }
+            
+         }else{
+            parentClass.showAlert()
         }
     }
    
 
     func numberOfSections(in tableView: UITableView) -> Int {
+        if reviewDetailArray.count <= 0 {
+            
+            return 1
+        }else {
+        
         return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
      //   return eventDetailArray.count
         
+        if   reviewDetailArray.count <= 0 {
+            return eventDetailArray.count
+        }else {
         switch section {
         case 0:
             print("eventdetailArray.count \(eventDetailArray.count)")
@@ -166,6 +186,8 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             return reviewDetailArray.count
         default:
            return   1
+        }
+            
         }
     }
     
@@ -186,6 +208,77 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
+        
+        if reviewDetailArray.count <= 0 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! EventDetailCell
+            let eventList = eventDetailArray[indexPath.row]
+            print("eventLsit\(eventList)")
+            
+            print("event imageString = \(eventList.eventImage!)")
+            let URL = NSURL(string: "\(eventList.eventImage!)")
+            print("urlsfgds \(URL)")
+            let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
+            mutableUrlRequest.httpMethod = "get"
+            
+            mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
+            
+            let headers = [
+                "Accept"  :  "image/jpeg"
+            ]
+            print(" headers \(headers)")
+            print("mutable Request : \(mutableUrlRequest)")
+            //  request.addAcceptableImageContentTypes(["image/jpeg"])
+            
+            Alamofire.request("\(URL!)").responseImage { response in
+                debugPrint(response)
+                
+                print("adsfdfs \(response.request!)")
+                print("dskjfd \(response.response!)")
+                print(" response.result \(response.result)")
+                
+                if let image = response.result.value {
+                    DispatchQueue.global().async(execute: {
+                        
+                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                            
+                            print("\(cellToUpdate)")
+                            cell.eventImageView.image = image
+                        }
+                        
+                    })
+                    
+                }
+            }
+            
+            let eventAddress =  eventList.eventAddrss!
+            if eventAddress == "" {
+                cell.addresslabel.text = ""
+            }else {
+                cell.addresslabel.text =  "Address:" + "" + eventAddress
+            }
+            
+            let eventnameString =  eventList.eventName!
+            if eventAddress == "" {
+                cell.eventNameLabel.text = ""
+            }else {
+                cell.eventNameLabel.text = eventnameString
+            }
+            
+            let eventdetailData = eventList.eventDetailString!
+            
+            if eventdetailData == "" {
+                cell.eventDetailLabel.text = ""
+            }else {
+                cell.eventDetailLabel.text = eventdetailData
+            }
+            
+            cell.dateLabel.text =  "Date:" + "" + eventList.eventDateString!
+            cell.timeLabel.text =  "Timimg:" + "" + eventList.eventTimeString
+            
+            return cell
+        }else {
+        
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! EventDetailCell
@@ -199,7 +292,6 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             mutableUrlRequest.httpMethod = "get"
             
             mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-            
             
             let headers = [
                 "Accept"  :  "image/jpeg"
@@ -308,7 +400,8 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             print("sadfas")
         }
         
-        return cell
+        }
+            return cell
     }
     
 //    

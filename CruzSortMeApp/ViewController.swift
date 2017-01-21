@@ -43,7 +43,6 @@ class ViewController: UIViewController ,UITextFieldDelegate {
        
         let useriDstring = defaults.string(forKey: "userId")
 
-       
         if useriDstring == "" {
             
         }else {
@@ -62,7 +61,8 @@ class ViewController: UIViewController ,UITextFieldDelegate {
        
         if currentReachabilityStatus != .notReachable {
             
-            let  urlString = "http://var.73.133.220/CruzSortMe/Apis/login"
+            hudClass.showInView(view: self.view)
+            let  urlString = "\(baseUrl)login"
             let userString = "\(usernameTextField.text!)"
             let passwordString = "\(passwordTextField.text!)"
             
@@ -88,14 +88,19 @@ class ViewController: UIViewController ,UITextFieldDelegate {
                         print("response message \(responseMessage)")
                         
                         if responseMessage == "Login has been Successfully" {
+                            hudClass.hide()
                             
                             let userIdString = responseCode["user_id"] as! String
-                            
+                            let userNameSavedString = responseCode["username"] as! String
+                            let userProfileImageString = responseCode["profile_image"] as! String
                             defaults.set(userIdString, forKey: "userId")
+                            defaults.set(userNameSavedString, forKey: "user_name")
+                            defaults.set(userProfileImageString, forKey: "profile_image")
                             defaults.synchronize()
                             self.performSegue(withIdentifier: "homeView", sender: self)
                             
                         }else {
+                            hudClass.hide()
                             
                             let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
                             let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
@@ -164,10 +169,6 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     }
     
     
-  
-    
-       
-    
     @IBAction func loginButtonAction(_ sender: UIButton) {
 //        let controller = storyboard?.instantiateViewController(withIdentifier: "homeView")
 //        self.navigationController?.pushViewController(controller!, animated: true)
@@ -180,9 +181,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             self.present(alertVC, animated: true, completion: nil)
 
         }else{
-        DispatchQueue.global(qos: .background).async {
              self.apiCall()
-        }
         }
     }
     @IBAction func facebookButtonAction(_ sender: UIButton) {

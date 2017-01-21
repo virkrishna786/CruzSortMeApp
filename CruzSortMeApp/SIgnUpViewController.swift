@@ -94,9 +94,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
             present(alertVC,animated: true,completion: nil)
             
         } else {
-            DispatchQueue.global(qos: .background).async {
                 self.signUpApi()
-            }
         }
     }
     @IBAction func camaraButtonAction(_ sender: UIButton) {
@@ -199,6 +197,8 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     
     func signUpApi() {
         
+         if currentReachabilityStatus != .notReachable {
+        
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
@@ -228,8 +228,10 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         //  let URL = "http://182.73.133.220/CruzSortMe/Apis/signUp"
         let image = UIImage(named: "krish.png")
         let   imagedata  = UIImagePNGRepresentation(image!)
+            hudClass.showInView(view: self.view)
         
         let URL = try! URLRequest(url: "http://182.73.133.220/CruzSortMe/Apis/signUp", method: .post, headers: headers)
+            
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(imagedata!, withName: "profile_pic", fileName: "krish.png", mimeType: "image/png")
@@ -249,6 +251,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                         print(response.data! )     // server data
                         print(response.result)   // result of response serialization
                         
+                        hudClass.hide()
                         if let result = response.result.value {
                             
                             let JSON = result as! NSDictionary
@@ -284,9 +287,16 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                         }
                     }
                 case .failure(let encodingError):
+                    hudClass.hide()
+                    parentClass.showAlert()
                     print(encodingError)
                 }
         })
+            
+         }else {
+            parentClass.showAlert()
+        }
+        
     }
     
     // MARK -: set date of birth

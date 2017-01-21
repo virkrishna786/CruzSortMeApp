@@ -136,12 +136,12 @@ class JHProgressHUD: UIView
         if backGroundView?.superview != nil
         {
             backGroundView?.removeFromSuperview()
-            var aView = backGroundView?.viewWithTag(1001) as UIView?
+            let  aView = backGroundView?.viewWithTag(1001) as UIView?
             aView?.removeFromSuperview()
         }
         backGroundView = UIView(frame: getBackGroundFrame(view: self))
         backGroundView?.backgroundColor = UIColor.clear
-        var translucentView = UIView(frame: backGroundView!.bounds)
+        let  translucentView = UIView(frame: backGroundView!.bounds)
         translucentView.backgroundColor = backGroundColor
         translucentView.alpha = 0.85
         translucentView.tag = 1001;

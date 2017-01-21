@@ -58,14 +58,18 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
     
     func friendGroupListApi() {
         
-        let url = "http://182.73.133.220/CruzSortMe/Apis/groupList"
+        if currentReachabilityStatus != .notReachable {
+
+        let url = "\(baseUrl)groupList"
         
         let paramter = ["user_id": self.userIdString!]
+            hudClass.showInView(view: self.view)
         
         Alamofire.request( url, method : .post  ,parameters : paramter).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             
+            hudClass.hide()
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 
@@ -101,10 +105,15 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
                 print("dsfs \(resJson)")
             }
             if responseObject.result.isFailure {
+                hudClass.hide()
+                parentClass.showAlertWithApiFailure()
                 let error  = responseObject.result.error!  as NSError
                 print("\(error)")
                 
             }
+        }
+        }else{
+            parentClass.showAlert()
         }
     }
     

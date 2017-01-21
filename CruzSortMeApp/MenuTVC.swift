@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import  Alamofire
+import  SwiftyJSON
 
 class MenuTVC: UITableViewController {
  
     let LeftMenuWidth = 100.0
     var headerView:UIView?
+    var  imageIcon=UIImageView()
     var SA_Choice = ["Home","Account","My Events","Interest","Explore","Friends","Friend Request","Messages","Around","Calender","About Us","Logout"]
     var SA_Icons = ["home","account","myEvent","myEvent","search","group","request","message","search","calender","aboutUs","account"]
   
@@ -48,19 +51,25 @@ class MenuTVC: UITableViewController {
     func setTableviewHeader(){
         //let headerView=UIView()
         headerView!.frame=CGRect(x: 0, y: 0, width: 100, height: 150)//CGRect(0, 0, 220, 200)
-        let imageIcon=UIImageView()
         
+        
+        imageIcon.frame=CGRect(x: 10, y: 5, width: 80, height: 80)//CGRect(53,9,150,145)
         imageIcon.layer.borderWidth = 1
         imageIcon.layer.masksToBounds = false
         imageIcon.layer.borderColor = UIColor.white.cgColor
         imageIcon.layer.cornerRadius = imageIcon.frame.height/2
         imageIcon.clipsToBounds = true
 
-        imageIcon.frame=CGRect(x: 10, y: 5, width: 80, height: 80)//CGRect(53,9,150,145)
-        imageIcon.image=UIImage(named:"home")
+        
+        let imageString = defaults.string(forKey: "profile_image")
+        self.downloadImage(string: imageString!)
+        imageIcon.contentMode = .scaleAspectFit
         let nameLabel=UILabel()
         nameLabel.frame=CGRect(x: 10, y: 100 , width:85, height:30)//CGRectMake(60,150, 85, 30)
-        nameLabel.text = "Krishna"
+        
+        let username = defaults.string(forKey: "user_name")
+        print("userNamde : \(username)")
+        nameLabel.text = username
         nameLabel.textColor = UIColor.white
         nameLabel.textAlignment = NSTextAlignment.center
         headerView!.backgroundColor=UIColor.white.withAlphaComponent(0.5)
@@ -210,6 +219,85 @@ class MenuTVC: UITableViewController {
 
             
             
+        }else if indexPath.row == 5 {
+            
+            
+            hideMenu()
+            let firstView:FriendListViewController
+                = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "friendList") as! FriendListViewController
+            //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: FriendListViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: FriendListViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+            
+        }else if indexPath.row == 10 {
+            hideMenu()
+            let firstView:AboutUsViewController
+                = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aboutUs") as! AboutUsViewController
+            //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: AboutUsViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: AboutUsViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+
+            
         }
         
         
@@ -242,4 +330,45 @@ class MenuTVC: UITableViewController {
             self.view.frame=initialFrame
         })
     }
+    
+    
+    func downloadImage(string: String) {
+        
+        
+        let URL = NSURL(string: "\(string)")
+        print("urlsfgds \(URL)")
+        let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
+        mutableUrlRequest.httpMethod = "get"
+        
+        mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
+        
+        
+        let headers = [
+            "Accept"  :  "image/jpeg"
+        ]
+        
+        print(" headers \(headers)")
+        print("mutable Request : \(mutableUrlRequest)")
+        
+        //  request.addAcceptableImageContentTypes(["image/jpeg"])
+        
+        Alamofire.request("\(URL!)").responseImage { response in
+            debugPrint(response)
+            
+            print("adsfdfs \(response.request!)")
+            print("dskjfd \(response.response!)")
+            print(" response.result \(response.result)")
+            
+            if let image = response.result.value {
+                DispatchQueue.global().async(execute: {
+                    
+                    self.imageIcon.image = image
+                    
+                })
+                
+            }
+        }
+    }
+    
+
 }

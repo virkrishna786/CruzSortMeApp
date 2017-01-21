@@ -81,8 +81,9 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     
     
     func friendListApi() {
+         if currentReachabilityStatus != .notReachable {
         
-        let url = "http://182.73.133.220/CruzSortMe/Apis/friendList"
+        let url = "\(baseUrl)friendList"
         
         let paramter = ["user_id": self.userIdString!]
         
@@ -115,10 +116,15 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
                 print("dsfs \(resJson)")
             }
             if responseObject.result.isFailure {
+                hudClass.hide()
+                parentClass.showAlertWithApiFailure()
                 let error  = responseObject.result.error!  as NSError
                 print("\(error)")
                 
             }
+        }
+         }else{
+            parentClass.showAlert()
         }
     }
     

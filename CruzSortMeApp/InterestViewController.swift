@@ -179,7 +179,9 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
     
     func selectedinterestApiHit(selectedArray : [String]) {
         
-        let url = "http://182.73.133.220/CruzSortMe/Apis/saveInterest"
+         if currentReachabilityStatus != .notReachable {
+        
+        let url = "\(baseUrl)saveInterest"
         
         let stringArray = selectedInterestArray
         let string = stringArray.joined(separator: ",")
@@ -189,11 +191,12 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
                           "user_id" : self.userIdString!]
         
         print("parameter \(parameter)")
-        
+            hudClass.showInView(view: self.view)
         
         Alamofire.request( url, method : .post , parameters: parameter ).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
+            hudClass.hide()
             
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
@@ -221,10 +224,15 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
                 
             }
             if responseObject.result.isFailure {
+                hudClass.hide()
+                parentClass.showAlertWithApiFailure()
                 let error  = responseObject.result.error!  as NSError
                 print("\(error)")
                 
             }
+        }
+         }else {
+            parentClass.showAlert()
         }
     }
     

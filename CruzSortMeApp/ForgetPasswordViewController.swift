@@ -63,6 +63,9 @@ class ForgetPasswordViewController: UIViewController {
     
     func forgetApiCall() {
         
+         if currentReachabilityStatus != .notReachable {
+        
+            hudClass.showInView(view: self.view)
         let urlString = "http://182.73.133.220/CruzSortMe/Apis/forgotPassword"
         let userString = "\(emailTextField.text!)"
         print("userString = \(userString)")
@@ -75,6 +78,7 @@ class ForgetPasswordViewController: UIViewController {
                 print("Success: \(response.result.isSuccess)")
                 print("Response String: \(response.result.value)")
                 
+                hudClass.hide()
                 //to get JSON return value
                 if let result = response.result.value {
                     let JSON = result as! NSDictionary
@@ -94,6 +98,10 @@ class ForgetPasswordViewController: UIViewController {
                         self.present(alertVC, animated: true, completion: nil)
                     }
                 }
+        }
+         }else {
+            
+            parentClass.showAlert()
         }
     }
     

@@ -45,16 +45,21 @@ class FriendDetailViewController: UIViewController ,UITableViewDelegate ,UITable
     
     func friendDetailApiHit() {
         
-        let url = "http://182.73.133.220/CruzSortMe/Apis/friendProfile"
+         if currentReachabilityStatus != .notReachable {
+        
+        let url = "\(baseUrl)friendProfile"
         
         let parameter = ["friend_id": self.friendIdString!,
                          "user_id" : self.userIdString!]
+            hudClass.showInView(view: self.view)
         
         Alamofire.request( url, method : .post , parameters: parameter).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             
             if responseObject.result.isSuccess {
+                hudClass.hide()
+
                 let resJson = JSON(responseObject.result.value!)
                 
                 let  res_message = resJson["res_msg"].string
@@ -98,15 +103,17 @@ class FriendDetailViewController: UIViewController ,UITableViewDelegate ,UITable
                     self.friendDetailTableView.isHidden = true
                     let parentClass = ParentClass()
                     self.view.addSubview(parentClass.setBlankView())
-                    
                 }
-                
-               
             }
             if responseObject.result.isFailure {
+                hudClass.hide()
+                parentClass.showAlertWithApiFailure()
                 let error  = responseObject.result.error!  as NSError
                 print("failuredata \(error)")
             }
+        }
+         }else {
+            parentClass.showAlert()
         }
     }
     
@@ -194,7 +201,6 @@ class FriendDetailViewController: UIViewController ,UITableViewDelegate ,UITable
     
     func downloadImage(string: String) {
         
-       
         let URL = NSURL(string: "\(string)")
         print("urlsfgds \(URL)")
         let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
@@ -228,6 +234,7 @@ class FriendDetailViewController: UIViewController ,UITableViewDelegate ,UITable
                 
             }
         }
+            
     }
     
 
