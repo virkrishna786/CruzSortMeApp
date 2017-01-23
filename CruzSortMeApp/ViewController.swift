@@ -48,7 +48,6 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         }else {
             self.performSegue(withIdentifier: "homeView", sender: self)
         }
-        print("userid \(useriDstring!)")
         
         // Do any additional setup after loading the view, typically from a nib.
     }

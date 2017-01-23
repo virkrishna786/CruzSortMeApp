@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UpS-V4-z3S" id="OUy-XO-faj">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="259.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qng-yB-zRw">
@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="24" id="jV7-Vg-FOX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title=" 45  reviews">
+                                <state key="normal" title=" 0  reviews">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -64,7 +64,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="RGx-00-4uV"/>
                                 </constraints>
-                                <state key="normal" title="4.7/5">
+                                <state key="normal" title="0/5">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -114,7 +114,7 @@
                 <outlet property="reviewButton" destination="6Kj-51-PyL" id="LsE-ED-OfJ"/>
                 <outlet property="userIdLabel" destination="0HX-qh-cZh" id="r5S-EV-U4p"/>
             </connections>
-            <point key="canvasLocation" x="64.5" y="369"/>
+            <point key="canvasLocation" x="32" y="332"/>
         </tableViewCell>
     </objects>
 </document>

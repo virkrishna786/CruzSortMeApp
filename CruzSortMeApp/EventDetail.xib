@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="334" height="366"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9aQ-95-ZYd" id="35p-BS-JY9">
-                <rect key="frame" x="0.0" y="0.0" width="334" height="365"/>
+                <rect key="frame" x="0.0" y="0.0" width="334" height="365.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evk-sF-nYf">
@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="width" constant="76" id="eLr-Z4-A38"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title=" 45  reviews">
+                                <state key="normal" title="0  reviews">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -78,7 +78,7 @@
                                     <constraint firstAttribute="width" constant="71" id="oXT-Ab-LO5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="4.7/5">
+                                <state key="normal" title="0/5">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>

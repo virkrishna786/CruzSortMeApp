@@ -233,20 +233,28 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             Alamofire.request("\(URL!)").responseImage { response in
                 debugPrint(response)
                 
-                print("adsfdfs \(response.request!)")
-                print("dskjfd \(response.response!)")
-                print(" response.result \(response.result)")
-                
-                if let image = response.result.value {
-                    DispatchQueue.global().async(execute: {
-                        
-                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                switch response.result {
+                    
+                case .success(let Data) :
+                    
+                    print("Data \(Data)")
+                    
+                    
+                    if let image = response.result.value {
+                        DispatchQueue.global().async(execute: {
                             
-                            print("\(cellToUpdate)")
-                            cell.eventImageView.image = image
-                        }
+                            if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                                
+                                print("\(cellToUpdate)")
+                                cell.eventImageView.image = image
+                            }
+                            
+                        })
                         
-                    })
+                    }
+                case .failure(let errorData) :
+                    print("error data \(errorData)")
+                    print("")
                     
                 }
             }
@@ -303,20 +311,28 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             Alamofire.request("\(URL!)").responseImage { response in
                 debugPrint(response)
                 
-                print("adsfdfs \(response.request!)")
-                print("dskjfd \(response.response!)")
-                print(" response.result \(response.result)")
-                
-                if let image = response.result.value {
-                    DispatchQueue.global().async(execute: {
-                        
-                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                switch response.result {
+                    
+                case .success(let Data) :
+                    
+                    print("Data \(Data)")
+                    
+                    
+                    if let image = response.result.value {
+                        DispatchQueue.global().async(execute: {
                             
-                            print("\(cellToUpdate)")
-                            cell.eventImageView.image = image
-                        }
+                            if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                                
+                                print("\(cellToUpdate)")
+                                cell.eventImageView.image = image
+                            }
+                            
+                        })
                         
-                    })
+                    }
+                case .failure(let errorData) :
+                    print("error data \(errorData)")
+                    print("")
                     
                 }
             }
@@ -372,23 +388,32 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             Alamofire.request("\(URL!)").responseImage { response in
                 debugPrint(response)
                 
-                print("adsfdfs \(response.request!)")
-                print("dskjfd \(response.response!)")
-                print(" response.result \(response.result)")
-                
-                if let image = response.result.value {
-                    DispatchQueue.global().async(execute: {
-                        
-                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                switch response.result {
+                    
+                case .success(let Data) :
+                    
+                    print("Data \(Data)")
+                    
+                    
+                    if let image = response.result.value {
+                        DispatchQueue.global().async(execute: {
                             
-                            print("\(cellToUpdate)")
-                            cell.profileImageView.image = image
-                        }
+                            if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                                
+                                print("\(cellToUpdate)")
+                                cell.profileImageView.image = image
+                            }
+                            
+                        })
                         
-                    })
+                    }
+                case .failure(let errorData) :
+                    print("error data \(errorData)")
+                    print("")
                     
                 }
             }
+
 
             cell.nameLabel.text = reviewList.reviewerNameString!
             cell.reviewDetailLabel.text = reviewList.reviewDetail!

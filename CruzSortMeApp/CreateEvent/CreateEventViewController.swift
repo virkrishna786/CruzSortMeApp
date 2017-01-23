@@ -11,13 +11,21 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 
-protocol creatEventBackDelegate: class  {
+protocol creatEventBackDelegate : class{
     func sendBoolValue(bool : Bool)
 }
 
 
 class CreateEventViewController: UIViewController ,UIImagePickerControllerDelegate ,UINavigationControllerDelegate ,UITextFieldDelegate {
 
+    @IBAction func dateAndTimePickerValueChanged(_ sender: UIDatePicker) {
+              self.setDateAndTime()
+    }
+    @IBOutlet weak var dateAndTimePicker: UIDatePicker!{
+        didSet{
+            dateAndTimePicker.backgroundColor = UIColor.red
+        }
+    }
     @IBAction func backButtonAction(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated:true)
     }
@@ -47,11 +55,24 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
             self.noCamara()
         }
     }
-    @IBOutlet weak var startDateButton: UIButton!
-    @IBAction func startDateButtonAction(_ sender: UIButton) {
+    @IBOutlet weak var startDateButton: UIButton!{
+        didSet {
+        self.startDateButton.tag = 100
+        }
     }
-    @IBOutlet weak var endTimeButton: UIButton!
-    
+    @IBAction func startDateButtonAction(_ sender: UIButton) {
+        self.dateAndTimePicker.isHidden = false
+        self.dateAndTimePicker.datePickerMode = UIDatePickerMode.date
+        self.tagButtonValue = sender.tag
+        print("krihsna\(self.tagButtonValue!)")
+    }
+    @IBOutlet weak var endTimeButton: UIButton!{
+        didSet {
+            self.endTimeButton.tag = 103
+
+        }
+    }
+
     @IBAction func postEventButttonAction(_ sender: UIButton) {
         
         
@@ -84,16 +105,43 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
     }
     @IBOutlet weak var postEventbutton: UIButton!
     @IBAction func endTimeButtonAction(_ sender: UIButton) {
+        self.dateAndTimePicker.isHidden = false
+        self.dateAndTimePicker.datePickerMode = UIDatePickerMode.time
+        self.tagButtonValue = sender.tag
+
+
     }
     @IBOutlet weak var eventDetailTextField: UITextField!
     @IBAction func endDateButtonAction(_ sender: UIButton) {
+        self.dateAndTimePicker.isHidden = false
+        self.dateAndTimePicker.datePickerMode = UIDatePickerMode.date
+        self.tagButtonValue = sender.tag
+
+
     }
-    @IBOutlet weak var endDateButton: UIButton!
+    @IBOutlet weak var endDateButton: UIButton!{
+        didSet {
+            self.endDateButton.tag = 102
+            
+        }
+    }
+
     @IBAction func startTimebuttonAction(_ sender: UIButton) {
+        self.dateAndTimePicker.isHidden = false
+        self.dateAndTimePicker.datePickerMode = UIDatePickerMode.time
+        self.tagButtonValue = sender.tag
+
+
     }
-    @IBOutlet weak var startTimeButton: UIButton!
+    @IBOutlet weak var startTimeButton: UIButton!{
+        didSet {
+            self.startTimeButton.tag = 101
+        }
+    }
+
     
     let imagePicker = UIImagePickerController()
+    let dateFormatter = DateFormatter()
     var userIdString : String!
     var groupImage : UIImage!
 
@@ -103,6 +151,7 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
         self.eventDetailTextField.delegate = self
         self.eventNameTextField.delegate = self
         self.eventTypeTextField.delegate = self
+        self.dateAndTimePicker.isHidden = true
 
         let userid = defaults.string(forKey: "userId")
         self.userIdString = userid!
@@ -116,6 +165,7 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
     }
     
     func gestureFunction() {
+        self.dateAndTimePicker.isHidden = true
         self.eventTypeTextField.resignFirstResponder()
         self.eventDetailTextField.resignFirstResponder()
         self.eventNameTextField.resignFirstResponder()
@@ -169,20 +219,27 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
             let headers: HTTPHeaders = [
                 "Accept": "application/json"
             ]
+            
+            let eventEndTimeStringK  = self.endTimeButton.titleLabel?.text!
+            let eventEndDateTimingK = self.endDateButton.titleLabel?.text!
+            let eventStartTimingStringK = self.startTimeButton.titleLabel?.text!
+            let eventStartDateStringK =   self.startDateButton.titleLabel?.text!
+            
+            
             let parameter = ["user_id": "\(self.userIdString!)",
                              " event_name" : "\(self.eventNameTextField.text!)",
                              "description" : "\(self.eventDetailTextField.text!)",
                              "address" : "\(self.eventTypeTextField.text!)",
-                             " event_start_time" : "\(self.startTimeButton.titleLabel?.text!)",
-                             "event_end_time" : "\(self.endTimeButton.titleLabel?.text!)",
-                             "event_add_date" : "\(self.startDateButton.titleLabel?.text!)",
-                             " event_end_date" : "\(self.endDateButton.titleLabel?.text!)"
+                             " event_start_time" : eventStartTimingStringK!,
+                             "event_end_time" : eventEndTimeStringK!,
+                             "event_add_date" : eventStartDateStringK!,
+                             " event_end_date" : eventEndDateTimingK!
                              ]
             print("parameter is \(parameter)")
             
-            let image = self.groupImage!
+            let image = UIImage(named : "icon1.png")
             print("imagefh \(image)")
-            let   imagedata  = UIImagePNGRepresentation(image)
+            let   imagedata  = UIImagePNGRepresentation(image!)
             print("imageDatadd \(imagedata!)")
             hudClass.showInView(view: self.view)
             
@@ -199,6 +256,7 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
                 switch encodingResult {
                 case .success(let upload, _, _):
                     print("successess")
+                    
                     upload.responseJSON {
                         response in
                         print(response.request! )  // original URL request
@@ -206,22 +264,26 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
                         print(response.data! )     // server data
                         print(response.result)   // result of response serialization
                         
-                        hudClass.hide()
                         if let result = response.result.value {
                             
-                            let JSON = result as! NSDictionary
-                            let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
-                            
+                            let json = JSON(data: result as! Data)
+                            let responseCode = json["CruzSortMe_app"].dictionary
                             print("response code \(responseCode)")
                             
-                            let responseMessage = JSON["res_msg"] as! String
+                            let responseMessage = json["res_msg"].string
                             print("response message \(responseMessage)")
                             
                             if responseMessage == "Save Successfully" {
-                                self.delegate?.sendBoolValue(bool: true)
+                                hudClass.hide()
+
+                                if (self.delegate != nil) {
+                                    self.delegate?.sendBoolValue(bool: true)
+                                   }
+                                
                                 _ = self.navigationController?.popViewController(animated: true)
                                 
                             }else {
+                                hudClass.hide()
                                 let alertVC = UIAlertController(title: "Alert", message: "some thing went wrong", preferredStyle: .alert)
                                 let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
                                 alertVC.addAction(okAction)
@@ -245,9 +307,38 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
         }
     }
     
+    
+    // MARK -: set date of birth
+    var tagButtonValue : Int!
+    func setDateAndTime() {
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        
+        if self.tagButtonValue == 100 {
+//            dateAndTimePicker.datePickerMode = UIDatePickerMode.date
+            dateFormatter.dateFormat = "dd-MM-YYYY"
+            self.startDateButton.titleLabel?.text = dateFormatter.string(from: dateAndTimePicker.date)
+            
+        }else if self.tagButtonValue == 101{
+//            dateAndTimePicker.datePickerMode = UIDatePickerMode.time
+            dateFormatter.dateFormat = "HH:mm"
+            self.startTimeButton.titleLabel?.text = dateFormatter.string(from: dateAndTimePicker.date)
+
+        }else if self.tagButtonValue == 102 {
+//            dateAndTimePicker.datePickerMode = UIDatePickerMode.date
+            dateFormatter.dateFormat = "dd-MM-YYYY"
+            self.endDateButton.titleLabel?.text = dateFormatter.string(from: dateAndTimePicker.date)
+
+        }else if self.tagButtonValue == 103 {
+//            dateAndTimePicker.datePickerMode = UIDatePickerMode.time
+            dateFormatter.dateFormat = "HH:mm"
+            self.endTimeButton.titleLabel?.text = dateFormatter.string(from: dateAndTimePicker.date)
+
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        //  myScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        // myScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         eventNameTextField.resignFirstResponder()
         eventTypeTextField.resignFirstResponder()
         eventDetailTextField.resignFirstResponder()

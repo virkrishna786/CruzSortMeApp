@@ -52,6 +52,8 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
            boolValue = 0
         }
     }
+   
+    // MARK: - delegateMethod 
     
     func sendBoolValue(bool: Bool) {
         if bool == true {
@@ -135,6 +137,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.postTableView.dataSource = self
         self.postTableView.backgroundColor = UIColor.clear
         
+        
         let useriDstring = defaults.string(forKey: "userId")
         print("userid \(useriDstring!)")
         
@@ -189,20 +192,28 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         Alamofire.request("\(URL!)").responseImage { response in
             debugPrint(response)
             
-            print("adsfdfs \(response.request!)")
-            print("dskjfd \(response.response!)")
-            print(" response.result \(response.result)")
-            
-            if let image = response.result.value {
-                DispatchQueue.global().async(execute: {
-                    
-                    if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+            switch response.result {
+                
+            case .success(let Data) :
+                
+                print("Data \(Data)")
+                
+                
+                if let image = response.result.value {
+                    DispatchQueue.global().async(execute: {
                         
-                        print("\(cellToUpdate)")
-                        cell.eventImageView.image = image
-                    }
+                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
+                            
+                            print("\(cellToUpdate)")
+                            cell.eventImageView.image = image
+                        }
+                        
+                    })
                     
-                })
+                }
+            case .failure(let errorData) :
+                print("error data \(errorData)")
+              print("")
                 
             }
         }
