@@ -10,6 +10,14 @@ import UIKit
 
 class PeopleCell: UITableViewCell {
 
+    @IBAction func blockButtonAction(_ sender: UIButton) {
+    }
+    @IBAction func addButtonAction(_ sender: UIButton) {
+    }
+    @IBOutlet weak var blockButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileimageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

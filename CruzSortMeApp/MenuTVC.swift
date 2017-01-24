@@ -364,13 +364,13 @@ class MenuTVC: UITableViewController {
         let URL = NSURL(string: "\(string)")
         print("urlsfgds \(URL)")
         let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-        mutableUrlRequest.httpMethod = "get"
+        mutableUrlRequest.httpMethod = "post"
         
-        mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
+        mutableUrlRequest.setValue("image/jpeg/png", forHTTPHeaderField: "Accept")
         
         
         let headers = [
-            "Accept"  :  "image/jpeg"
+            "Accept"  :  "image/jpeg/png"
         ]
         
         print(" headers \(headers)")
@@ -381,18 +381,32 @@ class MenuTVC: UITableViewController {
         Alamofire.request("\(URL!)").responseImage { response in
             debugPrint(response)
             
-            print("adsfdfs \(response.request!)")
-            print("dskjfd \(response.response!)")
+          //  print("adsfdfs \(response.request!)")
+          //  print("dskjfd \(response.response!)")
             print(" response.result \(response.result)")
+            print("resposen .staus code \(response.response?.statusCode)")
+
+            print("respionse.result.value \(response.result.value)")
             
-            if let image = response.result.value {
-                DispatchQueue.global().async(execute: {
-                    
-                    self.imageIcon.image = image
-                    
-                })
+            switch response.result {
+            case .success(let imageData) :
+                print("resposen .staus code \(response.response?.statusCode)")
+                print("imagesata \(imageData)")
                 
+                if let image = response.result.value {
+                    DispatchQueue.global().async(execute: {
+                        self.imageIcon.image = image
+                    })
+                    
+                }else {
+                    
+                    self.imageIcon.image = UIImage(named: "maleIcon")
+                }
+            case .failure(let errorData) :
+                print("error data \(errorData)")
             }
+            
+           
         }
     }
     

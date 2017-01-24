@@ -10,9 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
+import Kingfisher
 
-var boolValue = 0
+
 class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource , creatEventBackDelegate {
+    
+    var boolValue = 0
+
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func createEventButttonAction(_ sender: UIButton) {
@@ -168,55 +172,15 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! PostCell
+       // cell.eventImageView.image = UIImage(named: "dummy")
         let eventList = homeEventArray[indexPath.row]
         print("eventLsit\(eventList)")
         
         print("event imageString = \(eventList.eventImage!)")
-        let URL = NSURL(string: "\(eventList.eventImage!)")
-        print("urlsfgds \(URL)")
-        let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-        mutableUrlRequest.httpMethod = "get"
+        let url = URL(string : "\(eventList.eventImage!)")
         
-        mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-       
+        cell.eventImageView.kf.setImage(with: url , placeholder : UIImage(named: "dummy"))
         
-        let headers = [
-            "Accept"  :  "image/jpeg"
-        ]
-        
-        print(" headers \(headers)")
-        print("mutable Request : \(mutableUrlRequest)")
-        
-      //  request.addAcceptableImageContentTypes(["image/jpeg"])
-        
-        Alamofire.request("\(URL!)").responseImage { response in
-            debugPrint(response)
-            
-            switch response.result {
-                
-            case .success(let Data) :
-                
-                print("Data \(Data)")
-                
-                
-                if let image = response.result.value {
-                    DispatchQueue.global().async(execute: {
-                        
-                        if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                            
-                            print("\(cellToUpdate)")
-                            cell.eventImageView.image = image
-                        }
-                        
-                    })
-                    
-                }
-            case .failure(let errorData) :
-                print("error data \(errorData)")
-              print("")
-                
-            }
-        }
         cell.dateTimeLabel.text = eventList.dateTimeString!
         cell.eventTitleLabel.text = eventList.eventTitleString!
         cell.ratingButton.titleLabel?.text = "\(eventList.ratingString!)/5"

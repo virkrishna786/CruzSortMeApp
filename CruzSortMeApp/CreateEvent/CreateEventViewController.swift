@@ -216,10 +216,7 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
 
     func  postEventApi() {
         if currentReachabilityStatus != .notReachable {
-            let headers: HTTPHeaders = [
-                "Accept": "application/json"
-            ]
-            
+       
             let eventEndTimeStringK  = self.endTimeButton.titleLabel?.text!
             let eventEndDateTimingK = self.endDateButton.titleLabel?.text!
             let eventStartTimingStringK = self.startTimeButton.titleLabel?.text!
@@ -237,16 +234,17 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
                              ]
             print("parameter is \(parameter)")
             
-            let image = UIImage(named : "icon1.png")
+            let image = self.groupImage
             print("imagefh \(image)")
-            let   imagedata  = UIImagePNGRepresentation(image!)
+            let   imagedata  = UIImageJPEGRepresentation(image!, 0.2)
             print("imageDatadd \(imagedata!)")
             hudClass.showInView(view: self.view)
             
-            let URL = try! URLRequest(url: "\(baseUrl)createEvent", method: .post, headers: headers)
+            let URL = try! URLRequest(url: "\(baseUrl)createEvent", method: .post)
+            print("URLS : \(URL)")
             
             Alamofire.upload(multipartFormData: { (multipartFormData) in
-                multipartFormData.append(imagedata!, withName: " event_image", fileName: "krish.png", mimeType: "image/png")
+                multipartFormData.append(imagedata!, withName: " event_image", fileName: "krish.jpg", mimeType: "image/png/jpeg")
                 
                 for (key, value) in parameter {
                     multipartFormData.append((value.data(using: String.Encoding.utf8)!), withName: key)
@@ -257,29 +255,34 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
                 case .success(let upload, _, _):
                     print("successess")
                     
-                    upload.responseJSON {
+                    upload.responseString{
                         response in
                         print(response.request! )  // original URL request
                         print(response.response! ) // URL response
                         print(response.data! )     // server data
                         print(response.result)   // result of response serialization
                         
-                        if let result = response.result.value {
+                        switch  response.result {
                             
-                            let json = JSON(data: result as! Data)
-                            let responseCode = json["CruzSortMe_app"].dictionary
-                            print("response code \(responseCode)")
+                        case .success(let datads) :
+                            print("dasdfkas \(datads)")
+                            let dsfs = datads.data(using: String.Encoding.utf8)!
+                            let json = JSON(data: dsfs)
+                            //     let responseCode = json["CruzSortMe_app"].dictionary
+                            //     print("response code \(responseCode)")
                             
-                            let responseMessage = json["res_msg"].string
+                            let resData = json["CruzSortMe_app"].dictionary
+                            
+                            print("resData \(resData)")
+                            
+                            let responseMessage = resData?["res_msg"]!.string
                             print("response message \(responseMessage)")
                             
                             if responseMessage == "Save Successfully" {
                                 hudClass.hide()
-
-                                if (self.delegate != nil) {
-                                    self.delegate?.sendBoolValue(bool: true)
-                                   }
+                                print("save successFully")
                                 
+                                self.delegate?.sendBoolValue(bool: true)
                                 _ = self.navigationController?.popViewController(animated: true)
                                 
                             }else {
@@ -290,10 +293,11 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
                                 self.present(alertVC, animated: true, completion: nil)
                             }
                             
-                            print("JSON: \(result)")
-                            if let JSON = response.result.value {
-                                print("JSON: \(JSON)")
-                            }
+                            
+                        case .failure(let errordarta) :
+                            hudClass.hide()
+                            print("err0rdata \(errordarta)")
+                            
                         }
                     }
                 case .failure(let encodingError):

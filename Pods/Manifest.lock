@@ -3,20 +3,23 @@ PODS:
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
   - FloatRatingView (2.0)
+  - Kingfisher (3.3.2)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.2)
   - AlamofireImage (~> 3.1)
   - FloatRatingView (~> 2.0.0)
+  - Kingfisher (~> 3.0)
   - SwiftyJSON (~> 3.1)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   FloatRatingView: 857ab8f10040d06a42fc979f486c8f9fecd2f2e5
+  Kingfisher: 8e60094454aeb4746eb588eb57f794d891c6ea88
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 53c0153f0c8994fd277bec7c99bf1b3a639977a7
+PODFILE CHECKSUM: fe2784dbea3b9461e110e0ecd58a9570571aa7af
 
 COCOAPODS: 1.1.1

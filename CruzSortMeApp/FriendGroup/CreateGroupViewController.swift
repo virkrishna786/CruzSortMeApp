@@ -296,10 +296,6 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
         if currentReachabilityStatus != .notReachable {
         
         
-        let headers: HTTPHeaders = [
-            "Accept": "application/json"
-        ]
-        
         let stringArray = selectedInterestArray
         let string = stringArray.joined(separator: ",")
         print("stringd \(string)")
@@ -314,14 +310,14 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
         
         let image = self.groupImage!
         print("imagefh \(image)")
-        let   imagedata  = UIImagePNGRepresentation(image)
+        let   imagedata  = UIImageJPEGRepresentation(image, 0.2)
         print("imageDatadd \(imagedata!)")
          hudClass.showInView(view: self.view)
         
-        let URL = try! URLRequest(url: "\(baseUrl)createGroup", method: .post, headers: headers)
+        let URL = try! URLRequest(url: "\(baseUrl)createGroup", method: .post)
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(imagedata!, withName: "group_img", fileName: "krish.png", mimeType: "image/png")
+            multipartFormData.append(imagedata!, withName: "group_img", fileName: "krish.jpg", mimeType: "image/png/jpeg/jpg")
             
             for (key, value) in parameter {
                 multipartFormData.append((value.data(using: String.Encoding.utf8)!), withName: key)
@@ -331,50 +327,61 @@ class CreateGroupViewController: UIViewController ,UIImagePickerControllerDelega
                 switch encodingResult {
                 case .success(let upload, _, _):
                     print("successess")
-                    upload.responseJSON {
+                    upload.responseString  {
                         response in
                         print(response.request! )  // original URL request
                         print(response.response! ) // URL response
                         print(response.data! )     // server data
                         print(response.result)   // result of response serialization
                         
-                       hudClass.hide()
-                        if let result = response.result.value {
+                        switch  response.result {
                             
-                            let JSON = result as! NSDictionary
-                            let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
+                        case .success(let datads) :
+                            print("dasdfkas \(datads)")
+                            let dsfs = datads.data(using: String.Encoding.utf8)!
+                            let json = JSON(data: dsfs)
+                            //     let responseCode = json["CruzSortMe_app"].dictionary
+                            //     print("response code \(responseCode)")
                             
-                            print("response code \(responseCode)")
+                            let resData = json["CruzSortMe_app"].dictionary
                             
-                            let responseMessage = responseCode["res_msg"] as! String
+                            print("resData \(resData)")
+                            
+                            let responseMessage = resData?["res_msg"]!.string
                             print("response message \(responseMessage)")
                             
                             if responseMessage == "Save Successfully" {
+                                hudClass.hide()
+                                print("save successFully")
+                                
                                 _ = self.navigationController?.popViewController(animated: true)
                                 
                             }else {
+                                hudClass.hide()
                                 let alertVC = UIAlertController(title: "Alert", message: "some thing went wrong", preferredStyle: .alert)
                                 let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
                                 alertVC.addAction(okAction)
                                 self.present(alertVC, animated: true, completion: nil)
                             }
                             
-                            print("JSON: \(result)")
-                            if let JSON = response.result.value {
-                                print("JSON: \(JSON)")
-                            }
+                            
+                        case .failure(let errordarta) :
+                            hudClass.hide()
+                            print("err0rdata \(errordarta)")
+                            
                         }
                     }
                 case .failure(let encodingError):
                     hudClass.hide()
                     parentClass.showAlertWithApiFailure()
                     print(encodingError)
-                }
+            }
         })
         }else {
             parentClass.showAlert()
         }
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

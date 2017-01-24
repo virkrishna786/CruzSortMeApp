@@ -39,84 +39,75 @@ class EditProfielViewController: UIViewController {
     }
 
     
-    
-    func apiCall(){
-        
+    func  apiCall() {
         if currentReachabilityStatus != .notReachable {
             
-            hudClass.showInView(view: self.view)
-            let  urlString = "http://182.73.133.220/CruzSortMe/Apis/testUpload"
-            
-            let image = UIImage(named: "icon.png")
+            let image = UIImage(named : "icon1.png")
             print("imagefh \(image)")
-            let   imagedata  = UIImagePNGRepresentation(image!)
+            let   imagedata  = UIImageJPEGRepresentation(image!, 0.2)
             print("imageDatadd \(imagedata!)")
             hudClass.showInView(view: self.view)
             
-            let strBasefd = imagedata?.base64EncodedString(options: .lineLength64Characters)
-
-//            
-//            let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
-//            let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
-//            let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
-//            if let dirPath          = paths.first
-//            {
-//                let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("icon.png")
-//                let image    = UIImage(contentsOfFile: imageURL.path)
-//
+            let URL = try! URLRequest(url: "http://182.73.133.220/CruzSortMe/Apis/testUpload", method: .post)
+            print("URLS : \(URL)")
             
-            let  parameter = ["profile_pic" : strBasefd!]
-            
-            print("dfd \(parameter)")
-            
-            Alamofire.request(urlString, method: .post, parameters: parameter)
-                .responseJSON { response in
-                    print("Success: \(response.result.isSuccess)")
-                    print("Response String: \(response.result.value)")
-                    
-                    //to get JSON return value
-                    if let result = response.result.value {
-                        let JSON = result as! NSDictionary
+            Alamofire.upload(multipartFormData: { (multipartFormData) in
+                multipartFormData.append(imagedata!, withName: "profile_pic", fileName: "krish.jpg", mimeType: "image/png/jpeg/jpg")
+              
+            }, with: URL, encodingCompletion: { (encodingResult) in
+                
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    print("successessret")
+                    upload.responseString { response in
+                        print("request dfd \(response.request!)")  // original URL request
+                        print("response data \(response.data!)")     // server data
+                        print("response.result value \(response.result.value)")   // result of response serialization
                         
-                        let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
-                        
-                        print("response code \(responseCode)")
-                        
-                        let responseMessage = responseCode["res_msg"] as! String
-                        print("response message \(responseMessage)")
-                        
-                        if responseMessage == "Login has been Successfully" {
+                        switch  response.result {
+                            
+                        case .success(let datads) :
+                            print("dasdfkas \(datads)")
+                                let dsfs = datads.data(using: String.Encoding.utf8)!
+                                let json = JSON(data: dsfs)
+                           //     let responseCode = json["CruzSortMe_app"].dictionary
+                           //     print("response code \(responseCode)")
+                                
+                                let responseMessage = (json["res_msg"].string)!
+                                print("response message \(responseMessage)")
+                                
+                                if responseMessage == "save Successfully" {
+                                    hudClass.hide()
+                                    print("save successFully")
+                                    
+                                    _ = self.navigationController?.popViewController(animated: true)
+                                    
+                                }else {
+                                    hudClass.hide()
+                                    let alertVC = UIAlertController(title: "Alert", message: "some thing went wrong", preferredStyle: .alert)
+                                    let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                                    alertVC.addAction(okAction)
+                                    self.present(alertVC, animated: true, completion: nil)
+                                }
+                                
+                            
+                        case .failure(let errordarta) :
                             hudClass.hide()
-                            
-                            let userIdString = responseCode["user_id"] as! String
-                            let userNameSavedString = responseCode["username"] as! String
-                            let userProfileImageString = responseCode["profile_image"] as! String
-                            defaults.set(userIdString, forKey: "userId")
-                            defaults.set(userNameSavedString, forKey: "user_name")
-                            defaults.set(userProfileImageString, forKey: "profile_image")
-                            defaults.synchronize()
-                            self.performSegue(withIdentifier: "homeView", sender: self)
-                            
-                        }else {
-                            hudClass.hide()
-                            
-                            let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
-                            alertVC.addAction(okAction)
-                            self.present(alertVC, animated: true, completion: nil)
+                            print("err0rdata \(errordarta)")
                             
                         }
-                        print("json \(JSON)")
                         
-                    }
-            }
-            
-            
+                                           }
+                case .failure(let encodingError):
+                    hudClass.hide()
+                    parentClass.showAlertWithApiFailure()
+                    print(encodingError)
+                }
+            })
         }else {
+            hudClass.hide()
             parentClass.showAlert()
         }
-        
-        
     }
     
 

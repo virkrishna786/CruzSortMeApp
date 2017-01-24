@@ -210,54 +210,14 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
         let cell = UITableViewCell()
         
         if reviewDetailArray.count <= 0 {
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! EventDetailCell
             let eventList = eventDetailArray[indexPath.row]
             print("eventLsit\(eventList)")
             
             print("event imageString = \(eventList.eventImage!)")
-            let URL = NSURL(string: "\(eventList.eventImage!)")
-            print("urlsfgds \(URL)")
-            let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-            mutableUrlRequest.httpMethod = "get"
-            
-            mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-            
-            let headers = [
-                "Accept"  :  "image/jpeg"
-            ]
-            print(" headers \(headers)")
-            print("mutable Request : \(mutableUrlRequest)")
-            //  request.addAcceptableImageContentTypes(["image/jpeg"])
-            
-            Alamofire.request("\(URL!)").responseImage { response in
-                debugPrint(response)
-                
-                switch response.result {
-                    
-                case .success(let Data) :
-                    
-                    print("Data \(Data)")
-                    
-                    
-                    if let image = response.result.value {
-                        DispatchQueue.global().async(execute: {
-                            
-                            if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                                
-                                print("\(cellToUpdate)")
-                                cell.eventImageView.image = image
-                            }
-                            
-                        })
-                        
-                    }
-                case .failure(let errorData) :
-                    print("error data \(errorData)")
-                    print("")
-                    
-                }
-            }
+            let uRL = URL(string: "\(eventList.eventImage!)")
+            cell.eventImageView.kf.setImage(with: uRL , placeholder : UIImage(named: "dummy"))
+
             
             let eventAddress =  eventList.eventAddrss!
             if eventAddress == "" {
@@ -294,48 +254,8 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             print("eventLsit\(eventList)")
             
             print("event imageString = \(eventList.eventImage!)")
-            let URL = NSURL(string: "\(eventList.eventImage!)")
-            print("urlsfgds \(URL)")
-            let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-            mutableUrlRequest.httpMethod = "get"
-            
-            mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-            
-            let headers = [
-                "Accept"  :  "image/jpeg"
-            ]
-            print(" headers \(headers)")
-            print("mutable Request : \(mutableUrlRequest)")
-            //  request.addAcceptableImageContentTypes(["image/jpeg"])
-            
-            Alamofire.request("\(URL!)").responseImage { response in
-                debugPrint(response)
-                
-                switch response.result {
-                    
-                case .success(let Data) :
-                    
-                    print("Data \(Data)")
-                    
-                    
-                    if let image = response.result.value {
-                        DispatchQueue.global().async(execute: {
-                            
-                            if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                                
-                                print("\(cellToUpdate)")
-                                cell.eventImageView.image = image
-                            }
-                            
-                        })
-                        
-                    }
-                case .failure(let errorData) :
-                    print("error data \(errorData)")
-                    print("")
-                    
-                }
-            }
+            let uRL = URL(string: "\(eventList.eventImage!)")
+            cell.eventImageView.kf.setImage(with: uRL , placeholder : UIImage(named: "dummy"))
             
              let eventAddress =  eventList.eventAddrss!
              if eventAddress == "" {
@@ -370,51 +290,8 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             print("eventLsit\(reviewList)")
             
             print("event imageString = \(reviewList.userImageString!)")
-            let URL = NSURL(string: "\(reviewList.userImageString!)")
-            print("urlsfgds \(URL)")
-            let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-            mutableUrlRequest.httpMethod = "get"
-            
-            mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-            
-            
-            let headers = [
-                "Accept"  :  "image/jpeg"
-            ]
-            print(" headers \(headers)")
-            print("mutable Request : \(mutableUrlRequest)")
-            //  request.addAcceptableImageContentTypes(["image/jpeg"])
-            
-            Alamofire.request("\(URL!)").responseImage { response in
-                debugPrint(response)
-                
-                switch response.result {
-                    
-                case .success(let Data) :
-                    
-                    print("Data \(Data)")
-                    
-                    
-                    if let image = response.result.value {
-                        DispatchQueue.global().async(execute: {
-                            
-                            if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                                
-                                print("\(cellToUpdate)")
-                                cell.profileImageView.image = image
-                            }
-                            
-                        })
-                        
-                    }
-                case .failure(let errorData) :
-                    print("error data \(errorData)")
-                    print("")
-                    
-                }
-            }
-
-
+            let uRL = URL(string: "\(reviewList.userImageString!)")
+            cell.profileImageView.kf.setImage(with: uRL , placeholder : UIImage(named: "dummy"))
             cell.nameLabel.text = reviewList.reviewerNameString!
             cell.reviewDetailLabel.text = reviewList.reviewDetail!
             cell.ratingLabel.text = reviewList.numberOfRating! + "/5"
@@ -429,15 +306,6 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
             return cell
     }
     
-//    
-//    "Rating" : [
-//    {
-//    "username" : "krishna",
-//    "id" : "2",
-//    "profile_image" : "http:\/\/182.73.133.220\/CruzSortMe\/images\/temp\/dumi_profile_pic.jpeg",
-//    "user_id" : "18",
-//    "review" : "Lorem Ipsum copy in various charsets and languages for layouts.",
-//    "rating" : "4"
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
