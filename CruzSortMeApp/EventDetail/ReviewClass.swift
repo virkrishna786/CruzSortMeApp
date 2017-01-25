@@ -15,5 +15,5 @@ class ReviewClass: NSObject {
     var numberOfRating : String!
     var userImageString : String!
     var reviewerUserId : String!
-
+    var peopleIdString : String!
 }

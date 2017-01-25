@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "70686F326D89ADDABF932E9FDD9B5D4B1305F44F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "70686F326D89ADDABF932E9FDD9B5D4B1305F44F" : 9223372036854775807,
+    "513966103CBD3F556ED9695D6C6C43C6C6561EB2" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5D78D76F-B7A5-40B3-B556-22FC6FBF294A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "70686F326D89ADDABF932E9FDD9B5D4B1305F44F" : "CruzSortMeApp\/",
+    "513966103CBD3F556ED9695D6C6C43C6C6561EB2" : "..\/Documents\/Visit"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CruzSortMeApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CruzSortMeApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/VisitApp\/iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "513966103CBD3F556ED9695D6C6C43C6C6561EB2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/virkrishna786\/CruzSortMeApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "70686F326D89ADDABF932E9FDD9B5D4B1305F44F"
+    }
+  ]
+}

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
@@ -131,7 +132,8 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     let imagePicker = UIImagePickerController()
     let dateFormatter = DateFormatter()
     var dateString : String!
-    
+    var groupImage : UIImage!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
@@ -167,9 +169,18 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage  {
             profileImageView.contentMode = .scaleAspectFit
             profileImageView.image = pickedImage
+            DispatchQueue.global().async(execute: {
+                self.setImage(image: pickedImage)
+            })
+
         }
         dismiss(animated: true, completion: nil)
     }
+    func  setImage(image: UIImage!)  {
+        self.groupImage = image
+        print("jkek \(self.groupImage!)")
+    }
+
     
     
     func noCamara(){
@@ -226,16 +237,15 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         
         
         //  let URL = "http://182.73.133.220/CruzSortMe/Apis/signUp"
-        let image = UIImage(named: "krish.png")
-        let   imagedata  = UIImagePNGRepresentation(image!)
+        let image = UIImage(named: "\(self.groupImage)")
+            let   imagedata  = UIImageJPEGRepresentation(image!, 0.2)
             hudClass.showInView(view: self.view)
         
-        let URL = try! URLRequest(url: "http://182.73.133.220/CruzSortMe/Apis/signUp", method: .post, headers: headers)
+        let URL = try! URLRequest(url: "\(baseUrl)signUp", method: .post, headers: headers)
             
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(imagedata!, withName: "profile_pic", fileName: "krish.png", mimeType: "image/png")
-            
+            multipartFormData.append(imagedata!, withName: "profile_pic", fileName: "krish.jpg", mimeType: "image/png")
             
             for (key, value) in parameter {
                 multipartFormData.append((value?.data(using: String.Encoding.utf8)!)!, withName: key)
@@ -244,7 +254,7 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                 switch encodingResult {
                 case .success(let upload, _, _):
                     print("s")
-                    upload.responseJSON {
+                    upload.responseString {
                         response in
                         print(response.request! )  // original URL request
                         print(response.response! ) // URL response
@@ -252,39 +262,81 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                         print(response.result)   // result of response serialization
                         
                         hudClass.hide()
-                        if let result = response.result.value {
-                            
-                            let JSON = result as! NSDictionary
-                            
-                            let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
-                            
-                            print("response code \(responseCode)")
-                            
-                            let responseMessage = responseCode["res_msg"] as! String
-                            print("response message \(responseMessage)")
-                            
-                            if responseMessage == "signup Successfully" {
+                        
+                          switch response.result  {
                                 
-                                let userIdString = responseCode["user_id"] as! String
-                                defaults.set(userIdString, forKey: "userId")
+                                case .success(let datads) :
+                                print("dasdfkas \(datads)")
+                                let dsfs = datads.data(using: String.Encoding.utf8)!
+                                let json = JSON(data: dsfs)
+                                //     let responseCode = json["CruzSortMe_app"].dictionary
+                                //     print("response code \(responseCode)")
                                 
-                                self.performSegue(withIdentifier: "homeView", sender: self)
+                                let resData = json["CruzSortMe_app"].dictionary
                                 
-                            }else {
+                                print("resData \(resData)")
                                 
-                                let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
-                                let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
-                                alertVC.addAction(okAction)
+                                let responseMessage = resData?["res_msg"]!.string
+                                print("response message \(responseMessage)")
+                                
+                                if responseMessage == "signup Successfully" {
+                                    hudClass.hide()
+                                    print("save successFully")
+                            let userIdString = resData?["user_id"]!.string
+                                    
+                                        defaults.set(userIdString, forKey: "userId")
+                                            self.performSegue(withIdentifier: "homeView", sender: self)
+
+                                    
+                                }else {
+                                    hudClass.hide()
+                        
+                                    let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
+                                    let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                                    alertVC.addAction(okAction)
                                 self.present(alertVC, animated: true, completion: nil)
+
+                                }
                                 
-                            }
-                            
-                            
-                            print("JSON: \(result)")
-                            if let JSON = response.result.value {
-                                print("JSON: \(JSON)")
-                            }
+                                
+                                case .failure(let errordarta) :
+                                hudClass.hide()
+                                print("err0rdata \(errordarta)")
+                                
                         }
+//                        if let result = response.result.value {
+//                            
+//                            let JSON = result as! NSDictionary
+//                            
+//                            let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
+//                            
+//                            print("response code \(responseCode)")
+//                            
+//                            let responseMessage = responseCode["res_msg"] as! String
+//                            print("response message \(responseMessage)")
+//                            
+//                            if responseMessage == "signup Successfully" {
+//                                
+//                                let userIdString = responseCode["user_id"] as! String
+//                                defaults.set(userIdString, forKey: "userId")
+//                                
+//                                self.performSegue(withIdentifier: "homeView", sender: self)
+//                                
+//                            }else {
+//                                
+//                                let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
+//                                let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+//                                alertVC.addAction(okAction)
+//                                self.present(alertVC, animated: true, completion: nil)
+//                                
+//                            }
+//                            
+//                            
+//                            print("JSON: \(result)")
+//                            if let JSON = response.result.value {
+//                                print("JSON: \(JSON)")
+//                            }
+//                        }
                     }
                 case .failure(let encodingError):
                     hudClass.hide()

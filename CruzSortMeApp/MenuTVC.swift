@@ -245,6 +245,39 @@ class MenuTVC: UITableViewController {
 
             
             
+        }else if indexPath.row == 4 {
+            
+            hideMenu()
+            let firstView:ExploreViewController
+                = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "explore") as! ExploreViewController
+            //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: ExploreViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: ExploreViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            
         }else if indexPath.row == 5 {
             
             
@@ -322,16 +355,8 @@ class MenuTVC: UITableViewController {
                 appDelegate.navigationController?.pushViewController(firstView, animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
-
-            
         }
-        
-        
-        
-        
     }
-    
-    
     
     // Override to support rearranging the table view.
 
@@ -359,55 +384,8 @@ class MenuTVC: UITableViewController {
     
     
     func downloadImage(string: String) {
-        
-        
-        let URL = NSURL(string: "\(string)")
-        print("urlsfgds \(URL)")
-        let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-        mutableUrlRequest.httpMethod = "post"
-        
-        mutableUrlRequest.setValue("image/jpeg/png", forHTTPHeaderField: "Accept")
-        
-        
-        let headers = [
-            "Accept"  :  "image/jpeg/png"
-        ]
-        
-        print(" headers \(headers)")
-        print("mutable Request : \(mutableUrlRequest)")
-        
-        //  request.addAcceptableImageContentTypes(["image/jpeg"])
-        
-        Alamofire.request("\(URL!)").responseImage { response in
-            debugPrint(response)
-            
-          //  print("adsfdfs \(response.request!)")
-          //  print("dskjfd \(response.response!)")
-            print(" response.result \(response.result)")
-            print("resposen .staus code \(response.response?.statusCode)")
-
-            print("respionse.result.value \(response.result.value)")
-            
-            switch response.result {
-            case .success(let imageData) :
-                print("resposen .staus code \(response.response?.statusCode)")
-                print("imagesata \(imageData)")
-                
-                if let image = response.result.value {
-                    DispatchQueue.global().async(execute: {
-                        self.imageIcon.image = image
-                    })
-                    
-                }else {
-                    
-                    self.imageIcon.image = UIImage(named: "maleIcon")
-                }
-            case .failure(let errorData) :
-                print("error data \(errorData)")
-            }
-            
-           
-        }
+        let uRL = URL(string: "\(string)")
+        self.imageIcon.kf.setImage(with: uRL , placeholder: UIImage(named: "aboutUs"))
     }
     
 
