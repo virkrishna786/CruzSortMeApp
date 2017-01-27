@@ -119,6 +119,8 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     
     func friendListApi() {
          if currentReachabilityStatus != .notReachable {
+            
+            hudClass.showInView(view: self.view)
         
         let url = "\(baseUrl)friendList"
         
@@ -129,6 +131,7 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
             print(responseObject)
             
             if responseObject.result.isSuccess {
+                hudClass.hide()
                 let resJson = JSON(responseObject.result.value!)
                 
                     let dataResponse = resJson["Friend"].array
@@ -220,9 +223,9 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                   let eventList = friendsListArray[indexPath.row]
-                  let fileteredList = filteredFriendListArray[indexPath.row]
+                  //let fileteredList = filteredFriendListArray[indexPath.row]
         if (searchActive) {
-            self.friendIdString = fileteredList.friendIdString!
+            self.friendIdString = filteredFriendListArray[indexPath.row].friendIdString!
             self.performSegue(withIdentifier: "friendDetail", sender: self)
 
             

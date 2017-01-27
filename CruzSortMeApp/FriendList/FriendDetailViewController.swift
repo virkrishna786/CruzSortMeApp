@@ -144,43 +144,10 @@ class FriendDetailViewController: UIViewController ,UITableViewDelegate ,UITable
         print("edsfsftLsit\(eventList)")
         
         print("event imageString = \(eventList.friendEventDetailImageString!)")
-        let URL = NSURL(string: "\(eventList.friendEventDetailImageString!)")
-        print("urlsfgds \(URL)")
-        let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-        mutableUrlRequest.httpMethod = "get"
+        let uRL = URL(string: "\(eventList.friendEventDetailImageString!)")
+        print("urlsfgds \(uRL)")
+        cell.freindEventImageView.kf.setImage(with: uRL , placeholder : UIImage(named: "dummy"))
         
-        mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-        
-        
-        let headers = [
-            "Accept"  :  "image/jpeg"
-        ]
-        
-        print(" headers \(headers)")
-        print("mutable Request : \(mutableUrlRequest)")
-        
-        //  request.addAcceptableImageContentTypes(["image/jpeg"])
-        
-        Alamofire.request("\(URL!)").responseImage { response in
-            debugPrint(response)
-            
-            print("adsfdfs \(response.request!)")
-            print("dskjfd \(response.response!)")
-            print(" response.result \(response.result)")
-            
-            if let image = response.result.value {
-                DispatchQueue.global().async(execute: {
-                    
-                    if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                        
-                        print("\(cellToUpdate)")
-                        cell.freindEventImageView.image = image
-                    }
-                    
-                })
-                
-            }
-        }
         cell.friendEventTimeLabel.text = eventList.friendEventAddDateString! + "|" + eventList.friendEventEndTimeString!
         cell.friendEventDetail.text = eventList.friendEventNameString!
         cell.friendEventRatingButton.titleLabel?.text = "\(eventList.friendEventRatingString!)/5"

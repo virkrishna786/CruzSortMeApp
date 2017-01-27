@@ -79,6 +79,8 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
         self.eventDetailTableView.register(UINib(nibName : "EventTypeCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.eventDetailTableView.register(UINib(nibName : "PeopleCellType" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
         self.eventDetailTableView.isHidden = true
+        self.addChildViewController(appDelegate.menuTableViewController)
+
         self.interestTypeDetailApiHit()
         
         // Do any additional setup after loading the view.

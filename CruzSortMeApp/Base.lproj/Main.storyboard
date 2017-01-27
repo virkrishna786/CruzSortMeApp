@@ -1696,7 +1696,7 @@ Signup from your existing account</string>
         <!--Whose Around View Controller-->
         <scene sceneID="Vr6-yL-Caz">
             <objects>
-                <viewController id="sGk-Bm-OMC" customClass="WhoseAroundViewController" customModule="CruzSortMeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="whoseAround" id="sGk-Bm-OMC" customClass="WhoseAroundViewController" customModule="CruzSortMeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sNm-7l-YUF"/>
                         <viewControllerLayoutGuide type="bottom" id="StW-D0-3i5"/>
@@ -1718,6 +1718,9 @@ Signup from your existing account</string>
                                             <constraint firstAttribute="width" constant="40" id="GIr-ER-xge"/>
                                         </constraints>
                                         <state key="normal" image="menu"/>
+                                        <connections>
+                                            <action selector="menuButtonAction:" destination="sGk-Bm-OMC" eventType="touchUpInside" id="J7S-Jw-hSp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -1735,6 +1738,11 @@ Signup from your existing account</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yam-ZS-xdU">
+                                <rect key="frame" x="16" y="63" width="343" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1751,6 +1759,9 @@ Signup from your existing account</string>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="eventDetailTableView" destination="Yam-ZS-xdU" id="OuL-bt-AHP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CyY-GO-hhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

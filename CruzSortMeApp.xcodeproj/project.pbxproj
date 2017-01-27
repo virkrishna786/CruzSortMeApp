@@ -16,6 +16,12 @@
 		8421386F1E234B2C00A44646 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386E1E234B2C00A44646 /* Config.swift */; };
 		842C23581E3B1D5300C8480C /* EditProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C23571E3B1D5300C8480C /* EditProfileClass.swift */; };
 		842C235A1E3B48B400C8480C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C23591E3B48B400C8480C /* CoreLocation.framework */; };
+		842C235C1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C235B1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift */; };
+		842C235E1E3B5D2100C8480C /* WhoseAroundEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C235D1E3B5D2100C8480C /* WhoseAroundEventTableViewCell.swift */; };
+		842C23601E3B5D8600C8480C /* WhoseAroundDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C235F1E3B5D8600C8480C /* WhoseAroundDataClass.swift */; };
+		842C23621E3B5DA800C8480C /* WhoseAroundPeopleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C23611E3B5DA800C8480C /* WhoseAroundPeopleTableViewCell.xib */; };
+		842C23641E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C23631E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib */; };
+		842C23671E3B78FB00C8480C /* MyEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C23661E3B78FB00C8480C /* MyEventViewController.swift */; };
 		842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EF8731E1F5D610079EB2D /* SignUpViewController.swift */; };
 		842EF8781E1FB4210079EB2D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */; };
 		843867F21E2CE4DB0056062F /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843867F01E2CE4DB0056062F /* CustomSearchBar.swift */; };
@@ -109,6 +115,12 @@
 		8421386E1E234B2C00A44646 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		842C23571E3B1D5300C8480C /* EditProfileClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileClass.swift; sourceTree = "<group>"; };
 		842C23591E3B48B400C8480C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		842C235B1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoseAroundPeopleCell.swift; sourceTree = "<group>"; };
+		842C235D1E3B5D2100C8480C /* WhoseAroundEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoseAroundEventTableViewCell.swift; sourceTree = "<group>"; };
+		842C235F1E3B5D8600C8480C /* WhoseAroundDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoseAroundDataClass.swift; sourceTree = "<group>"; };
+		842C23611E3B5DA800C8480C /* WhoseAroundPeopleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhoseAroundPeopleTableViewCell.xib; sourceTree = "<group>"; };
+		842C23631E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhoseAroundEventTableViewCell.xib; sourceTree = "<group>"; };
+		842C23661E3B78FB00C8480C /* MyEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventViewController.swift; sourceTree = "<group>"; };
 		842EF8731E1F5D610079EB2D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		842EF8751E1FB4190079EB2D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
@@ -241,6 +253,14 @@
 			name = SingltonClass;
 			sourceTree = "<group>";
 		};
+		842C23651E3B78DC00C8480C /* MyEvent */ = {
+			isa = PBXGroup;
+			children = (
+				842C23661E3B78FB00C8480C /* MyEventViewController.swift */,
+			);
+			path = MyEvent;
+			sourceTree = "<group>";
+		};
 		844D90281E14D390002684BA = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +286,7 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				842C23651E3B78DC00C8480C /* MyEvent */,
 				84C626741E38BA7E00CA1824 /* WhoseAround */,
 				84C2C09D1E36241B007B7C20 /* Account */,
 				84B4F8501E333E7F00FF4D3F /* CreateEvent */,
@@ -418,6 +439,11 @@
 			isa = PBXGroup;
 			children = (
 				84C626751E38BA9C00CA1824 /* WhoseAroundViewController.swift */,
+				842C235F1E3B5D8600C8480C /* WhoseAroundDataClass.swift */,
+				842C235B1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift */,
+				842C23611E3B5DA800C8480C /* WhoseAroundPeopleTableViewCell.xib */,
+				842C235D1E3B5D2100C8480C /* WhoseAroundEventTableViewCell.swift */,
+				842C23631E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib */,
 			);
 			path = WhoseAround;
 			sourceTree = "<group>";
@@ -600,12 +626,14 @@
 				844D903F1E14D391002684BA /* Assets.xcassets in Resources */,
 				84C2C09C1E360903007B7C20 /* EventTypeCell.xib in Resources */,
 				8438680A1E2CFB000056062F /* FriendDetailCell.xib in Resources */,
+				842C23621E3B5DA800C8480C /* WhoseAroundPeopleTableViewCell.xib in Resources */,
 				84E536161E321C6C0064A280 /* GroupDetailCell.xib in Resources */,
 				8482EA521E27541A009D1AA7 /* PostCell.xib in Resources */,
 				84C2C0981E3608D4007B7C20 /* PeopleCellType.xib in Resources */,
 				844D903A1E14D391002684BA /* Main.storyboard in Resources */,
 				84209E041E375E1700A8BCFB /* dummy.png in Resources */,
 				8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */,
+				842C23641E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib in Resources */,
 				847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */,
 				8482EA451E2753E5009D1AA7 /* ReviewCell.xib in Resources */,
 				84940B881E28F32700F94254 /* FriendListCell.xib in Resources */,
@@ -776,9 +804,11 @@
 				8482EA4D1E27541A009D1AA7 /* HomeArrayClass.swift in Sources */,
 				841BBE421E30859E00F984E7 /* FriendGroupClass.swift in Sources */,
 				8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */,
+				842C235E1E3B5D2100C8480C /* WhoseAroundEventTableViewCell.swift in Sources */,
 				84E5360B1E31D6D20064A280 /* Network.swift in Sources */,
 				84E5360F1E31DF6C0064A280 /* JHProgressHUD.swift in Sources */,
 				8482EA461E2753E5009D1AA7 /* ReviewTableViewCell.swift in Sources */,
+				842C235C1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift in Sources */,
 				8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */,
 				847045441E2E2E4C002632BE /* CreateGroupViewController.swift in Sources */,
 				843868061E2CF80B0056062F /* FriendDetailViewController.swift in Sources */,
@@ -786,6 +816,7 @@
 				84E5361B1E3234E60064A280 /* ExploreViewController.swift in Sources */,
 				84E536121E321C250064A280 /* GroupDetailViewController.swift in Sources */,
 				84C2C09F1E362438007B7C20 /* EditProfielViewController.swift in Sources */,
+				842C23671E3B78FB00C8480C /* MyEventViewController.swift in Sources */,
 				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
 				8438680C1E2CFB410056062F /* FriendDetailCellType.swift in Sources */,
 				84B4F84F1E3329FC00FF4D3F /* AboutUsViewController.swift in Sources */,
@@ -813,6 +844,7 @@
 				8421386F1E234B2C00A44646 /* Config.swift in Sources */,
 				84E536141E321C4F0064A280 /* GroupDetailClass.swift in Sources */,
 				84940B861E28F1C100F94254 /* FriendListClass.swift in Sources */,
+				842C23601E3B5D8600C8480C /* WhoseAroundDataClass.swift in Sources */,
 				8482EA561E275441009D1AA7 /* ParentClass.swift in Sources */,
 				84940B811E28A92A00F94254 /* FloatRatingView.swift in Sources */,
 				84C626731E3861FD00CA1824 /* DatePickerClass.swift in Sources */,

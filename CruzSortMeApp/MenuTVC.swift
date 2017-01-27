@@ -318,6 +318,41 @@ class MenuTVC: UITableViewController {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
             
+        }else if indexPath.row == 8 {
+            
+            hideMenu()
+            let firstView:WhoseAroundViewController
+                = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "whoseAround") as! WhoseAroundViewController
+            //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: WhoseAroundViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: WhoseAroundViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+                
+                
+            }
+
+            
         }else if indexPath.row == 10 {
             hideMenu()
             let firstView:AboutUsViewController
