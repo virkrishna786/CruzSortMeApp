@@ -1761,11 +1761,100 @@ Signup from your existing account</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="eventDetailTableView" destination="Yam-ZS-xdU" id="OuL-bt-AHP"/>
+                        <segue destination="l3V-C7-oHi" kind="show" identifier="eventDetail" id="yTX-td-pZO"/>
+                        <segue destination="zmy-s9-2Dx" kind="show" identifier="friendDetail" id="Xwu-24-OMV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CyY-GO-hhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4125.6000000000004" y="232.53373313343329"/>
+        </scene>
+        <!--My Event View Controller-->
+        <scene sceneID="TfM-V1-iRE">
+            <objects>
+                <viewController storyboardIdentifier="myEvent" id="aBi-vz-26X" customClass="MyEventViewController" customModule="CruzSortMeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eNh-B3-Fb2"/>
+                        <viewControllerLayoutGuide type="bottom" id="SVH-1F-2Fb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YXy-aG-F0h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-hh-sOv">
+                                <rect key="frame" x="1" y="1" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4D-HZ-xri">
+                                <rect key="frame" x="2" y="11" width="375" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xo-ed-PTY">
+                                        <rect key="frame" x="39" y="11" width="40" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="E7j-2n-zXe"/>
+                                        </constraints>
+                                        <state key="normal" image="menu"/>
+                                        <connections>
+                                            <action selector="buttonAction:" destination="aBi-vz-26X" eventType="touchUpInside" id="wTB-8c-1uM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="1Xo-ed-PTY" firstAttribute="leading" secondItem="g4D-HZ-xri" secondAttribute="leading" constant="39" id="BwQ-FZ-mMf"/>
+                                    <constraint firstItem="1Xo-ed-PTY" firstAttribute="centerY" secondItem="g4D-HZ-xri" secondAttribute="centerY" id="vH8-BY-c3E"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlW-hR-k8w">
+                                <rect key="frame" x="132" y="22" width="115" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="ec7-ww-iJ5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-gH-jnX">
+                                <rect key="frame" x="17" y="64" width="343" height="584"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="115" id="TfT-Iv-2UG">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TfT-Iv-2UG" id="D02-1M-OWb">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VlW-hR-k8w" firstAttribute="top" secondItem="eNh-B3-Fb2" secondAttribute="bottom" constant="2" id="4uF-XI-LV6"/>
+                            <constraint firstItem="Yg1-hh-sOv" firstAttribute="centerX" secondItem="OYb-gH-jnX" secondAttribute="centerX" id="9Si-FP-wyl"/>
+                            <constraint firstItem="SVH-1F-2Fb" firstAttribute="top" secondItem="OYb-gH-jnX" secondAttribute="bottom" constant="19" id="CAE-LP-Fnm"/>
+                            <constraint firstItem="OYb-gH-jnX" firstAttribute="leading" secondItem="YXy-aG-F0h" secondAttribute="leadingMargin" constant="1" id="DWl-l1-pkn"/>
+                            <constraint firstItem="Yg1-hh-sOv" firstAttribute="leading" secondItem="YXy-aG-F0h" secondAttribute="leadingMargin" constant="-15" id="Jvq-SP-6ha"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OYb-gH-jnX" secondAttribute="trailing" constant="-1" id="QgD-Ng-fIG"/>
+                            <constraint firstItem="OYb-gH-jnX" firstAttribute="top" secondItem="g4D-HZ-xri" secondAttribute="bottom" constant="8" symbolic="YES" id="Wan-Wq-cdE"/>
+                            <constraint firstItem="g4D-HZ-xri" firstAttribute="centerX" secondItem="VlW-hR-k8w" secondAttribute="centerX" id="aHN-qp-Fpd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g4D-HZ-xri" secondAttribute="trailing" constant="-18" id="bHx-1P-CFo"/>
+                            <constraint firstItem="Yg1-hh-sOv" firstAttribute="top" secondItem="YXy-aG-F0h" secondAttribute="topMargin" constant="1" id="dtK-FA-3mK"/>
+                            <constraint firstItem="g4D-HZ-xri" firstAttribute="top" secondItem="YXy-aG-F0h" secondAttribute="topMargin" constant="11" id="m0f-tw-7eR"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Yg1-hh-sOv" secondAttribute="bottom" constant="-1" id="nbB-WQ-aAY"/>
+                            <constraint firstItem="OYb-gH-jnX" firstAttribute="top" secondItem="VlW-hR-k8w" secondAttribute="bottom" constant="21" id="qnW-Px-qJF"/>
+                            <constraint firstItem="g4D-HZ-xri" firstAttribute="leading" secondItem="YXy-aG-F0h" secondAttribute="leadingMargin" constant="-14" id="sPL-r1-aTL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="postTableView" destination="OYb-gH-jnX" id="YfP-gu-gxZ"/>
+                        <segue destination="l3V-C7-oHi" kind="show" identifier="eventDetail" id="wuS-3D-gEm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d2G-is-fVu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4789.6000000000004" y="232.53373313343329"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="poD-Ms-Rv1">
@@ -2574,7 +2663,7 @@ Signup from your existing account</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zD9-B2-gFJ"/>
-        <segue reference="AEl-Dj-bJq"/>
-        <segue reference="UJP-kM-dvg"/>
+        <segue reference="Xwu-24-OMV"/>
+        <segue reference="wuS-3D-gEm"/>
     </inferredMetricsTieBreakers>
 </document>
