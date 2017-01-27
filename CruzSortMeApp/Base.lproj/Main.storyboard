@@ -416,7 +416,7 @@ Signup from your existing account</string>
                                     </button>
                                     <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHN-Av-GOi">
                                         <rect key="frame" x="8" y="463" width="359" height="196"/>
-                                        <color key="backgroundColor" red="0.88408380750000004" green="0.28044429110000002" blue="0.30341285620000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <date key="date" timeIntervalSinceReferenceDate="505467239.12342298">
                                             <!--2017-01-07 07:33:59 +0000-->
@@ -881,7 +881,7 @@ Signup from your existing account</string>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zcU-8T-Fa2">
                                 <rect key="frame" x="0.0" y="616" width="375" height="49"/>
-                                <color key="backgroundColor" red="0.88408380750000004" green="0.28044429110000002" blue="0.30341285620000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="NZ2-w2-CyV"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Sc8-AN-RTe"/>
@@ -1054,8 +1054,21 @@ Signup from your existing account</string>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dateOfBirthImage" translatesAutoresizingMaskIntoConstraints="NO" id="HRv-SR-dTg">
                                         <rect key="frame" x="40" y="321" width="295" height="50"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVr-7r-3lW">
+                                        <rect key="frame" x="248" y="328" width="82" height="39"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="3" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-34" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="DOB">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dobButtonAction:" destination="hE9-zO-y9A" eventType="touchUpInside" id="5qr-Jw-zcy"/>
+                                            <action selector="maleButtonAction:" destination="hE9-zO-y9A" eventType="touchUpInside" id="63z-t3-fSu"/>
+                                        </connections>
+                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="date Of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-iE-YLG">
-                                        <rect key="frame" x="98" y="337" width="233" height="30"/>
+                                        <rect key="frame" x="98" y="337" width="151" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1115,7 +1128,7 @@ Signup from your existing account</string>
                                     <constraint firstItem="pq8-ov-ODl" firstAttribute="leading" secondItem="hL6-2e-XHp" secondAttribute="leading" constant="94" id="Fxb-S0-cAt"/>
                                     <constraint firstItem="pLE-Ct-CyZ" firstAttribute="top" secondItem="HRv-SR-dTg" secondAttribute="bottom" constant="13" id="GDk-EF-hUe"/>
                                     <constraint firstItem="TV9-7j-mCI" firstAttribute="leading" secondItem="HRv-SR-dTg" secondAttribute="leading" id="GrD-zZ-gQ8"/>
-                                    <constraint firstItem="3DV-ca-RPI" firstAttribute="trailing" secondItem="Vga-iE-YLG" secondAttribute="trailing" id="IDz-J3-1jH"/>
+                                    <constraint firstItem="3DV-ca-RPI" firstAttribute="trailing" secondItem="Vga-iE-YLG" secondAttribute="trailing" constant="82" id="IDz-J3-1jH"/>
                                     <constraint firstItem="TV9-7j-mCI" firstAttribute="centerY" secondItem="3DV-ca-RPI" secondAttribute="centerY" id="Im6-WY-LNW"/>
                                     <constraint firstItem="pq8-ov-ODl" firstAttribute="top" secondItem="HRv-SR-dTg" secondAttribute="bottom" constant="21" id="KGL-GU-KWM"/>
                                     <constraint firstItem="17g-mK-9bU" firstAttribute="leading" secondItem="hL6-2e-XHp" secondAttribute="leading" constant="95" id="Kfk-1Z-G3l"/>
@@ -1133,6 +1146,7 @@ Signup from your existing account</string>
                                     <constraint firstItem="kLX-GH-l12" firstAttribute="top" secondItem="pLE-Ct-CyZ" secondAttribute="bottom" constant="25" id="WwX-eq-xQD"/>
                                     <constraint firstItem="zcI-In-3CL" firstAttribute="leading" secondItem="pq8-ov-ODl" secondAttribute="trailing" constant="16" id="Yii-AM-nxL"/>
                                     <constraint firstItem="nDz-gu-C3g" firstAttribute="leading" secondItem="TV9-7j-mCI" secondAttribute="leading" id="ZTK-7D-At0"/>
+                                    <constraint firstItem="hVr-7r-3lW" firstAttribute="top" secondItem="TV9-7j-mCI" secondAttribute="bottom" constant="20" id="bpM-YK-gn9"/>
                                     <constraint firstItem="nDz-gu-C3g" firstAttribute="centerY" secondItem="80K-lZ-2Fd" secondAttribute="centerY" id="cnR-RE-BwJ"/>
                                     <constraint firstItem="pLE-Ct-CyZ" firstAttribute="centerY" secondItem="pq8-ov-ODl" secondAttribute="centerY" id="dAH-jW-UZq"/>
                                     <constraint firstItem="80K-lZ-2Fd" firstAttribute="leading" secondItem="hL6-2e-XHp" secondAttribute="leading" constant="98" id="dmY-7f-aN9"/>
@@ -1140,7 +1154,9 @@ Signup from your existing account</string>
                                     <constraint firstItem="HRv-SR-dTg" firstAttribute="leading" secondItem="pLE-Ct-CyZ" secondAttribute="leading" id="e3N-Xj-pDh"/>
                                     <constraint firstAttribute="trailing" secondItem="80K-lZ-2Fd" secondAttribute="trailing" constant="44" id="eLY-Nl-0TU"/>
                                     <constraint firstAttribute="trailing" secondItem="17g-mK-9bU" secondAttribute="trailing" constant="47" id="f1q-PK-KM4"/>
+                                    <constraint firstItem="hVr-7r-3lW" firstAttribute="bottom" secondItem="Vga-iE-YLG" secondAttribute="bottom" id="fYw-Lo-Ohr"/>
                                     <constraint firstItem="ylv-Eb-Mf6" firstAttribute="top" secondItem="hL6-2e-XHp" secondAttribute="top" constant="97" id="igh-XS-x9d"/>
+                                    <constraint firstItem="hVr-7r-3lW" firstAttribute="leading" secondItem="HDl-7a-LTX" secondAttribute="leading" id="jgX-0u-Wfv"/>
                                     <constraint firstItem="HRv-SR-dTg" firstAttribute="top" secondItem="3DV-ca-RPI" secondAttribute="bottom" constant="23" id="jx2-4P-X1e"/>
                                     <constraint firstItem="TV9-7j-mCI" firstAttribute="top" secondItem="nDz-gu-C3g" secondAttribute="bottom" constant="17" id="lrM-TP-PG6"/>
                                     <constraint firstItem="pLE-Ct-CyZ" firstAttribute="leading" secondItem="kLX-GH-l12" secondAttribute="leading" id="mb0-Eh-UIh"/>
@@ -1148,10 +1164,29 @@ Signup from your existing account</string>
                                     <constraint firstItem="80K-lZ-2Fd" firstAttribute="trailing" secondItem="3DV-ca-RPI" secondAttribute="trailing" id="ofK-88-o1j"/>
                                     <constraint firstItem="17g-mK-9bU" firstAttribute="top" secondItem="pLE-Ct-CyZ" secondAttribute="bottom" constant="35" id="r7c-3b-zWS"/>
                                     <constraint firstItem="TV9-7j-mCI" firstAttribute="top" secondItem="80K-lZ-2Fd" secondAttribute="bottom" constant="27" id="tXb-6U-7zw"/>
+                                    <constraint firstAttribute="trailing" secondItem="hVr-7r-3lW" secondAttribute="trailing" constant="45" id="uWq-Eb-mOD"/>
                                     <constraint firstItem="HDl-7a-LTX" firstAttribute="leading" secondItem="pq8-ov-ODl" secondAttribute="trailing" constant="97" id="wxP-ML-eYh"/>
                                     <constraint firstAttribute="bottom" secondItem="kLX-GH-l12" secondAttribute="bottom" constant="158" id="xMg-98-mg1"/>
                                 </constraints>
                             </scrollView>
+                            <datePicker contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEO-Zs-LWv">
+                                <rect key="frame" x="9" y="391" width="359" height="196"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <date key="date" timeIntervalSinceReferenceDate="505467239.12342298">
+                                    <!--2017-01-07 07:33:59 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-1293886800">
+                                    <!--1960-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerAction:" destination="hE9-zO-y9A" eventType="valueChanged" id="cKq-W8-lag"/>
+                                </connections>
+                            </datePicker>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6m-q2-SZx">
                                 <rect key="frame" x="0.0" y="20" width="375" height="45"/>
                                 <subviews>
@@ -1218,6 +1253,7 @@ Signup from your existing account</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="dateOfBrithTextField" destination="Vga-iE-YLG" id="LCx-qX-eJs"/>
+                        <outlet property="datePicker" destination="fEO-Zs-LWv" id="0Tx-U1-Ccq"/>
                         <outlet property="femaleButton" destination="HDl-7a-LTX" id="eki-XC-yIw"/>
                         <outlet property="maleButton" destination="zcI-In-3CL" id="Gub-3h-Fz9"/>
                         <outlet property="myScroolView" destination="hL6-2e-XHp" id="PWf-dk-zuO"/>
@@ -1656,6 +1692,69 @@ Signup from your existing account</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iK1-km-QlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3389.5999999999999" y="232.53373313343329"/>
+        </scene>
+        <!--Whose Around View Controller-->
+        <scene sceneID="Vr6-yL-Caz">
+            <objects>
+                <viewController id="sGk-Bm-OMC" customClass="WhoseAroundViewController" customModule="CruzSortMeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sNm-7l-YUF"/>
+                        <viewControllerLayoutGuide type="bottom" id="StW-D0-3i5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nu3-Rd-Yw4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="cQD-qe-2QY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx7-Bi-Eg2">
+                                <rect key="frame" x="1" y="10" width="375" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSO-q3-o5d">
+                                        <rect key="frame" x="39" y="11" width="40" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="GIr-ER-xge"/>
+                                        </constraints>
+                                        <state key="normal" image="menu"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="rSO-q3-o5d" firstAttribute="leading" secondItem="fx7-Bi-Eg2" secondAttribute="leading" constant="39" id="xpv-55-Yl9"/>
+                                    <constraint firstItem="rSO-q3-o5d" firstAttribute="centerY" secondItem="fx7-Bi-Eg2" secondAttribute="centerY" id="xs2-jH-3pV"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whose Around" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlH-Ru-y7P">
+                                <rect key="frame" x="131" y="21" width="115" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="QM2-gF-1qO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cQD-qe-2QY" firstAttribute="bottom" secondItem="StW-D0-3i5" secondAttribute="top" id="2CF-qW-8Mo"/>
+                            <constraint firstItem="cQD-qe-2QY" firstAttribute="top" secondItem="nu3-Rd-Yw4" secondAttribute="top" id="35S-bD-ozu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fx7-Bi-Eg2" secondAttribute="trailing" constant="-17" id="K6H-06-0Ae"/>
+                            <constraint firstItem="fx7-Bi-Eg2" firstAttribute="centerX" secondItem="LlH-Ru-y7P" secondAttribute="centerX" id="Kuf-O6-t2n"/>
+                            <constraint firstItem="LlH-Ru-y7P" firstAttribute="top" secondItem="sNm-7l-YUF" secondAttribute="bottom" constant="1" id="NUt-0j-cE8"/>
+                            <constraint firstItem="StW-D0-3i5" firstAttribute="top" secondItem="fx7-Bi-Eg2" secondAttribute="bottom" constant="612" id="P3a-f9-vdw"/>
+                            <constraint firstItem="fx7-Bi-Eg2" firstAttribute="leading" secondItem="nu3-Rd-Yw4" secondAttribute="leadingMargin" constant="-15" id="SQ0-or-CFd"/>
+                            <constraint firstItem="cQD-qe-2QY" firstAttribute="leading" secondItem="nu3-Rd-Yw4" secondAttribute="leadingMargin" constant="-16" id="Wjq-1g-l8J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cQD-qe-2QY" secondAttribute="trailing" constant="-16" id="rOd-Zt-hqK"/>
+                            <constraint firstItem="fx7-Bi-Eg2" firstAttribute="top" secondItem="nu3-Rd-Yw4" secondAttribute="topMargin" constant="10" id="zCz-jy-hET"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CyY-GO-hhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4125.6000000000004" y="232.53373313343329"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="poD-Ms-Rv1">
@@ -2464,7 +2563,7 @@ Signup from your existing account</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zD9-B2-gFJ"/>
+        <segue reference="AEl-Dj-bJq"/>
         <segue reference="UJP-kM-dvg"/>
-        <segue reference="J2I-TK-vPt"/>
     </inferredMetricsTieBreakers>
 </document>

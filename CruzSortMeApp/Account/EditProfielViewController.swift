@@ -14,6 +14,20 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
     var boolValue = 0
     
     
+    @IBAction func dobButtonAction(_ sender: UIButton) {
+        self.datePicker.isHidden = false
+
+    }
+    var gender : String!
+    
+    let dateFormatter = DateFormatter()
+    var dateString : String!
+
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBAction func datePickerAction(_ sender: UIDatePicker) {
+        self.setDateAndTime()
+    }
+    
     var groupImage : UIImage!
     var userIdString : String!
     @IBOutlet weak var myScroolView: UIScrollView!
@@ -22,9 +36,13 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         if (femaleButton.currentImage?.isEqual(UIImage(named: "genderIcon")))! {
             let image = UIImage(named: "genderColorIcon")
             femaleButton.setImage(image, for: UIControlState.normal)
+            maleButton.setImage(UIImage(named : "genderIcon"), for: UIControlState.normal)
+
         }else {
             let imageIcon = UIImage(named: "genderIcon")
             femaleButton.setImage(imageIcon, for: UIControlState.normal)
+            maleButton.setImage(UIImage(named : "genderColorIcon"), for: UIControlState.normal)
+
         }
     }
     @IBOutlet weak var femaleButton: UIButton!
@@ -33,9 +51,12 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         if (maleButton.currentImage?.isEqual(UIImage(named: "genderIcon")))! {
             let image = UIImage(named: "genderColorIcon")
             maleButton.setImage(image, for: UIControlState.normal)
+            femaleButton.setImage(UIImage(named : "genderIcon"), for: UIControlState.normal)
         }else {
             let imageIcon = UIImage(named: "genderIcon")
             maleButton.setImage(imageIcon, for: UIControlState.normal)
+            femaleButton.setImage(UIImage(named : "genderColorIcon"), for: UIControlState.normal)
+
         }
 
     }
@@ -44,6 +65,7 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
     @IBOutlet weak var resortTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBAction func submitButtonAction(_ sender: UIButton) {
+        self.updateUserInfoApiHit()
     }
     @IBAction func menuButtnAction(_ sender: UIButton) {
         
@@ -90,11 +112,14 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         }
     }
     let imagePicker = UIImagePickerController()
-
+     var editProfileArray = [EditProfileClass]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        self.datePicker.isHidden = true
+        self.datePicker.backgroundColor = UIColor.red
+        self.dateOfBrithTextField.delegate = self
         self.navigationController?.navigationBar.isHidden = true
 
         let useriDstring = defaults.string(forKey: "userId")
@@ -107,14 +132,18 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
             action: #selector(dismissKeyboard))
         
         myScroolView.addGestureRecognizer(tap)
-        
         self.getUserDetailCall()
-        
-
+      
         self.addChildViewController(appDelegate.menuTableViewController)
-       //  self.apiCall()
 
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK -: set date of birth
+    func setDateAndTime() {
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.dateFormat = "dd/MM/YYYY"
+        dateOfBrithTextField.text = dateFormatter.string(from: datePicker.date)
     }
     
     
@@ -124,17 +153,16 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         resortTextField.resignFirstResponder()
         dateOfBrithTextField.resignFirstResponder()
         scheduleUpcomingTextField.resignFirstResponder()
+        self.datePicker.isHidden = true 
         self.view.endEditing(true)
-        
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage  {
             profileImageView.contentMode = .scaleAspectFit
-            profileImageView.image = pickedImage
+          //  profileImageView.image = pickedImage
             DispatchQueue.global().async(execute: {
-                self.setImage(image: pickedImage)
+               self.uploadImageApi(image: pickedImage)
             })
         }
         dismiss(animated: true, completion: nil)
@@ -143,6 +171,7 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
     func  setImage(image: UIImage!)  {
         self.groupImage = image
         print("jkek \(self.groupImage!)")
+        
     }
 
     
@@ -189,7 +218,6 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         
     }
 
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         //  myScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
@@ -201,16 +229,16 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         
     }
 
-    func  apiCall() {
+    func  uploadImageApi(image : UIImage) {
         if currentReachabilityStatus != .notReachable {
             
-            let image = UIImage(named: "\(self.groupImage)")
-            print("imagefh \(image)")
-            let   imagedata  = UIImageJPEGRepresentation(image!, 0.2)
+//            let images   = UIImage(named : "\(self.groupImage!)")
+//            print("images \(images)")
+            let   imagedata  = UIImageJPEGRepresentation(image, 0.2)
             print("imageDatadd \(imagedata!)")
             hudClass.showInView(view: self.view)
             
-            let URL = try! URLRequest(url: "\(baseUrl)updateUserProfile", method: .post)
+            let URL = try! URLRequest(url: "\(baseUrl)userProfileImgDetail", method: .post)
             print("URLS : \(URL)")
             
             Alamofire.upload(multipartFormData: { (multipartFormData) in
@@ -238,11 +266,9 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
                                 let responseMessage = (json["res_msg"].string)!
                                 print("response message \(responseMessage)")
                                 
-                                if responseMessage == "save Successfully" {
+                                if responseMessage == "Image Update Successfully" {
                                     hudClass.hide()
                                     print("save successFully")
-                                    
-                                    _ = self.navigationController?.popViewController(animated: true)
                                     
                                 }else {
                                     hudClass.hide()
@@ -299,8 +325,8 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         if currentReachabilityStatus != .notReachable {
             
             hudClass.showInView(view: self.view)
-            let  urlString = "\(baseUrl)login"
-            let  parameter = ["user_id" : "\(self.userIdString)"
+            let  urlString = "\(baseUrl)accountDetail"
+            let  parameter = ["user_id" : "\(self.userIdString!)"
                 ]
             
             print("dfd \(parameter)")
@@ -310,40 +336,77 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
                     print("Success: \(response.result.isSuccess)")
                     print("Response String: \(response.result.value)")
                     
-                    //to get JSON return value
-                    if let result = response.result.value {
-                        let JSON = result as! NSDictionary
+                    switch response.result {
                         
-                        let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
+                    case .success(let resposneData) :
+                        print("dffgsdf \(resposneData)")
+
+                        let json = JSON(resposneData)
                         
-                        print("response code \(responseCode)")
-                        
-                        let responseMessage = responseCode["res_msg"] as! String
+                        let responseMessage = (json["res_msg"].string)!
                         print("response message \(responseMessage)")
                         
-                        if responseMessage == "Login has been Successfully" {
+                        if responseMessage == "Record  Found Successfully" {
                             hudClass.hide()
                             
-                            let userIdString = responseCode["user_id"] as! String
-                            let userNameSavedString = responseCode["username"] as! String
-                            let userProfileImageString = responseCode["profile_image"] as! String
-                            defaults.set(userIdString, forKey: "userId")
-                            defaults.set(userNameSavedString, forKey: "user_name")
-                            defaults.set(userProfileImageString, forKey: "profile_image")
-                            defaults.synchronize()
-                            self.performSegue(withIdentifier: "homeView", sender: self)
+                            let responseCode = (json["CruzSortMe"].array)!
+                            print("response code \(responseCode)")
+                            
+                            
+                            for responsArray in responseCode {
+                             
+                                let userNameSavedString = responsArray["name"].string
+                                self.nameTextField.text = userNameSavedString!
+                                let userProfileImageString = responsArray["profile_image"].string
+                                let genderString = responsArray["gender"].string
+                                let doBString = responsArray["dob"].string
+                                
+                                self.dateOfBrithTextField.text = doBString
+                                
+                                print("genderString \(genderString)")
+                                
+                                if genderString == "Male" {
+                                    self.maleButton.setImage(UIImage(named: "genderColorIcon"), for: UIControlState.normal)
+                                    self.femaleButton.setImage(UIImage(named: "genderIcon"), for: UIControlState.normal)
+                                }else {
+                                    self.femaleButton.setImage(UIImage(named: "genderColorIcon"), for: UIControlState.normal)
+                                    self.maleButton.setImage(UIImage(named: "genderIcon"), for: UIControlState.normal)
+                                }
+                                
+                                print("userProfileImageString \(userProfileImageString!)")
+                                let url = URL(string: "\(userProfileImageString!)")
+                                
+                                DispatchQueue.main.async {
+                                    self.profileImageView.kf.setImage(with: url , placeholder : UIImage(named: "aboutUs"))
+
+                                }
+                                //                            defaults.set(userNameSavedString, forKey: "user_name")
+                                //                            defaults.set(userProfileImageString, forKey: "profile_image")
+                                //                            defaults.synchronize()
+                                
+                            }
                             
                         }else {
-                            hudClass.hide()
                             
-                            let alertVC = UIAlertController(title: "Alert", message: "Please enter valid email and password", preferredStyle: .alert)
+                            hudClass.hide()
+                            self.dateOfBrithTextField.text = ""
+                            self.nameTextField.text = ""
+                            let alertVC = UIAlertController(title: "Alert", message: "Some thing went wrong", preferredStyle: .alert)
                             let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
                             alertVC.addAction(okAction)
                             self.present(alertVC, animated: true, completion: nil)
-                            
+
                         }
-                        print("json \(JSON)")
-                        
+                    case .failure (let errorData) :
+                        hudClass.hide()
+                        self.dateOfBrithTextField.text = ""
+                        self.nameTextField.text = ""
+                        let alertVC = UIAlertController(title: "Alert", message: "Some thing went wrong", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                        alertVC.addAction(okAction)
+                        self.present(alertVC, animated: true, completion: nil)
+                        print("dfgdsffasesr\(errorData)")
+                    
                     }
             }
             
@@ -354,6 +417,74 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
         
         
     }
+    
+    
+    // MARK:- update Account detail Api
+    
+    func updateUserInfoApiHit() {
+        
+        if currentReachabilityStatus != .notReachable {
+            
+            if maleButton.isSelected == true {
+                gender = "male"
+            } else  {
+                gender = "female"
+            }
+            
+            let url = "\(baseUrl)updateUserInfo"
+            
+            let parameter = ["user_id" : "\(self.userIdString!)",
+                             "name" : "\(self.nameTextField.text!)",
+                             "dob" : "\(dateOfBrithTextField.text!)",
+                             "gender" : "\(gender!)",
+                             "resortat" : "\(self.resortTextField.text!)",
+                             "location_lat" : "28.536740",
+                             "location_log" : "77.399377"
+
+                ]
+            print("parameter \(parameter)")
+            hudClass.showInView(view: self.view)
+            
+            Alamofire.request( url, method : .post, parameters: parameter).responseJSON { (responseObject) -> Void in
+                
+                print(responseObject)
+                
+                print("rsposneIbekjds \(responseObject)")
+                if responseObject.result.isSuccess {
+                    hudClass.hide()
+                    let resJson = JSON(responseObject.result.value!)
+                    
+                    print("resJsonf \(resJson)")
+                    let  res_message  = (resJson["res_msg"].string)!
+                    print("res_messafe \(res_message)")
+                    
+                    if res_message == "Update Successfully" {
+                        
+                        let alertVC = UIAlertController(title: "Alert", message: "Your Profile has been updated", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+                        alertVC.addAction(okAction)
+                        self.present(alertVC,animated: true,completion: nil)
+                        
+                    }else {
+                        hudClass.hide()
+                        parentClass.showAlertWithApiFailure()
+                        print("sdkgdksbhgks")
+                    }
+                }
+                if responseObject.result.isFailure {
+                    hudClass.hide()
+                    parentClass.showAlertWithApiFailure()
+                    let error  = responseObject.result.error!  as NSError
+                    print("\(error)")
+                }
+            }
+            
+        }else{
+            hudClass.hide()
+            parentClass.showAlert()
+        }
+    }
+
 
 
     

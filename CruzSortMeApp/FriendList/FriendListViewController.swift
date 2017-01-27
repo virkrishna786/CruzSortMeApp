@@ -51,12 +51,16 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     
     var friendIdString : String!
     let cellIdentifier = "friendListCellTypee"
+    
+    var searchActive : Bool = false
     var friendsListArray = [FriendListClass]()
+    var filteredFriendListArray = [FriendListClass]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.friendListTableView.delegate = self
         self.friendListTableView.dataSource = self
+        self.friendSearchBar.delegate = self
         let userid = defaults.string(forKey: "userId")
         self.userIdString = userid!
         print("self.userid \(self.userIdString)")
@@ -68,16 +72,49 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
             self.friendListApi()
         }
         
-//        self.configureCustomSearchController()
-        
-//        searchController.searchResultsUpdater = self
-//        searchController.searchBar.delegate = self
-//        definesPresentationContext = true
-//        searchController.dimsBackgroundDuringPresentation = false
-
 
         // Do any additional setup after loading the view.
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+//        filteredFriendListArray = friendsListArray.filter({ (text  as FriendListClass).friendNameString as! String -> Bool in
+//            let tmp: NSString = text
+//            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+//            return range.location != NSNotFound
+//        })
+        
+        
+        filteredFriendListArray = friendsListArray.filter() {
+            if let type = ($0 as FriendListClass).friendNameString as String! {
+                return type.range(of: searchText, options: NSString.CompareOptions.caseInsensitive) != nil
+            } else {
+                return false
+            }        }
+        if(filteredFriendListArray.count == 0){
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        self.friendListTableView.reloadData()
+    }
+
     
     
     func friendListApi() {
@@ -135,20 +172,13 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if shouldShowSearchResults {
-//            return marrFilteredFriendList.count
-//        }
-//        else {
-//            return friendsListArray.count
-//        }
-        
+      
+        if(searchActive) {
+            return self.filteredFriendListArray.count
+        }
         return self.friendsListArray.count
         
-//        if tableView == self.searchDisplayController!.searchResultsTableView {
-//            return self.marrFilteredFriendList.count
-//        } else {
-//            return self.friendsListArray.count
-//        }
+       // return self.friendsListArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -164,59 +194,25 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
         let eventList = friendsListArray[indexPath.row]
         print("eventLsit\(eventList)")
         
-//        if tableView == self.searchController!.searchResultsController {
-//            friendName = marrFilteredFriendList[indexPath.row].friendNameString
-//        } else {
-//            friendName = friendsListArray[indexPath.row].friendNameString
-//        }
-//        
-   //    cell.friendNameLabel.text = friendName!
-       cell.friendNameLabel.text = eventList.friendNameString!
-//        
-//        if shouldShowSearchResults {
-//            cell.textLabel?.text = marrFilteredFriendList[indexPath.row]
-//        }
-//        else {
-//            cell.textLabel?.text = friendsListArray[indexPath.row].friendNameString!
-//        }
-        
-        print("event imageString = \(eventList.friendProfileImage!)")
-        let URL = NSURL(string: "\(eventList.friendProfileImage!)")
-        print("urlsfgds \(URL)")
-        let mutableUrlRequest = NSMutableURLRequest(url: URL! as URL)
-        mutableUrlRequest.httpMethod = "get"
-        
-        mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
-        
-        
-        let headers = [
-            "Accept"  :  "image/jpeg"
-        ]
-        print(" headers \(headers)")
-        print("mutable Request : \(mutableUrlRequest)")
-        //  request.addAcceptableImageContentTypes(["image/jpeg"])
-        
-        Alamofire.request("\(URL!)").responseImage { response in
-            debugPrint(response)
-            
-            print("adsfdfs \(response.request!)")
-            print("dskjfd \(response.response!)")
-            print(" response.result \(response.result)")
-            
-            if let image = response.result.value {
-                DispatchQueue.global().async(execute: {
-                    
-                    if let cellToUpdate = tableView.cellForRow(at: indexPath) {
-                        
-                        print("\(cellToUpdate)")
-                        cell.friendProfileImageView.image = image
-                    }
-                    
-                })
-                
-            }
+        if(searchActive){
+            cell.friendNameLabel?.text = filteredFriendListArray[indexPath.row].friendNameString
+            let uRL = URL(string: "\(filteredFriendListArray[indexPath.row].friendProfileImage!)")
+            print("urlsfgds \(uRL)")
+            cell.friendProfileImageView.kf.setImage(with: uRL! ,placeholder : UIImage(named: "aboutUs"))
+        } else {
+            cell.friendNameLabel?.text = friendsListArray[indexPath.row].friendNameString
+            let uRL = URL(string: "\(friendsListArray[indexPath.row].friendProfileImage!)")
+            print("urlsfgds \(uRL)")
+            cell.friendProfileImageView.kf.setImage(with: uRL! ,placeholder : UIImage(named: "aboutUs"))
         }
 
+        
+
+      // cell.friendNameLabel.text = eventList.friendNameString!
+       // print("event imageString = \(eventList.friendProfileImage!)")
+//        let uRL = URL(string: "\(eventList.friendProfileImage!)")
+//        print("urlsfgds \(uRL)")
+//        cell.friendProfileImageView.kf.setImage(with: uRL! ,placeholder : UIImage(named: "aboutUs"))
         
       //  self.IntrestIdString = eventList.interestId!
         return cell
@@ -224,8 +220,17 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                   let eventList = friendsListArray[indexPath.row]
+                  let fileteredList = filteredFriendListArray[indexPath.row]
+        if (searchActive) {
+            self.friendIdString = fileteredList.friendIdString!
+            self.performSegue(withIdentifier: "friendDetail", sender: self)
+
+            
+        }else {
+        
             self.friendIdString = eventList.friendIdString!
             self.performSegue(withIdentifier: "friendDetail", sender: self)
+        }
 
     }
     

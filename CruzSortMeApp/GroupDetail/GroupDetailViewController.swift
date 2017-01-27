@@ -145,7 +145,6 @@ class GroupDetailViewController: UIViewController ,UITableViewDelegate ,UITableV
         
         mutableUrlRequest.setValue("image/jpeg", forHTTPHeaderField: "Accept")
         
-        
         let headers = [
             "Accept"  :  "image/jpeg"
         ]

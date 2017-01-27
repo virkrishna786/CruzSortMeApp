@@ -31,9 +31,13 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         if (femaleButton.currentImage?.isEqual(UIImage(named: "genderIcon")))! {
             let image = UIImage(named: "genderColorIcon")
             femaleButton.setImage(image, for: UIControlState.normal)
+            maleButton.setImage(UIImage(named : "genderIcon"), for: UIControlState.normal)
+
         }else {
             let imageIcon = UIImage(named: "genderIcon")
             femaleButton.setImage(imageIcon, for: UIControlState.normal)
+            maleButton.setImage(UIImage(named : "genderColorIcon"), for: UIControlState.normal)
+
         }
         
     }
@@ -43,9 +47,13 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
         if (maleButton.currentImage?.isEqual(UIImage(named: "genderIcon")))! {
             let image = UIImage(named: "genderColorIcon")
             maleButton.setImage(image, for: UIControlState.normal)
+            femaleButton.setImage(UIImage(named : "genderIcon"), for: UIControlState.normal)
+
         }else {
             let imageIcon = UIImage(named: "genderIcon")
             maleButton.setImage(imageIcon, for: UIControlState.normal)
+            femaleButton.setImage(UIImage(named : "genderColorIcon"), for: UIControlState.normal)
+
         }
         
     }
