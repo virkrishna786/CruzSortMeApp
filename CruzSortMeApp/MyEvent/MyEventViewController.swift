@@ -22,7 +22,7 @@ class MyEventViewController: UIViewController , UITableViewDelegate ,UITableView
     var  numberofEvents : Int!
     var eventIdString : String!
     
-    
+    var userIdString : String!
     var  homeEventArray = [HomeArrayClass]()
     @IBOutlet weak var postTableView: UITableView!
     @IBAction func buttonAction(_ sender: UIButton) {
@@ -48,9 +48,9 @@ class MyEventViewController: UIViewController , UITableViewDelegate ,UITableView
             
             hudClass.showInView(view: self.view)
             
-            let parameter = ["end_value": "1"]
+            let parameter = ["user_id": "\(self.userIdString!)"]
             
-            Alamofire.request( url, method : .post , parameters: parameter).responseJSON { (responseObject) -> Void in
+            Alamofire.request( url, method : .post , parameters : parameter).responseJSON { (responseObject) -> Void in
                 
                 print(responseObject)
                 
@@ -115,6 +115,7 @@ class MyEventViewController: UIViewController , UITableViewDelegate ,UITableView
         
         
         let useriDstring = defaults.string(forKey: "userId")
+        self.userIdString =  useriDstring!
         print("userid \(useriDstring!)")
         
         self.postTableView.register(UINib(nibName : "PostCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)

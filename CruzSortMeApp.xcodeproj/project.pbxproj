@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		19F0829297F5B0FF772AAB6F /* Pods_CruzSortMeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */; };
 		2483D3C3DE8AB9A9B616A3B9 /* Pods_CruzSortMeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C4BBA4EE1C8C6014CD45BD /* Pods_CruzSortMeApp.framework */; };
+		84077D241E3C51660061DF1C /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D231E3C51660061DF1C /* FriendRequestViewController.swift */; };
+		84077D261E3C519D0061DF1C /* FriendRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D251E3C519D0061DF1C /* FriendRequestCell.swift */; };
+		84077D281E3C51BE0061DF1C /* FriendRequstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84077D271E3C51BE0061DF1C /* FriendRequstTableViewCell.xib */; };
+		84077D2A1E3C68A90061DF1C /* FriendRequestArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D291E3C68A90061DF1C /* FriendRequestArrayClass.swift */; };
+		84077D2D1E3CA3200061DF1C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D2C1E3CA3200061DF1C /* NotificationViewController.swift */; };
+		84077D2F1E3CB4770061DF1C /* NotificationArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D2E1E3CB4770061DF1C /* NotificationArrayClass.swift */; };
 		841BBE421E30859E00F984E7 /* FriendGroupClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BBE411E30859E00F984E7 /* FriendGroupClass.swift */; };
 		84209E041E375E1700A8BCFB /* dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 84209E031E375E1700A8BCFB /* dummy.png */; };
 		8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386A1E234ADB00A44646 /* CommonClass.swift */; };
@@ -24,8 +30,6 @@
 		842C23671E3B78FB00C8480C /* MyEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C23661E3B78FB00C8480C /* MyEventViewController.swift */; };
 		842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EF8731E1F5D610079EB2D /* SignUpViewController.swift */; };
 		842EF8781E1FB4210079EB2D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */; };
-		843867F21E2CE4DB0056062F /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843867F01E2CE4DB0056062F /* CustomSearchBar.swift */; };
-		843867F31E2CE4DB0056062F /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843867F11E2CE4DB0056062F /* CustomSearchController.swift */; };
 		843868061E2CF80B0056062F /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843868051E2CF80B0056062F /* FriendDetailViewController.swift */; };
 		843868081E2CF83E0056062F /* FriendDetailClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843868071E2CF83E0056062F /* FriendDetailClass.swift */; };
 		8438680A1E2CFB000056062F /* FriendDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843868091E2CFB000056062F /* FriendDetailCell.xib */; };
@@ -108,6 +112,12 @@
 		4DD60681A14B8F297E6D7C5A /* Pods_CruzSortMeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CruzSortMeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F13DDE74F1B6A798AF83012 /* Pods-CruzSortMeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6CE0EB4EF675A31C9909DBF5 /* Pods-CruzSortMeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CruzSortMeAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CruzSortMeAppUITests/Pods-CruzSortMeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		84077D231E3C51660061DF1C /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
+		84077D251E3C519D0061DF1C /* FriendRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestCell.swift; sourceTree = "<group>"; };
+		84077D271E3C51BE0061DF1C /* FriendRequstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendRequstTableViewCell.xib; sourceTree = "<group>"; };
+		84077D291E3C68A90061DF1C /* FriendRequestArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestArrayClass.swift; sourceTree = "<group>"; };
+		84077D2C1E3CA3200061DF1C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		84077D2E1E3CB4770061DF1C /* NotificationArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationArrayClass.swift; sourceTree = "<group>"; };
 		841BBE411E30859E00F984E7 /* FriendGroupClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupClass.swift; sourceTree = "<group>"; };
 		84209E031E375E1700A8BCFB /* dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy.png; sourceTree = "<group>"; };
 		8421386A1E234ADB00A44646 /* CommonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
@@ -124,8 +134,6 @@
 		842EF8731E1F5D610079EB2D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		842EF8751E1FB4190079EB2D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/CruzSortMeApp-hjufrmbipvodiafhfvgddeiqmpsr/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
-		843867F01E2CE4DB0056062F /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
-		843867F11E2CE4DB0056062F /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		843868051E2CF80B0056062F /* FriendDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
 		843868071E2CF83E0056062F /* FriendDetailClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendDetailClass.swift; sourceTree = "<group>"; };
 		843868091E2CFB000056062F /* FriendDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendDetailCell.xib; sourceTree = "<group>"; };
@@ -239,6 +247,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84077D221E3C51410061DF1C /* FriendRequest */ = {
+			isa = PBXGroup;
+			children = (
+				84077D231E3C51660061DF1C /* FriendRequestViewController.swift */,
+				84077D291E3C68A90061DF1C /* FriendRequestArrayClass.swift */,
+				84077D251E3C519D0061DF1C /* FriendRequestCell.swift */,
+				84077D271E3C51BE0061DF1C /* FriendRequstTableViewCell.xib */,
+			);
+			path = FriendRequest;
+			sourceTree = "<group>";
+		};
+		84077D2B1E3CA3000061DF1C /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				84077D2C1E3CA3200061DF1C /* NotificationViewController.swift */,
+				84077D2E1E3CB4770061DF1C /* NotificationArrayClass.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		842138701E23550700A44646 /* SingltonClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +294,6 @@
 			children = (
 				844D90331E14D390002684BA /* CruzSortMeApp */,
 				844D904B1E14D391002684BA /* CruzSortMeAppTests */,
-				844D90561E14D391002684BA /* CruzSortMeAppUITests */,
 				844D90321E14D390002684BA /* Products */,
 				E20FE21E105C0764506B9440 /* Pods */,
 				4509CB696858B0C55FE347E7 /* Frameworks */,
@@ -286,6 +313,8 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				84077D2B1E3CA3000061DF1C /* Notification */,
+				84077D221E3C51410061DF1C /* FriendRequest */,
 				842C23651E3B78DC00C8480C /* MyEvent */,
 				84C626741E38BA7E00CA1824 /* WhoseAround */,
 				84C2C09D1E36241B007B7C20 /* Account */,
@@ -308,6 +337,7 @@
 				844D90401E14D391002684BA /* LaunchScreen.storyboard */,
 				844D90431E14D391002684BA /* Info.plist */,
 				844D903B1E14D391002684BA /* CruzSortMeApp.xcdatamodeld */,
+				844D90561E14D391002684BA /* CruzSortMeAppUITests */,
 			);
 			path = CruzSortMeApp;
 			sourceTree = "<group>";
@@ -328,7 +358,7 @@
 				844D90591E14D391002684BA /* Info.plist */,
 			);
 			path = CruzSortMeAppUITests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		8470453A1E2E1F73002632BE /* FriendGroup */ = {
 			isa = PBXGroup;
@@ -402,8 +432,6 @@
 				843868071E2CF83E0056062F /* FriendDetailClass.swift */,
 				843868051E2CF80B0056062F /* FriendDetailViewController.swift */,
 				84940B851E28F1C100F94254 /* FriendListClass.swift */,
-				843867F01E2CE4DB0056062F /* CustomSearchBar.swift */,
-				843867F11E2CE4DB0056062F /* CustomSearchController.swift */,
 				84940B871E28F32700F94254 /* FriendListCell.xib */,
 				84940B891E28F36200F94254 /* FriendListCellType.swift */,
 			);
@@ -583,7 +611,7 @@
 					844D90301E14D390002684BA = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = U284QKP4FC;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					844D90471E14D391002684BA = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -635,6 +663,7 @@
 				8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */,
 				842C23641E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib in Resources */,
 				847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */,
+				84077D281E3C51BE0061DF1C /* FriendRequstTableViewCell.xib in Resources */,
 				8482EA451E2753E5009D1AA7 /* ReviewCell.xib in Resources */,
 				84940B881E28F32700F94254 /* FriendListCell.xib in Resources */,
 			);
@@ -818,6 +847,7 @@
 				84C2C09F1E362438007B7C20 /* EditProfielViewController.swift in Sources */,
 				842C23671E3B78FB00C8480C /* MyEventViewController.swift in Sources */,
 				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
+				84077D2F1E3CB4770061DF1C /* NotificationArrayClass.swift in Sources */,
 				8438680C1E2CFB410056062F /* FriendDetailCellType.swift in Sources */,
 				84B4F84F1E3329FC00FF4D3F /* AboutUsViewController.swift in Sources */,
 				84B4F8521E333E9400FF4D3F /* CreateEventViewController.swift in Sources */,
@@ -825,24 +855,26 @@
 				84E536181E321CA10064A280 /* GroupDetailCellType.swift in Sources */,
 				84940B8A1E28F36200F94254 /* FriendListCellType.swift in Sources */,
 				84C2C09A1E3608F2007B7C20 /* EventypeTableViewCell.swift in Sources */,
+				84077D241E3C51660061DF1C /* FriendRequestViewController.swift in Sources */,
 				8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */,
 				8482EA601E27A04F009D1AA7 /* ReviewClass.swift in Sources */,
 				8482EA4E1E27541A009D1AA7 /* HomeViewController.swift in Sources */,
 				84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */,
 				84940B841E28E0A400F94254 /* FriendListViewController.swift in Sources */,
-				843867F21E2CE4DB0056062F /* CustomSearchBar.swift in Sources */,
 				84C626761E38BA9C00CA1824 /* WhoseAroundViewController.swift in Sources */,
-				843867F31E2CE4DB0056062F /* CustomSearchController.swift in Sources */,
 				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,
 				84C2C0961E36089E007B7C20 /* PeopleCell.swift in Sources */,
 				8421386D1E234AEF00A44646 /* Validator.swift in Sources */,
+				84077D2A1E3C68A90061DF1C /* FriendRequestArrayClass.swift in Sources */,
 				842C23581E3B1D5300C8480C /* EditProfileClass.swift in Sources */,
 				8470453E1E2E245A002632BE /* FriendGroupCell.swift in Sources */,
+				84077D261E3C519D0061DF1C /* FriendRequestCell.swift in Sources */,
 				8482EA541E27542D009D1AA7 /* MenuTVC.swift in Sources */,
 				843868081E2CF83E0056062F /* FriendDetailClass.swift in Sources */,
 				8482EA431E2753E5009D1AA7 /* EventDetailClass.swift in Sources */,
 				8421386F1E234B2C00A44646 /* Config.swift in Sources */,
 				84E536141E321C4F0064A280 /* GroupDetailClass.swift in Sources */,
+				84077D2D1E3CA3200061DF1C /* NotificationViewController.swift in Sources */,
 				84940B861E28F1C100F94254 /* FriendListClass.swift in Sources */,
 				842C23601E3B5D8600C8480C /* WhoseAroundDataClass.swift in Sources */,
 				8482EA561E275441009D1AA7 /* ParentClass.swift in Sources */,
@@ -1006,12 +1038,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = U284QKP4FC;
 				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cruzsortmeapp.kay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "014c39ed-31de-41df-9bf7-19ac1de803f6";
+				PROVISIONING_PROFILE_SPECIFIER = AdhocCertificateDistribution;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1024,12 +1059,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = U284QKP4FC;
 				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cruzsortmeapp.kay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "014c39ed-31de-41df-9bf7-19ac1de803f6";
+				PROVISIONING_PROFILE_SPECIFIER = AdhocCertificateDistribution;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};

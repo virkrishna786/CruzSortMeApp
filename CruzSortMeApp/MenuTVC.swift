@@ -15,8 +15,8 @@ class MenuTVC: UITableViewController {
     let LeftMenuWidth = 100.0
     var headerView:UIView?
     var  imageIcon=UIImageView()
-    var SA_Choice = ["Home","Account","My Events","Interest","Explore","Friends","Friend Request","Messages","Around","Calender","About Us","Logout"]
-    var SA_Icons = ["home","account","myEvent","myEvent","search","group","request","message","search","calender","aboutUs","account"]
+    var SA_Choice = ["Home","Account","My Events","Interest","Explore","Friends","Friend Request","Messages","Around","Calender","About Us","Notification","Logout"]
+    var SA_Icons = ["home","account","myEvent","myEvent","search","group","request","message","search","calender","aboutUs","notification","logout"]
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -355,6 +355,45 @@ class MenuTVC: UITableViewController {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
             
+        }else if (indexPath.row == 6){
+            
+            hideMenu()
+            let firstView:FriendRequestViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "friendRequest") as! FriendRequestViewController
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: FriendRequestViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: FriendRequestViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+            
+
+            
         }else if indexPath.row == 8 {
             
             hideMenu()
@@ -427,6 +466,45 @@ class MenuTVC: UITableViewController {
                 appDelegate.navigationController?.pushViewController(firstView, animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
+        }else if (indexPath.row == 11) {
+            
+            hideMenu()
+            let firstView:NotificationViewController
+                = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "notification") as! NotificationViewController
+            //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: NotificationViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: NotificationViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+  
         }
     }
     

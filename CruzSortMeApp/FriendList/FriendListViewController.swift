@@ -47,7 +47,6 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     
     var searchController: UISearchController!
     
-    var customSearchController: CustomSearchController!
     
     var friendIdString : String!
     let cellIdentifier = "friendListCellTypee"
@@ -191,33 +190,32 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! FriendListCellType
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FriendListCellType
      //   var friendName : String!
 
         let eventList = friendsListArray[indexPath.row]
         print("eventLsit\(eventList)")
         
+        cell.contentView.bringSubview(toFront: cell.blockButton)
+        
         if(searchActive){
             cell.friendNameLabel?.text = filteredFriendListArray[indexPath.row].friendNameString
+            cell.friendIdLabel.text = filteredFriendListArray[indexPath.row].friendIdString
             let uRL = URL(string: "\(filteredFriendListArray[indexPath.row].friendProfileImage!)")
             print("urlsfgds \(uRL)")
             cell.friendProfileImageView.kf.setImage(with: uRL! ,placeholder : UIImage(named: "aboutUs"))
+            cell.contentView.bringSubview(toFront: cell.blockButton)
+            cell.blockButton.addTarget(self, action: #selector(FriendListViewController.declineFriendButtonAction(_sender:)), for: .touchUpInside)
         } else {
             cell.friendNameLabel?.text = friendsListArray[indexPath.row].friendNameString
+             cell.friendIdLabel.text = friendsListArray[indexPath.row].friendIdString
+            cell.contentView.bringSubview(toFront: cell.blockButton)
             let uRL = URL(string: "\(friendsListArray[indexPath.row].friendProfileImage!)")
             print("urlsfgds \(uRL)")
+             cell.blockButton.addTarget(self, action: #selector(FriendListViewController.declineFriendButtonAction(_sender:)), for: .touchUpInside)
             cell.friendProfileImageView.kf.setImage(with: uRL! ,placeholder : UIImage(named: "aboutUs"))
         }
 
-        
-
-      // cell.friendNameLabel.text = eventList.friendNameString!
-       // print("event imageString = \(eventList.friendProfileImage!)")
-//        let uRL = URL(string: "\(eventList.friendProfileImage!)")
-//        print("urlsfgds \(uRL)")
-//        cell.friendProfileImageView.kf.setImage(with: uRL! ,placeholder : UIImage(named: "aboutUs"))
-        
-      //  self.IntrestIdString = eventList.interestId!
         return cell
     }
     
@@ -227,7 +225,6 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
         if (searchActive) {
             self.friendIdString = filteredFriendListArray[indexPath.row].friendIdString!
             self.performSegue(withIdentifier: "friendDetail", sender: self)
-
             
         }else {
         
@@ -255,6 +252,72 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
         self.marrFilteredFriendList = array as! [FriendListClass]
         self.friendListTableView.reloadData()
     }
+    
+    
+    func declineFriendButtonAction(_sender : UIButton) {
+        
+        let button = _sender
+        let view = button.superview!
+        
+        let cell = view.superview as! FriendListCellType
+        
+        let indexPath = self.friendListTableView!.indexPath(for: cell)
+        
+        print("indePath: \(indexPath)")
+        
+        if let friendRequestIdString = cell.friendIdLabel.text {
+            self.declineApihit(string: friendRequestIdString)
+        }
+        
+        
+    }
+    
+    
+    func declineApihit(string: String) {
+        
+        if currentReachabilityStatus != .notReachable {
+            
+            hudClass.showInView(view: self.view)
+            let url = "\(baseUrl)unFriend"
+            
+            hudClass.showInView(view: self.view)
+            
+            let parameter = ["user_id": "\(self.userIdString!)",
+                "friend_id" : "\(string)"
+            ]
+            
+            Alamofire.request( url, method : .post , parameters : parameter).responseJSON { (responseObject) -> Void in
+                
+                print(responseObject)
+                
+                if responseObject.result.isSuccess {
+                    hudClass.hide()
+                    let resJson = JSON(responseObject.result.value!)
+                    
+                    let  res_message = resJson["res_msg"].string
+                    
+                    if res_message == "Block Successfully" {
+                       // DispatchQueue.main.async {
+                            self.friendListApi()
+                      //  }
+                        print("dsfs \(resJson)")
+                    }
+                    
+                }
+                if responseObject.result.isFailure {
+                    hudClass.hide()
+                    let error  = responseObject.result.error!  as NSError
+                    parentClass.showAlertWithApiFailure()
+                    print("failuredata \(error)")
+                    
+                }
+            }
+        }else {
+            parentClass.showAlert()
+        }
+    }
+    
+
     
     
     

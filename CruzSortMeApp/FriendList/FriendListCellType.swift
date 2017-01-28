@@ -10,6 +10,7 @@ import UIKit
 
 class FriendListCellType: UITableViewCell {
 
+    @IBOutlet weak var friendIdLabel: UILabel!
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBAction func blockButtonAction(_ sender: UIButton) {
     }

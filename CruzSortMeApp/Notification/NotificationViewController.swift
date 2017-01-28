@@ -1,8 +1,8 @@
 //
-//  WhoseAroundViewController.swift
+//  NotificationViewController.swift
 //  CruzSortMeApp
 //
-//  Created by Admin media on 1/25/17.
+//  Created by Admin media on 1/28/17.
 //  Copyright © 2017 Gopal Gupta. All rights reserved.
 //
 
@@ -11,24 +11,23 @@ import  Alamofire
 import SwiftyJSON
 import AlamofireImage
 
-class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource  {
+class NotificationViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource {
     
     var boolValue = 0
+    
     @IBAction func menuButtonAction(_ sender: UIButton) {
         if boolValue == 0 {
             appDelegate.menuTableViewController.showMenu()
             self.view .addSubview(appDelegate.menuTableViewController.view)
             boolValue = 1
+            
         } else {
             appDelegate.menuTableViewController.hideMenu()
             self.view .addSubview(appDelegate.menuTableViewController.view)
             boolValue = 0
         }
+        
     }
-    
-    var logitudeString : String!
-    var latitudeString : String!
-    
     @IBOutlet weak var eventDetailTableView: UITableView!
     let cellIdentifier = "whoseAroundEventCell"
     let reviewCellIdentifier = "whoseAroundPeopleCell"
@@ -43,6 +42,7 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.eventDetailTableView.delegate = self
         self.eventDetailTableView.dataSource = self
         
@@ -50,11 +50,13 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
         self.userIdString = useriDstring!
         print("userid \(useriDstring!)")
         
-        self.eventDetailTableView.register(UINib(nibName : "WhoseAroundEventTableViewCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.eventDetailTableView.register(UINib(nibName : "WhoseAroundPeopleTableViewCell" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
-        self.addChildViewController(appDelegate.menuTableViewController)
+        self.eventDetailTableView.register(UINib(nibName : "WhoseAroundEventTableViewCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
+        self.addChildViewController(appDelegate.menuTableViewController)
+        
         self.whoseAroundApiHit()
+
 
         // Do any additional setup after loading the view.
     }
@@ -64,12 +66,10 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
         
         if currentReachabilityStatus != .notReachable {
             
-            let parameter = ["user_id" : "\(self.userIdString!)",
-                "lat"  : "28.536740",
-                "lng"     : "77.399377"
+            let parameter = ["user_id" : "\(self.userIdString!)"
             ]
             
-            let url = "\(baseUrl)whoAround"
+            let url = "\(baseUrl)notificationGet"
             
             hudClass.showInView(view: self.view)
             
@@ -98,7 +98,7 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
                             eventArrayClass.eventIdString = eventArray["id"].string
                             eventArrayClass.eventNmaeString = eventArray["name"].string
                             eventArrayClass.eventImageString = eventArray["image"].string
-                            eventArrayClass.distanceStringForEventString = eventArray["distance"].string
+                            eventArrayClass.distanceStringForEventString = eventArray["notification_message"].string
                             eventArrayClass.cateogoryString = eventArray["category"].string
                             
                             self.exploreDetailArray.append(eventArrayClass)
@@ -127,8 +127,6 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     }
     
     
-    // MARK:- table view data source and delegate method
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -136,13 +134,13 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-      return exploreDetailArray.count
+        return exploreDetailArray.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-           return 150
-
+        return 150
+        
         
     }
     
@@ -151,7 +149,7 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
         let cell = UITableViewCell()
         
         let eventdata = exploreDetailArray[indexPath.row]
-         let eventCategoryString = eventdata.cateogoryString!
+        let eventCategoryString = eventdata.cateogoryString!
         
         print("eventCategoryString : \(eventCategoryString)")
         
@@ -162,8 +160,8 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
             cell.categoryLabel.text = "Person"
             let uRL = URL (string: "\(eventdata.eventImageString!)")
             cell.profileImageView.kf.setImage(with: uRL , placeholder : UIImage(named: "aboutUs"))
- 
-          return cell
+            
+            return cell
         } else  if eventCategoryString == "Event"{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! WhoseAroundEventTableViewCell
@@ -172,7 +170,7 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
             cell.categoryLabel.text = "Event"
             let uRL = URL (string: "\(eventdata.eventImageString!)")
             cell.eventImageView.kf.setImage(with: uRL , placeholder : UIImage(named: "aboutUs"))
-
+            
             return cell
         }else {
             
@@ -192,14 +190,21 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
         if eventCategoryString == "People" {
             self.peopleIdString = eventdata.eventIdString!
             self.performSegue(withIdentifier: "friendDetail", sender: self)
-        
+            
         }else  if eventCategoryString == "Event" {
             
-           self.eventIdString = eventdata.eventIdString!
+            self.eventIdString = eventdata.eventIdString!
             self.performSegue(withIdentifier: "eventDetail", sender: self)
+            
+            
+            
         }
+        
+           
     }
     
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -207,27 +212,14 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     }
     
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "friendDetail" {
-            let eventDetailView = segue.destination as! FriendDetailViewController
-            eventDetailView.friendIdString = self.peopleIdString!
-            print("homepage eventIDString \(eventDetailView.friendIdString)")
-        }else  if segue.identifier == "eventDetail" {
-            let eventDetailView = segue.destination as! EventDetailViewController
-            // eventDetailView.delegate = self
-           // eventDetailView.eventIdString = self.eventIdStrings!
-            print("homepage eventIDString \(eventDetailView.eventIdString)")
-            
-        }
-
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }
