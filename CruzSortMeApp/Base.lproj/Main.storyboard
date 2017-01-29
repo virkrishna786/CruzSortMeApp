@@ -1869,16 +1869,16 @@ Signup from your existing account</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ppb-vT-9Ek">
-                                <rect key="frame" x="3" y="-1" width="375" height="667"/>
+                                <rect key="frame" x="-1" y="-1" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZH-JB-uov">
-                                <rect key="frame" x="4" y="9" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="9" width="375" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDd-0x-0GB">
                                         <rect key="frame" x="39" y="11" width="40" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="vq2-kE-3gY"/>
+                                            <constraint firstAttribute="width" constant="40" id="JBI-Dd-SKB"/>
                                         </constraints>
                                         <state key="normal" image="menu"/>
                                         <connections>
@@ -1888,21 +1888,21 @@ Signup from your existing account</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="nDd-0x-0GB" firstAttribute="centerY" secondItem="jZH-JB-uov" secondAttribute="centerY" id="PX7-uq-ynN"/>
-                                    <constraint firstItem="nDd-0x-0GB" firstAttribute="leading" secondItem="jZH-JB-uov" secondAttribute="leading" constant="39" id="ngO-Xr-wmH"/>
+                                    <constraint firstItem="nDd-0x-0GB" firstAttribute="leading" secondItem="jZH-JB-uov" secondAttribute="leading" constant="39" id="Vs4-3y-WkB"/>
+                                    <constraint firstItem="nDd-0x-0GB" firstAttribute="centerY" secondItem="jZH-JB-uov" secondAttribute="centerY" id="ogG-ks-vCI"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Request" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg7-KE-zrb">
-                                <rect key="frame" x="131" y="20" width="133" height="21"/>
+                                <rect key="frame" x="127" y="20" width="133" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="133" id="zUq-bB-cFv"/>
+                                    <constraint firstAttribute="width" constant="133" id="z0N-vc-o11"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nl0-3A-Cv2">
-                                <rect key="frame" x="19" y="62" width="343" height="584"/>
+                                <rect key="frame" x="15" y="62" width="343" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendRequest" id="tj5-1u-aCu">
@@ -1922,20 +1922,20 @@ Signup from your existing account</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iOS-Eu-QJL" firstAttribute="top" secondItem="ppb-vT-9Ek" secondAttribute="bottom" constant="1" id="GSa-So-Kdw"/>
-                            <constraint firstItem="jZH-JB-uov" firstAttribute="leading" secondItem="H2R-6q-lQw" secondAttribute="leadingMargin" constant="-12" id="Khb-0a-REk"/>
-                            <constraint firstItem="Nl0-3A-Cv2" firstAttribute="leading" secondItem="H2R-6q-lQw" secondAttribute="leadingMargin" constant="3" id="Nvq-jf-i6o"/>
-                            <constraint firstItem="ppb-vT-9Ek" firstAttribute="top" secondItem="H2R-6q-lQw" secondAttribute="topMargin" constant="-1" id="T8B-hf-9wL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jZH-JB-uov" secondAttribute="trailing" constant="-20" id="TBw-cL-myI"/>
-                            <constraint firstItem="Nl0-3A-Cv2" firstAttribute="top" secondItem="bg7-KE-zrb" secondAttribute="bottom" constant="21" id="ZA4-oK-GZw"/>
-                            <constraint firstItem="bg7-KE-zrb" firstAttribute="top" secondItem="Al7-CT-mcE" secondAttribute="bottom" id="cUn-FN-hr1"/>
-                            <constraint firstItem="iOS-Eu-QJL" firstAttribute="top" secondItem="Nl0-3A-Cv2" secondAttribute="bottom" constant="21" id="fak-N9-STM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Nl0-3A-Cv2" secondAttribute="trailing" constant="-3" id="fbW-3r-b5u"/>
-                            <constraint firstItem="ppb-vT-9Ek" firstAttribute="leading" secondItem="H2R-6q-lQw" secondAttribute="leadingMargin" constant="-13" id="tfK-dp-C7s"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bg7-KE-zrb" secondAttribute="trailing" constant="95" id="uPY-3i-hb8"/>
-                            <constraint firstItem="jZH-JB-uov" firstAttribute="top" secondItem="H2R-6q-lQw" secondAttribute="topMargin" constant="9" id="uXb-Ab-1Cn"/>
-                            <constraint firstItem="Nl0-3A-Cv2" firstAttribute="top" secondItem="jZH-JB-uov" secondAttribute="bottom" constant="8" symbolic="YES" id="vkW-Ka-kEw"/>
-                            <constraint firstItem="ppb-vT-9Ek" firstAttribute="centerX" secondItem="Nl0-3A-Cv2" secondAttribute="centerX" id="wuc-eb-dh8"/>
+                            <constraint firstItem="iOS-Eu-QJL" firstAttribute="top" secondItem="ppb-vT-9Ek" secondAttribute="bottom" constant="1" id="4cF-UT-yJx"/>
+                            <constraint firstItem="ppb-vT-9Ek" firstAttribute="top" secondItem="H2R-6q-lQw" secondAttribute="topMargin" constant="-1" id="4pK-lt-9pY"/>
+                            <constraint firstItem="jZH-JB-uov" firstAttribute="leading" secondItem="H2R-6q-lQw" secondAttribute="leading" id="910-2d-cHF"/>
+                            <constraint firstItem="iOS-Eu-QJL" firstAttribute="top" secondItem="Nl0-3A-Cv2" secondAttribute="bottom" constant="21" id="DYz-fS-b7a"/>
+                            <constraint firstItem="ppb-vT-9Ek" firstAttribute="centerX" secondItem="Nl0-3A-Cv2" secondAttribute="centerX" id="Gx2-LQ-HNJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nl0-3A-Cv2" secondAttribute="trailing" constant="1" id="HvG-6J-Yy5"/>
+                            <constraint firstAttribute="trailing" secondItem="jZH-JB-uov" secondAttribute="trailing" id="KE7-Hh-ycG"/>
+                            <constraint firstItem="ppb-vT-9Ek" firstAttribute="leading" secondItem="H2R-6q-lQw" secondAttribute="leadingMargin" constant="-17" id="KF4-y1-3Uo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bg7-KE-zrb" secondAttribute="trailing" constant="99" id="M0Q-FK-LWg"/>
+                            <constraint firstItem="Nl0-3A-Cv2" firstAttribute="leading" secondItem="H2R-6q-lQw" secondAttribute="leadingMargin" constant="-1" id="O9V-HW-YCa"/>
+                            <constraint firstItem="bg7-KE-zrb" firstAttribute="top" secondItem="Al7-CT-mcE" secondAttribute="bottom" id="R9Y-u1-R13"/>
+                            <constraint firstItem="Nl0-3A-Cv2" firstAttribute="top" secondItem="bg7-KE-zrb" secondAttribute="bottom" constant="21" id="jOz-AV-LaX"/>
+                            <constraint firstItem="Nl0-3A-Cv2" firstAttribute="top" secondItem="jZH-JB-uov" secondAttribute="bottom" constant="8" symbolic="YES" id="nU2-4E-SAR"/>
+                            <constraint firstItem="jZH-JB-uov" firstAttribute="top" secondItem="H2R-6q-lQw" secondAttribute="topMargin" constant="9" id="y8k-2I-85a"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -2833,7 +2833,7 @@ Signup from your existing account</string>
         <image name="usernameTextFieldImage" width="295" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zD9-B2-gFJ"/>
+        <segue reference="zpG-mn-9Gf"/>
         <segue reference="Xwu-24-OMV"/>
         <segue reference="wuS-3D-gEm"/>
     </inferredMetricsTieBreakers>

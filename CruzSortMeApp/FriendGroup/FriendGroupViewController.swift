@@ -97,8 +97,8 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
                     
                 }else {
                     self.friendGroupTableView.isHidden = true
-                    let parentClass = ParentClass()
-                    self.view.addSubview(parentClass.setBlankView())
+                    let label = UILabel()
+                    self.view.addSubview(parentClass.setBlankView(label: label))
                 }
 
                 

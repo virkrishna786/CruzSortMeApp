@@ -133,6 +133,10 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
                 hudClass.hide()
                 let resJson = JSON(responseObject.result.value!)
                 
+                let resMessage = resJson["res_msg"].string
+                
+                if resMessage == "Record Found Successfully" {
+                
                     let dataResponse = resJson["Friend"].array
                     
                     self.numberOfEvents = dataResponse?.count
@@ -150,8 +154,13 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
                     print("dataArray \(dataResponse)")
                     DispatchQueue.main.async {
                         self.friendListTableView.reloadData()
+                        
                     }
-                
+                }else {
+                    self.friendListTableView.isHidden = true
+                    let label = UILabel()
+                    self.view.addSubview(parentClass.setBlankView(label: label))
+                }
                 print("dsfs \(resJson)")
             }
             if responseObject.result.isFailure {
@@ -159,7 +168,6 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
                 parentClass.showAlertWithApiFailure()
                 let error  = responseObject.result.error!  as NSError
                 print("\(error)")
-                
             }
         }
          }else{
@@ -266,14 +274,12 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
         print("indePath: \(indexPath)")
         
         if let friendRequestIdString = cell.friendIdLabel.text {
-            self.declineApihit(string: friendRequestIdString)
+            self.declineApihit(string: friendRequestIdString , indexPath : indexPath!)
         }
-        
-        
     }
     
     
-    func declineApihit(string: String) {
+    func declineApihit(string: String , indexPath : IndexPath) {
         
         if currentReachabilityStatus != .notReachable {
             
@@ -297,10 +303,11 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
                     let  res_message = resJson["res_msg"].string
                     
                     if res_message == "Block Successfully" {
-                       // DispatchQueue.main.async {
-                            self.friendListApi()
-                      //  }
+                        self.friendsListArray.remove(at: indexPath.row)
+                        self.friendListTableView.reloadData()
                         print("dsfs \(resJson)")
+                    }else {
+                        
                     }
                     
                 }

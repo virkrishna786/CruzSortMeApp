@@ -84,6 +84,10 @@ class MyEventViewController: UIViewController , UITableViewDelegate ,UITableView
                         }
                         print("homeEventArray : \(self.homeEventArray)")
                         print("dataArray \(dataResponse)")
+                    }else {
+                        self.postTableView.isHidden = true
+                        let label = UILabel()
+                        self.view.addSubview(parentClass.setBlankView(label: label))
                     }
                     
                     DispatchQueue.main.async {

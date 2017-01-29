@@ -23,37 +23,37 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-kz-y0K">
-                        <rect key="frame" x="79" y="37" width="83" height="21"/>
+                        <rect key="frame" x="79" y="32" width="106" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-Zl-jpd">
-                        <rect key="frame" x="210" y="35" width="46" height="30"/>
+                        <rect key="frame" x="218" y="32" width="116" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="ADD"/>
+                        <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Send Request"/>
                         <connections>
                             <action selector="addButtonAction:" destination="FHC-Pe-bm6" eventType="touchUpInside" id="2Ls-6m-0UX"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h51-5N-ebh">
-                        <rect key="frame" x="278" y="35" width="46" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdK-Ho-xgW">
+                        <rect key="frame" x="239" y="63" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="BLOCK"/>
-                        <connections>
-                            <action selector="blockButtonAction:" destination="FHC-Pe-bm6" eventType="touchUpInside" id="nKb-fi-2Xy"/>
-                        </connections>
-                    </button>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addButton" destination="u4f-Zl-jpd" id="KGm-cg-9EA"/>
-                <outlet property="blockButton" destination="h51-5N-ebh" id="KxX-Ic-U65"/>
+                <outlet property="friendIdStrindLabel" destination="DdK-Ho-xgW" id="hrk-cS-I5R"/>
                 <outlet property="nameLabel" destination="yyA-kz-y0K" id="mit-HH-W7l"/>
                 <outlet property="profileimageView" destination="mZN-M0-EpH" id="a0A-C1-l6m"/>
             </connections>
-            <point key="canvasLocation" x="-418" y="-408"/>
+            <point key="canvasLocation" x="-536" y="-480"/>
         </tableViewCell>
     </objects>
 </document>

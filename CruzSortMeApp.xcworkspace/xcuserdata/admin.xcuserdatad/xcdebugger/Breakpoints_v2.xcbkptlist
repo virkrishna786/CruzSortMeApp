@@ -135,22 +135,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
-            timestampString = "507213453.485546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "exploreDetailApiHit()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/Account/EditProfielViewController.swift"
             timestampString = "507196587.00786"
             startingColumnNumber = "9223372036854775807"
@@ -167,44 +151,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CruzSortMeApp/FriendRequest/FriendRequestViewController.swift"
-            timestampString = "507291633.917777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "addFriendApihit(string:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CruzSortMeApp/FriendRequest/FriendRequestViewController.swift"
-            timestampString = "507291708.804495"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "addFriendApihit(string:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendList/FriendListViewController.swift"
-            timestampString = "507294240.529396"
+            timestampString = "507362273.495713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "declineFriendButtonAction(_sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -216,12 +168,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendList/FriendListViewController.swift"
-            timestampString = "507294267.06489"
+            timestampString = "507367516.340719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "declineApihit(string:)"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "declineApihit(string:indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -232,12 +184,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendList/FriendListViewController.swift"
-            timestampString = "507294282.560639"
+            timestampString = "507367516.340719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "declineApihit(string:)"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "declineApihit(string:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/FriendRequest/FriendRequestViewController.swift"
+            timestampString = "507367516.340719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "declineFriendButtonAction(_sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/FriendRequest/FriendRequestViewController.swift"
+            timestampString = "507362273.495713"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "addFriendApihit(string:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
+            timestampString = "507376585.71568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
+            landmarkName = "addFriendApihit(string:indepath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
+            timestampString = "507376585.71568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
+            landmarkName = "addFriendApihit(string:indepath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
+            timestampString = "507376585.71568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "470"
+            endingLineNumber = "470"
+            landmarkName = "addFriendApihit(string:indepath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

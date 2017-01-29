@@ -35,8 +35,8 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
             self.segmentButtonIndex = "2"
             self.exploreDetailApiHit()
         }
-        
     }
+    
     @IBOutlet weak var interestPickerView: UIPickerView!
     @IBOutlet weak var segmnetButton: UISegmentedControl!
     @IBAction func searchButtonAction(_ sender: UIButton) {
@@ -63,7 +63,7 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
         self.interestPickerView.dataSource = self
         self.eventDetailTableView.delegate = self
         self.eventDetailTableView.dataSource = self
-        self.segmentButtonIndex = "1"
+        self.segmentButtonIndex = "0"
         
         let frames : CGRect = self.segmnetButton.frame
         self.segmnetButton.frame = CGRect(x: frames.origin.x, y: frames.origin.y, width: frames.size.width, height: 50)
@@ -202,7 +202,7 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
                     hudClass.hide()
                     let resJson = JSON(responseObject.result.value!)
                     
-                    print("resJsonf \(resJson)")
+                    print("resJsonfsdssfsf \(resJson)")
                     let  res_message  = (resJson["res_msg"].string)!
                     print("res_messafe \(res_message)")
                     
@@ -223,6 +223,7 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
                                 reviewClassArray.peopleIdString = reviewArray["id"].string
                                 reviewClassArray.reviewerNameString = reviewArray["name"].string
                                 reviewClassArray.userImageString = reviewArray["profile_image"].string
+                                reviewClassArray.isFriendString = reviewArray["isfriend"].string
                                 self.peopleDetailArray.append(reviewClassArray)
                                 print("self.reviewDetailArray \(self.peopleDetailArray)")
                             }
@@ -272,7 +273,9 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
                         
                     }else {
                         self.eventDetailTableView.isHidden = true
-                        parentClass.setBlankView()
+                        let label = UILabel()
+                        self.view.addSubview(parentClass.setBlankView(label: label))
+                        
                         print("sdkgdksbhgks")
                     }
                 }
@@ -317,9 +320,11 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
             }else {
                 return eventDetailArray.count
             }
+        }else  {
+            
+            return 0
         }
         
-        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -329,7 +334,7 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
         if segmentButtonIndex == "1" {
             return 100
         }else {
-            return 450
+            return 400
         }
         
        
@@ -347,8 +352,27 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
                 print("event imageString = \(eventList.userImageString!)")
                 let uRL = URL(string: "\(eventList.userImageString!)")
                 cell.profileimageView.kf.setImage(with: uRL , placeholder : UIImage(named: "maleIcon"))
+               cell.nameLabel.text =   eventList.reviewerNameString!
+               cell.friendIdStrindLabel.text = eventList.peopleIdString!
+               cell.friendIdStrindLabel.textColor = UIColor.white
+            
+            let  isFriendStrings = eventList.isFriendString!
+            
+            if isFriendStrings == "0" {
+                cell.addButton.titleLabel?.text = "Send Request"
+                let datasting = indexPath.row
                 
-                cell.nameLabel.text =   eventList.reviewerNameString!
+                print("dafsgd \(datasting)")
+//                cell.addButton.tag = "\((datasting) as! Int )"
+//                
+//                print("celldfsgds \(cell.addButton.tag)")
+                  cell.addButton.addTarget(self, action: #selector(FriendRequestViewController.addFriendButtonAction(_sender:)), for: .touchUpInside)
+                
+            }else {
+                cell.addButton.titleLabel?.text = "Unfriend"
+                cell.addButton.addTarget(self, action: #selector(FriendRequestViewController.addFriendButtonAction(_sender:)), for: .touchUpInside)
+                
+            }
             
                 return cell
         }else if segmentButtonIndex == "2" {
@@ -383,12 +407,140 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
             let eventList = eventDetailArray[indexPath.row]
             self.eventIdStrings = eventList.eventIdString!
             self.performSegue(withIdentifier: "eventDetail", sender: self)
- 
         }
-        
-        
     }
+    
+    
+    func addFriendButtonAction(_sender : UIButton) {
+        
+        if _sender.titleLabel?.text == "Send Request" {
+        
+        let button = _sender
+        let view = button.superview!
+        let cell = view.superview as! PeopleCell
+                let indexPath = self.eventDetailTableView!.indexPath(for: cell)
+                print("indePath: \(indexPath)")
+        
+        if let friendRequestIdString = cell.friendIdStrindLabel?.text! {
+            self.addFriendApihit(string: friendRequestIdString , indepath: indexPath!)
+        }else{
+            
+            }
+        }else {
+            let button = _sender
+            let view = button.superview!
+            let cell = view.superview as! PeopleCell
+                    let indexPath = self.eventDetailTableView!.indexPath(for: cell)
+                    print("indePath: \(indexPath)")
+            
+            if let friendRequestIdString = cell.friendIdStrindLabel?.text! {
+                self.unFriendApihit(string: friendRequestIdString , indepath: indexPath!)
+            }else{
+                
+            }
+            
+        }
+    }
+    func addFriendApihit(string: String , indepath : IndexPath) {
+        
+        if currentReachabilityStatus != .notReachable {
+            
+            hudClass.showInView(view: self.view)
+            let url = "\(baseUrl)addFriend"
+            
+            hudClass.showInView(view: self.view)
+            
+            let parameter = ["user_id": "\(self.userIdString!)",
+                "friend_id" : "\(string)"
+            ]
+            
+            print("poram : \(parameter)")
+            
+            Alamofire.request( url, method : .post , parameters : parameter).responseJSON { (responseObject) -> Void in
+                
+                print(responseObject)
+                
+                if responseObject.result.isSuccess {
+                   // self.friendRequestTableView.isHidden = false
+                    hudClass.hide()
+                    let resJson = JSON(responseObject.result.value!)
+                    
+                    let  res_message = resJson["res_msg"].string
+                    
+                    if res_message == "Added Successfully" {
+                        print("Accepty succesfully")
+                        self.peopleDetailArray.remove(at: indepath.row)
+                        self.eventDetailTableView.reloadData()
+                        print("dsfs \(resJson)")
+                    }else {
+                        
+                        
+                    }
+                }
+                if responseObject.result.isFailure {
+                    hudClass.hide()
+                    let error  = responseObject.result.error!  as NSError
+                    parentClass.showAlertWithApiFailure()
+                    print("failuredata \(error)")
+                    
+                }
+            }
+        }else {
+            parentClass.showAlert()
+        }
+    }
+    
 
+
+    func unFriendApihit(string: String , indepath: IndexPath) {
+        
+        if currentReachabilityStatus != .notReachable {
+            
+            hudClass.showInView(view: self.view)
+            let url = "\(baseUrl)unFriend"
+            
+            hudClass.showInView(view: self.view)
+            
+            let parameter = ["user_id": "\(self.userIdString!)",
+                "friend_id" : "\(string)"
+            ]
+            
+            print("poram : \(parameter)")
+            
+            Alamofire.request( url, method : .post , parameters : parameter).responseJSON { (responseObject) -> Void in
+                
+                print(responseObject)
+                
+                if responseObject.result.isSuccess {
+                    // self.friendRequestTableView.isHidden = false
+                    hudClass.hide()
+                    let resJson = JSON(responseObject.result.value!)
+                    
+                    let  res_message = resJson["res_msg"].string
+                    
+                    if res_message == "Block Successfully" {
+                        
+                        print("Accepty succesfully")
+                        self.peopleDetailArray.remove(at: indepath.row)
+                        self.eventDetailTableView.reloadData()
+                        print("dsfs \(resJson)")
+                    }
+                    
+                }
+                if responseObject.result.isFailure {
+                    hudClass.hide()
+                    let error  = responseObject.result.error!  as NSError
+                    parentClass.showAlertWithApiFailure()
+                    print("failuredata \(error)")
+                    
+                }
+            }
+        }else {
+            parentClass.showAlert()
+        }
+    }
+    
+    
 
 
     override func didReceiveMemoryWarning() {

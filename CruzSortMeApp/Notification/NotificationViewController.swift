@@ -111,6 +111,9 @@ class NotificationViewController: UIViewController , UITableViewDelegate ,UITabl
                         print("dsfs \(resJson)")
                     }else {
                         print("sdkgdksbhgks")
+                        self.eventDetailTableView.isHidden = true
+                        let label = UILabel()
+                        self.view.addSubview(parentClass.setBlankView(label: label))
                     }
                 }
                 if responseObject.result.isFailure {

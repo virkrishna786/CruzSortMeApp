@@ -103,6 +103,11 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
                             self.friendRequestTableView.reloadData()
                         }
                         print("dsfs \(resJson)")
+                    }else {
+                        
+                        self.friendRequestTableView.isHidden = true
+                        let label = UILabel()
+                        self.view.addSubview(parentClass.setBlankView(label: label))
                     }
                     
                     
@@ -119,11 +124,7 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
         }
     }
     
-
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
     
@@ -132,12 +133,10 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FriendRequestCell
         let eventList = homeEventArray[indexPath.row]
@@ -162,17 +161,19 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
         let button = _sender
         let view = button.superview!
         let cell = view.superview as! FriendRequestCell
-//        let indexPath = self.friendRequestTableView!.indexPath(for: cell)
-//        print("indePath: \(indexPath)")
+        let indexPath = self.friendRequestTableView!.indexPath(for: cell)
+        print("indePath: \(indexPath)")
         
         if let friendRequestIdString = cell.friednRequestIdLabel.text {
-            self.addFriendApihit(string: friendRequestIdString)
+            self.addFriendApihit(string: friendRequestIdString, indexPath : indexPath!)
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
-    
-    func addFriendApihit(string: String) {
+    func addFriendApihit(string: String , indexPath: IndexPath) {
         
         if currentReachabilityStatus != .notReachable {
             
@@ -202,9 +203,8 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
                         
                         print("Accepty succesfully")
                         
-                        DispatchQueue.main.async {
-                            self.friendRequestApiHit()
-                        }
+                        self.homeEventArray.remove(at: indexPath.row)
+                        self.friendRequestTableView.reloadData()
                         print("dsfs \(resJson)")
                     }
                   
@@ -235,14 +235,14 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
         print("indePath: \(indexPath)")
         
         if let friendRequestIdString = cell.friednRequestIdLabel.text {
-            self.declineApihit(string: friendRequestIdString)
+            self.declineApihit(string: friendRequestIdString , indexPath : indexPath!)
         }
         
         
     }
     
     
-    func declineApihit(string: String) {
+    func declineApihit(string: String , indexPath : IndexPath) {
         
         if currentReachabilityStatus != .notReachable {
             
@@ -267,10 +267,11 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
                     let  res_message = resJson["res_msg"].string
                     
                     if res_message == "Declined Successfully" {
-                        DispatchQueue.main.async {
-                            self.friendRequestApiHit()
-                        }
+                        self.homeEventArray.remove(at: indexPath.row)
+                        self.friendRequestTableView.reloadData()
                         print("dsfs \(resJson)")
+                    }else {
+                        self.friendRequestTableView.isHidden = true
                     }
                     
             }

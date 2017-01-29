@@ -50,7 +50,7 @@ class ParentClass : NSObject {
         
     }
     
-    func setBlankView()  -> UILabel{
+    func setBlankView(label : UILabel)  -> UILabel{
         
         var customView = UILabel()
         customView = UILabel(frame: CGRect(x: 50, y: 200, width: 200, height: 30))

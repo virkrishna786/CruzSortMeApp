@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="355" height="117"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d9P-MG-Nmx" id="nXz-ks-VZc">
-                <rect key="frame" x="0.0" y="0.0" width="355" height="116"/>
+                <rect key="frame" x="0.0" y="0.0" width="355" height="116.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-vR-c6V">
@@ -31,7 +31,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="74" id="Hag-14-r0d"/>
                         </constraints>
-                        <state key="normal" title="Unblock">
+                        <state key="normal" title="Unfriend">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>

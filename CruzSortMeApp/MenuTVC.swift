@@ -123,6 +123,7 @@ class MenuTVC: UITableViewController {
         cell.textLabel!.text=SA_Choice[indexPath.row]
         //icons
         cell.imageView?.image=UIImage(named:(SA_Icons[indexPath.row] as String))
+        
         return cell
     }
     
@@ -134,7 +135,7 @@ class MenuTVC: UITableViewController {
             
             hideMenu()
            let firstView:HomeViewController
-            = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "homeView") as! HomeViewController
+            = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeView") as! HomeViewController
             //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
             var fcheck=Bool()
             fcheck=false
@@ -317,7 +318,6 @@ class MenuTVC: UITableViewController {
             
         }else if indexPath.row == 5 {
             
-            
             hideMenu()
             let firstView:FriendListViewController
                 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "friendList") as! FriendListViewController
@@ -386,14 +386,10 @@ class MenuTVC: UITableViewController {
                 }
             }
             else{
-                
                 //reset button
                 appDelegate.navigationController?.pushViewController(firstView, animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
-            
-
-            
         }else if indexPath.row == 8 {
             
             hideMenu()
@@ -505,6 +501,13 @@ class MenuTVC: UITableViewController {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
   
+        }else if (indexPath.row == 12) {
+            hideMenu()
+            let firstView:ViewController
+                = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "first") as! ViewController
+            self.navigationController?.pushViewController(firstView, animated: true)
+
+            
         }
     }
     
@@ -513,6 +516,8 @@ class MenuTVC: UITableViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
     }
+    
+    
     // MARK: Custom Method
     func showMenu(){
         
@@ -520,7 +525,6 @@ class MenuTVC: UITableViewController {
         self.view.frame=CGRect(x:0.0,y:70,width:0.0,height:self.view.frame.height)
         //self.view.backgroundColor=UIColor.blackColor()
         UIView.animate(withDuration: 0.3, animations: {
-           
             self.view.frame=CGRect(x:0.0,y:70,width:200.0,height:self.view.frame.size.height)
         })
     }
