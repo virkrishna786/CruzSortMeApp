@@ -71,9 +71,10 @@ class InterestViewController: UIViewController , UITableViewDelegate , UITableVi
         self.InterestTableView.allowsMultipleSelection = true
         self.addChildViewController(appDelegate.menuTableViewController)
 
-        DispatchQueue.global(qos: .background).async {
+        
+        self.InterestTableView.tableFooterView = UIView()
+
             self.interestApiHit()
-        }
 
         
         // Do any additional setup after loading the view.

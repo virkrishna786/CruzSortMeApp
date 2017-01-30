@@ -13,7 +13,7 @@ pod 'SwiftyJSON', '~> 3.1'
 pod 'AlamofireImage', '~> 3.1'
 pod 'FloatRatingView', '~> 2.0.0'
 pod 'Kingfisher', '~> 3.0'
-
+#pod 'CVCalendar', '~> 1.4.1'
 
 
 

@@ -53,6 +53,8 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
         self.eventDetailTableView.register(UINib(nibName : "WhoseAroundEventTableViewCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.eventDetailTableView.register(UINib(nibName : "WhoseAroundPeopleTableViewCell" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
         self.addChildViewController(appDelegate.menuTableViewController)
+        self.eventDetailTableView.tableFooterView = UIView()
+
 
         self.whoseAroundApiHit()
 

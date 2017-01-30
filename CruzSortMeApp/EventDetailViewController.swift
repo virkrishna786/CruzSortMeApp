@@ -47,20 +47,19 @@ class EventDetailViewController: UIViewController , ratingViewControllerDelegate
         super.viewDidLoad()
         self.eventDetailTableView.delegate = self
         self.eventDetailTableView.dataSource = self
+        self.eventDetailTableView.tableFooterView = UIView()
+
         
         
         self.navigationController?.navigationBar.isHidden = true
         self.eventDetailTableView.register(UINib(nibName : "EventDetail" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.eventDetailTableView.register(UINib(nibName : "ReviewCell" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
-
         
+       self.eventDetailApiHit()
 
-        
-     //   print("self.eventIdString \(self.eventIdString!)")
-
-        DispatchQueue.global(qos: .background).async {
-            self.eventDetailApiHit()
-        }
+//        DispatchQueue.global(qos: .background).async {
+//            self.eventDetailApiHit()
+//        }
 
         // Do any additional setup after loading the view.
     }

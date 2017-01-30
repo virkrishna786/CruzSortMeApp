@@ -54,6 +54,7 @@ class NotificationViewController: UIViewController , UITableViewDelegate ,UITabl
         self.eventDetailTableView.register(UINib(nibName : "WhoseAroundEventTableViewCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
         self.addChildViewController(appDelegate.menuTableViewController)
+        self.eventDetailTableView.tableFooterView = UIView()
         
         self.whoseAroundApiHit()
 

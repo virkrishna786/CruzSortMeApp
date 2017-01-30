@@ -46,6 +46,8 @@ class GroupDetailViewController: UIViewController ,UITableViewDelegate ,UITableV
         super.viewDidLoad()
 
           self.groupDetailTableView.register(UINib(nibName : "GroupDetailCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.groupDetailTableView.tableFooterView = UIView()
+
         self.groupFriendListApi()
         // Do any additional setup after loading the view.
     }

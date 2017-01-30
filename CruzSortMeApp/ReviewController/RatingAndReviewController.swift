@@ -63,8 +63,20 @@ class RatingAndReviewController: UIViewController ,FloatRatingViewDelegate ,UITe
         self.starRatingView.halfRatings = true
         self.starRatingView.floatRatings = false
 
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard))
+        
+        self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
+    
+    func dismissKeyboard() {
+        self.reviewTextField.resignFirstResponder()
+               self.view.endEditing(true)
+    }
+
     
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {

@@ -20,6 +20,8 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,12 +31,12 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) photo use</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>App is using gps for current location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>current location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) photo use</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -48,10 +50,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 </dict>
 </plist>

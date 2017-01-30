@@ -54,6 +54,8 @@ class FriendRequestViewController: UIViewController , UITableViewDelegate ,UITab
         self.navigationController?.isNavigationBarHidden = false
         
         self.addChildViewController(appDelegate.menuTableViewController)
+        self.friendRequestTableView.tableFooterView = UIView()
+
         self.friendRequestApiHit()
         
         // Do any additional setup after loading the view.

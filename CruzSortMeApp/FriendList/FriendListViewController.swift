@@ -67,9 +67,9 @@ class FriendListViewController: UIViewController ,UITableViewDataSource ,UITable
          self.friendListTableView.register(UINib(nibName : "FriendListCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         
         self.addChildViewController(appDelegate.menuTableViewController)
-        DispatchQueue.global(qos: .background).async {
+        self.friendListTableView.tableFooterView = UIView()
+
             self.friendListApi()
-        }
         
 
         // Do any additional setup after loading the view.

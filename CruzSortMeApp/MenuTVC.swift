@@ -121,6 +121,8 @@ class MenuTVC: UITableViewController {
         cell.textLabel?.textColor=UIColor.darkGray
         cell.textLabel?.font=UIFont (name: "Helvetica Neue", size: 15)
         cell.textLabel!.text=SA_Choice[indexPath.row]
+        
+       // tableView.frame.size = tableView.contentSize
         //icons
         cell.imageView?.image=UIImage(named:(SA_Icons[indexPath.row] as String))
         

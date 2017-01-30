@@ -16,6 +16,7 @@ import Kingfisher
 class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource , creatEventBackDelegate {
     
     var boolValue = 0
+    var isNewDataLoading : Bool!
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -61,11 +62,11 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     func sendBoolValue(bool: Bool) {
         if bool == true {
-            self.eventApiHit()
+            self.eventApiHit(string : "1")
         }
     }
     
-    func eventApiHit() {
+    func eventApiHit(string : String) {
         
         if currentReachabilityStatus != .notReachable {
             
@@ -74,7 +75,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
          
         hudClass.showInView(view: self.view)
         
-        let parameter = ["end_value": "1"]
+        let parameter = ["end_value": "\(string)"]
         
         Alamofire.request( url, method : .post , parameters: parameter).responseJSON { (responseObject) -> Void in
             
@@ -140,7 +141,9 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
         self.postTableView.backgroundColor = UIColor.clear
-        
+        self.postTableView.tableFooterView = UIView()
+
+        self.isNewDataLoading = false
         
         let useriDstring = defaults.string(forKey: "userId")
         print("userid \(useriDstring!)")
@@ -148,7 +151,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.postTableView.register(UINib(nibName : "PostCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.navigationController?.isNavigationBarHidden = false
         
-        self.eventApiHit()
+        self.eventApiHit(string : "1")
         self.addChildViewController(appDelegate.menuTableViewController)
 
         // Do any additional setup after loading the view.
@@ -172,7 +175,6 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! PostCell
-       // cell.eventImageView.image = UIImage(named: "dummy")
         let eventList = homeEventArray[indexPath.row]
         print("eventLsit\(eventList)")
         
@@ -197,6 +199,22 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
          print("eventIDString \(self.eventIdString!)")
         
         
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        //Bottom Refresh
+        
+        if scrollView == postTableView {
+            if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height)
+            {
+                if !isNewDataLoading {
+                        isNewDataLoading = true
+                    eventApiHit(string : "2")
+                    self.postTableView.reloadData()
+                }
+            }
+        }
     }
     
 

@@ -13,6 +13,7 @@ import SwiftyJSON
 
 class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource ,UIPickerViewDataSource ,UIPickerViewDelegate {
     
+    @IBOutlet weak var interestPickerLabel: UILabel!
     var boolValue = 0
     @IBAction func interestTypeButtonAction(_ sender: UIButton) {
         
@@ -80,6 +81,7 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
         self.eventDetailTableView.register(UINib(nibName : "PeopleCellType" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
         self.eventDetailTableView.isHidden = true
         self.addChildViewController(appDelegate.menuTableViewController)
+        self.eventDetailTableView.tableFooterView = UIView()
 
         self.interestTypeDetailApiHit()
         
@@ -168,7 +170,7 @@ class ExploreViewController: UIViewController ,UITableViewDelegate ,UITableViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("exploredjsbf \(exploreDetailArray[row].exploreId)")
-        self.InterestTypeButton.titleLabel?.text = exploreDetailArray[row].exploreName
+        self.interestPickerLabel.text = exploreDetailArray[row].exploreName
         self.categoryIdString  = exploreDetailArray[row].exploreId
         
         print("categoryIdating \(self.categoryIdString!)")

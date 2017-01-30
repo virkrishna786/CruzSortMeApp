@@ -39,6 +39,8 @@ class FriendDetailViewController: UIViewController ,UITableViewDelegate ,UITable
         print("self.userid \(self.userIdString)")
         
          self.friendDetailTableView.register(UINib(nibName : "FriendDetailCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.friendDetailTableView.tableFooterView = UIView()
+
         self.friendDetailApiHit()
                // Do any additional setup after loading the view.
     }

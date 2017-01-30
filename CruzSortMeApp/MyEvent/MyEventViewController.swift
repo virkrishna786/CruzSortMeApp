@@ -127,6 +127,8 @@ class MyEventViewController: UIViewController , UITableViewDelegate ,UITableView
         
         self.eventApiHit()
         self.addChildViewController(appDelegate.menuTableViewController)
+        self.postTableView.tableFooterView = UIView()
+
 
         // Do any additional setup after loading the view.
     }

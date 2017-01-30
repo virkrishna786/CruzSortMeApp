@@ -45,6 +45,8 @@ class FriendGroupViewController: UIViewController ,UITableViewDelegate ,UITableV
         print("self.userid \(self.userIdString)")
         
         self.friendGroupTableView.register(UINib(nibName : "FriendGroupCellType" ,bundle: nil), forCellReuseIdentifier: "friendGroupCellIdentifier")
+        self.friendGroupTableView.tableFooterView = UIView()
+
         self.friendGroupListApi()
 
         // Do any additional setup after loading the view.

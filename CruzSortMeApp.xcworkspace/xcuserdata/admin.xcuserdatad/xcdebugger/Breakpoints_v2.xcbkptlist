@@ -15,6 +15,38 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_3168CFE709C7E5787461DDDDF6F9FC98_func16"
+                  moduleName = "CruzSortMeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/MediaMosaicProject/CruzSortMeApp/CruzSortMeApp/Config.swift"
+                  timestampString = "507474493.961288"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CruzSortMeApp.window.unsafeMutableAddressor : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIWindow&gt;"
+                  moduleName = "CruzSortMeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/MediaMosaicProject/CruzSortMeApp/CruzSortMeApp/Config.swift"
+                  timestampString = "507474493.963787"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -104,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/HomeViewController.swift"
-            timestampString = "506947601.058101"
+            timestampString = "507446256.317041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "sendBoolValue(bool:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/HomeViewController.swift"
-            timestampString = "506947601.058101"
+            timestampString = "507446256.317041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "sendBoolValue(bool:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -200,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendRequest/FriendRequestViewController.swift"
-            timestampString = "507367516.340719"
+            timestampString = "507443660.559098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "declineFriendButtonAction(_sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -216,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/FriendRequest/FriendRequestViewController.swift"
-            timestampString = "507362273.495713"
+            timestampString = "507443660.559098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "addFriendApihit(string:indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -232,23 +264,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
-            timestampString = "507376585.71568"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
-            landmarkName = "addFriendApihit(string:indepath:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
-            timestampString = "507376585.71568"
+            timestampString = "507443660.559098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "446"
@@ -264,12 +280,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
-            timestampString = "507376585.71568"
+            timestampString = "507443660.559098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
             landmarkName = "addFriendApihit(string:indepath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/Explore/ExploreViewController.swift"
+            timestampString = "507443660.559098"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
+            landmarkName = "addFriendApihit(string:indepath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CruzSortMeApp/ReviewController/RatingAndReviewController.swift"
+            timestampString = "507474246.669291"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "alertAction(action:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
