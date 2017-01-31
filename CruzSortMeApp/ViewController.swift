@@ -32,7 +32,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         self.performSegue(withIdentifier: "signUp", sender: self)
     }
     var activeField = UITextField?.self
-    
+    var userIdString : String? = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -41,13 +41,28 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.gestureFunction))
         myScrollView.addGestureRecognizer(tapGesture)
        
-        let useriDstring = defaults.string(forKey: "userId")
-
-        if useriDstring == "" {
-            
-        }else {
-            self.performSegue(withIdentifier: "homeView", sender: self)
+        let userdskf = defaults.string(forKey: "userId")
+        
+        guard let usridsd = userdskf, !usridsd.isEmpty else {
+            print("bla bla")
+            return
         }
+        self.performSegue(withIdentifier: "homeView", sender: self)
+        
+//        if (self.userIdString?.isEmpty)! {
+// 
+//        }
+        
+//        if let useriDsting = useriDstring, useriDsting.isEmpty {
+//            
+//            print("bla bla")
+//        }
+//        print("useridfSdsdfsg \(useriDstring)")
+//
+//        if (useriDstring?.isEmpty)! {
+//            
+//        }else {
+      //  }
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -64,9 +79,15 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             let  urlString = "\(baseUrl)login"
             let userString = "\(usernameTextField.text!)"
             let passwordString = "\(passwordTextField.text!)"
+            let deviceIdString = "\(UIDevice.current.identifierForVendor!.uuidString)"
+            
+            print("deviceiDStirng \(deviceIdString)")
+            let deviceTypeString = "IOS"
             
             let  parameter = ["username" : userString
-                , "password" : passwordString]
+                , "password" : passwordString,
+                  "device_type" : deviceTypeString,
+                  "token_id" : "\(deviceIdString)"]
             
             print("dfd \(parameter)")
             

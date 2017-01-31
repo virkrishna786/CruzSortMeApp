@@ -15,8 +15,8 @@ class MenuTVC: UITableViewController {
     let LeftMenuWidth = 100.0
     var headerView:UIView?
     var  imageIcon=UIImageView()
-    var SA_Choice = ["Home","Account","My Events","Interest","Explore","Friends","Friend Request","Messages","Around","Calender","About Us","Notification","Logout"]
-    var SA_Icons = ["home","account","myEvent","myEvent","search","group","request","message","search","calender","aboutUs","notification","logout"]
+    var SA_Choice = ["Home","Account","My Events","Interest","Explore","Friends","Friend Request","Messages","Around","Calender","About Us","Notification","Logout",""]
+    var SA_Icons = ["home","account","myEvent","myEvent","search","group","request","message","search","calender","aboutUs","notification","logout",""]
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,13 @@ class MenuTVC: UITableViewController {
 
         
         let imageString = defaults.string(forKey: "profile_image")
+        
+        if imageString == nil {
+            self.imageIcon.image = UIImage(named: "aboutUs")
+            
+        }else {
         self.downloadImage(string: imageString!)
+        }
         imageIcon.contentMode = .scaleAspectFit
         let nameLabel=UILabel()
         nameLabel.frame=CGRect(x: 10, y: 100 , width:85, height:30)//CGRectMake(60,150, 85, 30)
@@ -270,20 +276,15 @@ class MenuTVC: UITableViewController {
                     }
                 }
                 else{
-                    
                     //reset button
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
                 }
             }
             else{
-                
                 //reset button
                 appDelegate.navigationController?.pushViewController(firstView, animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
-            
-
-            
             
         }else if indexPath.row == 4 {
             
@@ -392,6 +393,46 @@ class MenuTVC: UITableViewController {
                 appDelegate.navigationController?.pushViewController(firstView, animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
             }
+        }else if indexPath.row == 7{
+            
+            hideMenu()
+            let firstView:ChatFriendListViewController
+                = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chatFriendLiss") as! ChatFriendListViewController
+            //            let firstView:HomeViewController = HomeViewController(nibName:"HomeViewController",bundle:Bundle.main)
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: ChatFriendListViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: ChatFriendListViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+
+            
         }else if indexPath.row == 8 {
             
             hideMenu()
@@ -507,9 +548,41 @@ class MenuTVC: UITableViewController {
             hideMenu()
             let firstView:ViewController
                 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "first") as! ViewController
-            self.navigationController?.pushViewController(firstView, animated: true)
+           // self.navigationController?.pushViewController(firstView, animated: true)
 
-            
+            var fcheck=Bool()
+            fcheck=false
+            let viewArray=self.navigationController?.viewControllers as NSArray!
+            if((viewArray) != nil){
+                if !((viewArray?.lastObject! as! UIViewController) .isKind(of: ViewController.self)){
+                    
+                    for views in self.navigationController?.viewControllers as NSArray!
+                    {
+                        if((views as! UIViewController) .isKind(of: ViewController.self))
+                        {
+                            fcheck=true
+                            _ = navigationController?.popToViewController(views as! UIViewController, animated: false)
+                            
+                        }
+                    }
+                    if(fcheck==false){
+                        
+                        self.navigationController?.pushViewController(firstView, animated: true)
+                    }
+                }
+                else{
+                    
+                    //reset button
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+                }
+            }
+            else{
+                
+                //reset button
+                appDelegate.navigationController?.pushViewController(firstView, animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "resetMenuButton"), object: nil)
+            }
+            parentClass.logout()
         }
     }
     

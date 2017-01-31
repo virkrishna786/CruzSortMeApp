@@ -241,7 +241,10 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                          "gender" : gender,
                          "password": password,
                          "cpassword" : conformPassword,
+                         "device_type" : "IOS"
                          ]
+            
+            print("param : \(parameter)")
         
         
         //  let URL = "http://182.73.133.220/CruzSortMe/Apis/signUp"

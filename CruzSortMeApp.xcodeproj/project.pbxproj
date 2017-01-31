@@ -15,11 +15,17 @@
 		84077D2A1E3C68A90061DF1C /* FriendRequestArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D291E3C68A90061DF1C /* FriendRequestArrayClass.swift */; };
 		84077D2D1E3CA3200061DF1C /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D2C1E3CA3200061DF1C /* NotificationViewController.swift */; };
 		84077D2F1E3CB4770061DF1C /* NotificationArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84077D2E1E3CB4770061DF1C /* NotificationArrayClass.swift */; };
+		841297E31E40673100D9213C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841297E21E40673100D9213C /* UserNotifications.framework */; };
+		841297E51E40690400D9213C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841297E41E40690400D9213C /* NotificationCenter.framework */; };
 		841BBE421E30859E00F984E7 /* FriendGroupClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BBE411E30859E00F984E7 /* FriendGroupClass.swift */; };
 		84209E041E375E1700A8BCFB /* dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 84209E031E375E1700A8BCFB /* dummy.png */; };
 		8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386A1E234ADB00A44646 /* CommonClass.swift */; };
 		8421386D1E234AEF00A44646 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386C1E234AEF00A44646 /* Validator.swift */; };
 		8421386F1E234B2C00A44646 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421386E1E234B2C00A44646 /* Config.swift */; };
+		842A17B91E40B88F007D82AD /* ChatFriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A17B81E40B88F007D82AD /* ChatFriendListViewController.swift */; };
+		842A17BB1E40B8AF007D82AD /* ChatFriendListArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A17BA1E40B8AF007D82AD /* ChatFriendListArrayClass.swift */; };
+		842A17BD1E40B8D5007D82AD /* ChatFriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842A17BC1E40B8D5007D82AD /* ChatFriendListCell.xib */; };
+		842A17BF1E40B905007D82AD /* ChatFriendListCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A17BE1E40B905007D82AD /* ChatFriendListCellType.swift */; };
 		842C23581E3B1D5300C8480C /* EditProfileClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C23571E3B1D5300C8480C /* EditProfileClass.swift */; };
 		842C235A1E3B48B400C8480C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C23591E3B48B400C8480C /* CoreLocation.framework */; };
 		842C235C1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C235B1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift */; };
@@ -119,11 +125,18 @@
 		84077D291E3C68A90061DF1C /* FriendRequestArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestArrayClass.swift; sourceTree = "<group>"; };
 		84077D2C1E3CA3200061DF1C /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		84077D2E1E3CB4770061DF1C /* NotificationArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationArrayClass.swift; sourceTree = "<group>"; };
+		841297E11E40628300D9213C /* CruzSortMeApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CruzSortMeApp.entitlements; sourceTree = "<group>"; };
+		841297E21E40673100D9213C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		841297E41E40690400D9213C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		841BBE411E30859E00F984E7 /* FriendGroupClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupClass.swift; sourceTree = "<group>"; };
 		84209E031E375E1700A8BCFB /* dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy.png; sourceTree = "<group>"; };
 		8421386A1E234ADB00A44646 /* CommonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
 		8421386C1E234AEF00A44646 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		8421386E1E234B2C00A44646 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		842A17B81E40B88F007D82AD /* ChatFriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFriendListViewController.swift; sourceTree = "<group>"; };
+		842A17BA1E40B8AF007D82AD /* ChatFriendListArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFriendListArrayClass.swift; sourceTree = "<group>"; };
+		842A17BC1E40B8D5007D82AD /* ChatFriendListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatFriendListCell.xib; sourceTree = "<group>"; };
+		842A17BE1E40B905007D82AD /* ChatFriendListCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFriendListCellType.swift; sourceTree = "<group>"; };
 		842C23571E3B1D5300C8480C /* EditProfileClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileClass.swift; sourceTree = "<group>"; };
 		842C23591E3B48B400C8480C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		842C235B1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoseAroundPeopleCell.swift; sourceTree = "<group>"; };
@@ -210,6 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				842C235A1E3B48B400C8480C /* CoreLocation.framework in Frameworks */,
+				841297E51E40690400D9213C /* NotificationCenter.framework in Frameworks */,
+				841297E31E40673100D9213C /* UserNotifications.framework in Frameworks */,
 				84E5360D1E31D6F50064A280 /* SystemConfiguration.framework in Frameworks */,
 				842EF8781E1FB4210079EB2D /* SwiftyJSON.framework in Frameworks */,
 				2483D3C3DE8AB9A9B616A3B9 /* Pods_CruzSortMeApp.framework in Frameworks */,
@@ -238,6 +253,8 @@
 		4509CB696858B0C55FE347E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				841297E41E40690400D9213C /* NotificationCenter.framework */,
+				841297E21E40673100D9213C /* UserNotifications.framework */,
 				842C23591E3B48B400C8480C /* CoreLocation.framework */,
 				84E5360C1E31D6F50064A280 /* SystemConfiguration.framework */,
 				842EF8771E1FB4210079EB2D /* SwiftyJSON.framework */,
@@ -283,6 +300,24 @@
 			name = SingltonClass;
 			sourceTree = "<group>";
 		};
+		842A17B71E40B863007D82AD /* ChatMessages */ = {
+			isa = PBXGroup;
+			children = (
+				842A17B81E40B88F007D82AD /* ChatFriendListViewController.swift */,
+				842A17BA1E40B8AF007D82AD /* ChatFriendListArrayClass.swift */,
+				842A17BE1E40B905007D82AD /* ChatFriendListCellType.swift */,
+				842A17BC1E40B8D5007D82AD /* ChatFriendListCell.xib */,
+			);
+			path = ChatMessages;
+			sourceTree = "<group>";
+		};
+		842A17C01E40C34B007D82AD /* ChatViewFolder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChatViewFolder;
+			sourceTree = "<group>";
+		};
 		842C23651E3B78DC00C8480C /* MyEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +350,9 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				842A17C01E40C34B007D82AD /* ChatViewFolder */,
+				842A17B71E40B863007D82AD /* ChatMessages */,
+				841297E11E40628300D9213C /* CruzSortMeApp.entitlements */,
 				844FB34A1E3EFDD8002F559F /* ChatMessage */,
 				844FB3491E3EFDC3002F559F /* Calender */,
 				84077D2B1E3CA3000061DF1C /* Notification */,
@@ -630,7 +668,15 @@
 					844D90301E14D390002684BA = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = U284QKP4FC;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					844D90471E14D391002684BA = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -682,6 +728,7 @@
 				8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */,
 				842C23641E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib in Resources */,
 				847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */,
+				842A17BD1E40B8D5007D82AD /* ChatFriendListCell.xib in Resources */,
 				84077D281E3C51BE0061DF1C /* FriendRequstTableViewCell.xib in Resources */,
 				8482EA451E2753E5009D1AA7 /* ReviewCell.xib in Resources */,
 				84940B881E28F32700F94254 /* FriendListCell.xib in Resources */,
@@ -875,8 +922,10 @@
 				84940B8A1E28F36200F94254 /* FriendListCellType.swift in Sources */,
 				84C2C09A1E3608F2007B7C20 /* EventypeTableViewCell.swift in Sources */,
 				84077D241E3C51660061DF1C /* FriendRequestViewController.swift in Sources */,
+				842A17B91E40B88F007D82AD /* ChatFriendListViewController.swift in Sources */,
 				8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */,
 				8482EA601E27A04F009D1AA7 /* ReviewClass.swift in Sources */,
+				842A17BB1E40B8AF007D82AD /* ChatFriendListArrayClass.swift in Sources */,
 				8482EA4E1E27541A009D1AA7 /* HomeViewController.swift in Sources */,
 				84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */,
 				84940B841E28E0A400F94254 /* FriendListViewController.swift in Sources */,
@@ -886,6 +935,7 @@
 				8421386D1E234AEF00A44646 /* Validator.swift in Sources */,
 				84077D2A1E3C68A90061DF1C /* FriendRequestArrayClass.swift in Sources */,
 				842C23581E3B1D5300C8480C /* EditProfileClass.swift in Sources */,
+				842A17BF1E40B905007D82AD /* ChatFriendListCellType.swift in Sources */,
 				844FB34C1E3EFDF6002F559F /* CalenderViewController.swift in Sources */,
 				8470453E1E2E245A002632BE /* FriendGroupCell.swift in Sources */,
 				84077D261E3C519D0061DF1C /* FriendRequestCell.swift in Sources */,
@@ -979,8 +1029,9 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: manisha singh (U284QKP4FC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: manisha singh (U284QKP4FC)";
+				CODE_SIGN_ENTITLEMENTS = CruzSortMeApp/CruzSortMeApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: manisha singh (DB7LP2K6B7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: manisha singh (DB7LP2K6B7)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1002,7 +1053,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e53f0595-aa28-4a84-9363-3c737b0d0c8e";
+				PROVISIONING_PROFILE = "0f6127c9-1f1c-400d-a5af-63a0c40e51c7";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1031,8 +1082,9 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: manisha singh (U284QKP4FC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: manisha singh (U284QKP4FC)";
+				CODE_SIGN_ENTITLEMENTS = CruzSortMeApp/CruzSortMeApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: manisha singh (DB7LP2K6B7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: manisha singh (DB7LP2K6B7)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1047,7 +1099,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "e53f0595-aa28-4a84-9363-3c737b0d0c8e";
+				PROVISIONING_PROFILE = "0f6127c9-1f1c-400d-a5af-63a0c40e51c7";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1062,16 +1114,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: manisha singh (U284QKP4FC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = CruzSortMeApp/CruzSortMeApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: manisha singh (DB7LP2K6B7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: manisha singh (DB7LP2K6B7)";
 				DEVELOPMENT_TEAM = U284QKP4FC;
 				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cruzsortmeapp.kay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0f6127c9-1f1c-400d-a5af-63a0c40e51c7";
+				PROVISIONING_PROFILE_SPECIFIER = pushNotificationProvisionProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1084,16 +1137,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: manisha singh (U284QKP4FC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = CruzSortMeApp/CruzSortMeApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: manisha singh (DB7LP2K6B7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: manisha singh (DB7LP2K6B7)";
 				DEVELOPMENT_TEAM = U284QKP4FC;
 				INFOPLIST_FILE = CruzSortMeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cruzsortmeapp.kay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0f6127c9-1f1c-400d-a5af-63a0c40e51c7";
+				PROVISIONING_PROFILE_SPECIFIER = pushNotificationProvisionProfile;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};

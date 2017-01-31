@@ -32,11 +32,16 @@
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>App is using gps for current location</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>current location</string>
+	<string>for current user location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) photo use</string>
+	<key>Privacy - Location When In Use Usage Description   </key>
+	<string>$(PRODUCT_NAME) location use</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

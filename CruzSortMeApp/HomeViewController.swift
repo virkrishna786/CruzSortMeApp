@@ -111,12 +111,19 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
                     }
                     print("homeEventArray : \(self.homeEventArray)")
                     print("dataArray \(dataResponse)")
+                    
+                    DispatchQueue.main.async {
+                        self.postTableView.reloadData()
+                    }
+
+                }else {
+                    
+                    hudClass.hide()
+                    parentClass.showAlertWithApiFailure()
+
                 }
                 
-                DispatchQueue.main.async {
-                    self.postTableView.reloadData()
-                }
-                print("dsfs \(resJson)")
+                                print("dsfs \(resJson)")
             }
             if responseObject.result.isFailure {
                 hudClass.hide()
@@ -133,6 +140,24 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        self.addChildViewController(appDelegate.menuTableViewController)
+        
+        let view=self.navigationController?.viewControllers.first
+        
+        if !((view! ) .isKind(of: HomeViewController.self)){
+            
+            //set ralist view as root view controller
+            
+            let firstView:HomeViewController
+                = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeView") as! HomeViewController
+            
+            self.navigationController?.viewControllers .remove(at: 0)
+            
+            self.navigationController?.viewControllers .insert(firstView, at: 0)
+            
+        }
+        
         self.navigationController?.navigationBar.isHidden = true
     }
    
@@ -185,8 +210,27 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         
         cell.dateTimeLabel.text = eventList.dateTimeString!
         cell.eventTitleLabel.text = eventList.eventTitleString!
+        
+        let ratingStrings = eventList.ratingString
+        
+        guard let ratingString = ratingStrings, !ratingString.isEmpty else {
+            print("bla bla")
+            cell.ratingButton.titleLabel?.text = "0/5"
+            return cell
+        }
         cell.ratingButton.titleLabel?.text = "\(eventList.ratingString!)/5"
-        cell.reviewButton.titleLabel?.text = "\(eventList.reviewString!) reviews"
+
+        let reviewStrings = eventList.reviewString
+        
+        guard let reviewSString = reviewStrings, !reviewSString.isEmpty else {
+            cell.reviewButton.titleLabel?.text = "0 reviews"
+            return cell
+        }
+        print("bla bla \(reviewSString)")
+        cell.reviewButton.titleLabel?.text = "\(reviewSString) reviews"
+
+      //  cell.ratingButton.titleLabel?.text = "\(eventList.ratingString!)/5"
+        
         cell.userIdLabel.text = eventList.eventID!
         return cell
     }

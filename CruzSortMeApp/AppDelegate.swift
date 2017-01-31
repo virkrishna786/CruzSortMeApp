@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate{
 
     var window: UIWindow?
     var navigationController: UINavigationController?
@@ -23,6 +24,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let myVC = storyboard.instantiateViewController(withIdentifier: "first")
         //let firstView = LoginVC(nibName:"LoginVC",bundle:nil)
         //navigationController = UINavigationController(rootViewController:firstView)
+        
+//        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+//        let pushNotificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+//        
+//        application.registerUserNotificationSettings(pushNotificationSettings)
+//        application.registerForRemoteNotifications()
+        
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                }
+
+        } else {
+            let setting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(setting)
+            UIApplication.shared.registerForRemoteNotifications()
+            // Fallback on earlier versions
+         print("else dsf")
+            // Enable or disable features based on authorization.
+        }
+        application.registerForRemoteNotifications()
         navigationController = UINavigationController(rootViewController:self.menuTableViewController)
         navigationController?.navigationBar.isHidden = false
         navigationController?.pushViewController(myVC, animated:false)
@@ -30,10 +52,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.backgroundColor = UIColor.white
         window!.rootViewController=navigationController
         window!.makeKeyAndVisible()
+        
         // Override point for customization after application launch.
         return true
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("DEVICE TOKEN = \(deviceToken)")
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        print("deviceTokenString\(deviceTokenString)")
 
+
+    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("erorr \(error)")
+
+    }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print(" userinfo \(userInfo)")
+
+    }
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

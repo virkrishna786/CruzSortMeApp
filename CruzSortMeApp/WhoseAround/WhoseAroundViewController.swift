@@ -10,8 +10,10 @@ import UIKit
 import  Alamofire
 import SwiftyJSON
 import AlamofireImage
+import CoreLocation
 
-class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource  {
+
+class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource ,CLLocationManagerDelegate {
     
     var boolValue = 0
     @IBAction func menuButtonAction(_ sender: UIButton) {
@@ -28,7 +30,10 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     
     var logitudeString : String!
     var latitudeString : String!
-    
+ 
+    let  locationManager =  CLLocationManager()
+    var startLocation: CLLocation!
+
     @IBOutlet weak var eventDetailTableView: UITableView!
     let cellIdentifier = "whoseAroundEventCell"
     let reviewCellIdentifier = "whoseAroundPeopleCell"
@@ -54,22 +59,102 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
         self.eventDetailTableView.register(UINib(nibName : "WhoseAroundPeopleTableViewCell" ,bundle: nil), forCellReuseIdentifier: reviewCellIdentifier)
         self.addChildViewController(appDelegate.menuTableViewController)
         self.eventDetailTableView.tableFooterView = UIView()
+        
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
+//        startLocation = nil
+        
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.requestAlwaysAuthorization()
+        
+        
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
 
-
-        self.whoseAroundApiHit()
+        
 
         // Do any additional setup after loading the view.
     }
+  
+
     
     
-    func whoseAroundApiHit() {
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation])
+    {
+        let latestLocation: CLLocationCoordinate2D = (manager.location?.coordinate)!
+        
+        print("latest latitude corndi \(latestLocation.latitude)")
+        print("latestLongitude : \(latestLocation.longitude)")
+        
+        let latitudeString = latestLocation.latitude
+        let longitudeString = latestLocation.longitude
+        
+      //  self.updateLongAndLatitude(lat: latestLocation.latitude, log: latestLocation.longitude)
+        print("latest latitude corndi \(latitudeString)")
+        print("latestLongitude : \(longitudeString)")
+        
+        
+    }
+    
+    func updateLongAndLatitude(lat: Double , log : Double) {
+//        
+//        if let latitude == lat {
+//            
+//            
+//        }else {
+//            
+//            
+//        }
+       whoseAroundApiHit(lati: lat ,longi: log)
+    }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
+        
+        print("error")
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                  //  startScanning()
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    func whoseAroundApiHit(lati : Double , longi : Double) {
+        
+//        "lat"  : "28.536740",
+//        "lng"     : "77.399377"
         
         if currentReachabilityStatus != .notReachable {
             
             let parameter = ["user_id" : "\(self.userIdString!)",
-                "lat"  : "28.536740",
-                "lng"     : "77.399377"
-            ]
+                "lat"  : lati,
+                "lng"     : longi
+            ] as [String : Any]
+            
+            print("param \(parameter)")
             
             let url = "\(baseUrl)whoAround"
             

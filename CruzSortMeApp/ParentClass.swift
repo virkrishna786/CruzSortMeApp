@@ -50,6 +50,16 @@ class ParentClass : NSObject {
         
     }
     
+    func logout() {
+        
+        defaults.removeObject(forKey: "userId")
+        defaults.removeObject(forKey: "profile_image")
+        defaults.removeObject(forKey: "user_name")
+        
+        print("logOut")
+        
+    }
+    
     func setBlankView(label : UILabel)  -> UILabel{
         
         var customView = UILabel()
