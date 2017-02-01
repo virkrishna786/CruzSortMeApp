@@ -726,7 +726,7 @@ Signup from your existing account</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeR-1r-8Lg">
-                                        <rect key="frame" x="275" y="12" width="94" height="22"/>
+                                        <rect key="frame" x="276" y="12" width="93" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="bell"/>
                                         <connections>
@@ -764,7 +764,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SsP-AN-Sku" id="PdQ-8g-fyk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1390,7 +1390,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wX5-Ih-1Cy" id="KW4-kL-5rY">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1916,7 +1916,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TfT-Iv-2UG" id="D02-1M-OWb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2003,7 +2003,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tj5-1u-aCu" id="q6I-8f-Ehf">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="115"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2409,6 +2409,10 @@ Signup from your existing account</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="neT-GQ-kBw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1m-Bk-eoW">
                                 <rect key="frame" x="0.0" y="16" width="375" height="45"/>
                                 <subviews>
@@ -2468,13 +2472,147 @@ Signup from your existing account</string>
                             <constraint firstItem="X6r-WP-Tcf" firstAttribute="top" secondItem="RUo-2y-ufO" secondAttribute="bottom" constant="8" symbolic="YES" id="uhb-VM-Xu9"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="chatFriendListTableView" destination="s2R-0A-3aN" id="wkF-Ub-bVN"/>
+                        <segue destination="TU8-Uf-ggu" kind="show" identifier="chatView" id="lgD-PB-sYX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cdz-Bs-kuj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4973.6000000000004" y="-1305.697151424288"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="wrr-27-oKa">
+            <objects>
+                <viewController id="TU8-Uf-ggu" customClass="ChatViewController" customModule="CruzSortMeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sF9-Oz-pxm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ja3-oA-28d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nWt-k3-1BS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="5mM-im-B7p">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ask me anything" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-aj-T8d">
+                                <rect key="frame" x="20" y="617" width="284" height="42"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TU8-Uf-ggu" id="0NA-Z9-jmG"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUw-BH-WFN">
+                                <rect key="frame" x="312" y="623" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="IJY-It-IK1"/>
+                                </constraints>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonAction:" destination="TU8-Uf-ggu" eventType="touchUpInside" id="D80-vX-bHW"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WLH-FH-uEE">
+                                <rect key="frame" x="0.0" y="74" width="375" height="535"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fAZ-XP-5vU">
+                                    <size key="itemSize" width="373" height="68"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="20"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCell" id="jkP-Ur-KmD">
+                                        <rect key="frame" x="10" y="0.0" width="356" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="356" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="356" height="57"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pDu-fb-YJF">
+                                    <rect key="frame" x="0.0" y="57" width="375" height="20"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="TU8-Uf-ggu" id="P6m-tk-MP8"/>
+                                    <outlet property="delegate" destination="TU8-Uf-ggu" id="oSX-Wv-bhW"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iip-9S-3ta">
+                                <rect key="frame" x="0.0" y="16" width="375" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDr-Qj-yGZ">
+                                        <rect key="frame" x="39" y="11" width="40" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="xr7-mO-ClV"/>
+                                        </constraints>
+                                        <state key="normal" image="backArrow"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="TU8-Uf-ggu" eventType="touchUpInside" id="Spp-eI-Ieg"/>
+                                            <action selector="meneButtonAction:" destination="QLG-Hu-nPQ" eventType="touchUpInside" id="xyj-cL-9hz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="wDr-Qj-yGZ" firstAttribute="centerY" secondItem="Iip-9S-3ta" secondAttribute="centerY" id="3pv-tJ-PFG"/>
+                                    <constraint firstItem="wDr-Qj-yGZ" firstAttribute="leading" secondItem="Iip-9S-3ta" secondAttribute="leading" constant="39" id="dca-PL-BbQ"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quG-wP-SiV">
+                                <rect key="frame" x="130" y="28" width="115" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="NYV-Xy-gri"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WLH-FH-uEE" firstAttribute="top" secondItem="quG-wP-SiV" secondAttribute="bottom" constant="25" id="4Ew-DM-5wi"/>
+                            <constraint firstItem="WLH-FH-uEE" firstAttribute="top" secondItem="Iip-9S-3ta" secondAttribute="bottom" constant="13" id="51g-mh-MZ5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mUw-BH-WFN" secondAttribute="trailing" constant="1" id="5Io-uV-mA6"/>
+                            <constraint firstItem="mUw-BH-WFN" firstAttribute="leading" secondItem="X5U-aj-T8d" secondAttribute="trailing" constant="8" symbolic="YES" id="8bL-H9-0Gy"/>
+                            <constraint firstItem="mUw-BH-WFN" firstAttribute="top" secondItem="WLH-FH-uEE" secondAttribute="bottom" constant="14" id="CQf-q5-c06"/>
+                            <constraint firstItem="X5U-aj-T8d" firstAttribute="leading" secondItem="nWt-k3-1BS" secondAttribute="leadingMargin" constant="4" id="CnT-5E-g9J"/>
+                            <constraint firstItem="quG-wP-SiV" firstAttribute="top" secondItem="sF9-Oz-pxm" secondAttribute="bottom" constant="8" symbolic="YES" id="CxT-ER-rxc"/>
+                            <constraint firstItem="5mM-im-B7p" firstAttribute="bottom" secondItem="ja3-oA-28d" secondAttribute="top" id="MZj-H7-Tq7"/>
+                            <constraint firstItem="Iip-9S-3ta" firstAttribute="centerX" secondItem="quG-wP-SiV" secondAttribute="centerX" id="OqX-sT-hUy"/>
+                            <constraint firstItem="Iip-9S-3ta" firstAttribute="leading" secondItem="WLH-FH-uEE" secondAttribute="leading" id="RpW-mt-jhA"/>
+                            <constraint firstItem="5mM-im-B7p" firstAttribute="leading" secondItem="WLH-FH-uEE" secondAttribute="leading" id="U0B-uz-VTM"/>
+                            <constraint firstItem="Iip-9S-3ta" firstAttribute="centerY" secondItem="quG-wP-SiV" secondAttribute="centerY" id="aX1-f9-1dV"/>
+                            <constraint firstItem="ja3-oA-28d" firstAttribute="top" secondItem="X5U-aj-T8d" secondAttribute="bottom" constant="8" symbolic="YES" id="f0C-gG-9aQ"/>
+                            <constraint firstItem="Iip-9S-3ta" firstAttribute="trailing" secondItem="WLH-FH-uEE" secondAttribute="trailing" id="gXZ-AU-6ln"/>
+                            <constraint firstItem="X5U-aj-T8d" firstAttribute="centerY" secondItem="mUw-BH-WFN" secondAttribute="centerY" id="gb4-A4-veJ"/>
+                            <constraint firstItem="5mM-im-B7p" firstAttribute="top" secondItem="nWt-k3-1BS" secondAttribute="top" id="pLM-RL-W2J"/>
+                            <constraint firstItem="5mM-im-B7p" firstAttribute="leading" secondItem="nWt-k3-1BS" secondAttribute="leading" id="pOL-uI-UWo"/>
+                            <constraint firstItem="5mM-im-B7p" firstAttribute="trailing" secondItem="Iip-9S-3ta" secondAttribute="trailing" id="s7K-7u-gaA"/>
+                            <constraint firstAttribute="trailing" secondItem="5mM-im-B7p" secondAttribute="trailing" id="ts5-Or-vDf"/>
+                            <constraint firstItem="X5U-aj-T8d" firstAttribute="top" secondItem="WLH-FH-uEE" secondAttribute="bottom" constant="8" symbolic="YES" id="wFF-Tz-dcC"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="ChatCollectionView" destination="WLH-FH-uEE" id="fgc-WP-al1"/>
+                        <outlet property="chatTextField" destination="X5U-aj-T8d" id="Hak-1n-1Aq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVX-Si-ITr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5705" y="-1305"/>
         </scene>
         <!--Friend Detail View Controller-->
         <scene sceneID="PFZ-FC-H4P">
@@ -2530,7 +2668,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5vQ-k0-WW2" id="Mzw-LB-Ok5">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2927,7 +3065,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFe-rb-VT4" id="sSZ-gz-qHw">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

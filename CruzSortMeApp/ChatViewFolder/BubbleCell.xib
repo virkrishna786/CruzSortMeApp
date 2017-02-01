@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VisitChatQViewController" customModule="CruzSortMeApp" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view userInteractionEnabled="NO" contentMode="scaleAspectFill" id="iN0-l3-epB" customClass="BubbleChatCell" customModule="CruzSortMeApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutUs" translatesAutoresizingMaskIntoConstraints="NO" id="Ung-Yj-yg6">
+                    <rect key="frame" x="4" y="11" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="dcm-mv-AYD"/>
+                        <constraint firstAttribute="width" constant="40" id="fpX-oW-gdm"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-Tm-QLx">
+                    <rect key="frame" x="52" y="11" width="300" height="57"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="281" placeholderIntrinsicHeight="40" text=" " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="adv-82-LmW">
+                            <rect key="frame" x="14" y="5" width="281" height="40"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAF-I8-15A">
+                            <rect key="frame" x="-52" y="-27" width="33" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.47058823529999999" green="0.41176470590000003" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="adv-82-LmW" secondAttribute="trailing" constant="5" id="5hN-HU-zbf"/>
+                        <constraint firstAttribute="bottom" secondItem="adv-82-LmW" secondAttribute="bottom" constant="12" id="UtP-bW-nPO"/>
+                        <constraint firstItem="adv-82-LmW" firstAttribute="leading" secondItem="0yl-Tm-QLx" secondAttribute="leading" constant="14" id="caD-LK-HPd"/>
+                        <constraint firstItem="adv-82-LmW" firstAttribute="top" secondItem="0yl-Tm-QLx" secondAttribute="top" constant="5" id="uU0-yO-Ahc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ung-Yj-yg6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="UD0-E8-x0p"/>
+                <constraint firstItem="Ung-Yj-yg6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="ZOz-0M-6yi"/>
+                <constraint firstItem="0yl-Tm-QLx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="bG9-0o-6aT"/>
+                <constraint firstItem="0yl-Tm-QLx" firstAttribute="leading" secondItem="Ung-Yj-yg6" secondAttribute="trailing" constant="8" id="gjg-GS-Cb4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                    <color key="value" red="0.99567018580883493" green="1" blue="0.91340246586480023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                    <integer key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="bubbleView" destination="0yl-Tm-QLx" id="ulO-kN-sqn"/>
+                <outlet property="leftBubbleChatLable" destination="adv-82-LmW" id="sJT-y1-Aou"/>
+                <outlet property="leftImageView" destination="Ung-Yj-yg6" id="1ni-li-iGV"/>
+                <outlet property="timeLable" destination="VAF-I8-15A" id="mU0-IC-3dB"/>
+            </connections>
+            <point key="canvasLocation" x="-908" y="-24"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="aboutUs" width="27" height="27"/>
+    </resources>
+</document>

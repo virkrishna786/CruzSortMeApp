@@ -92,15 +92,10 @@ class EditProfielViewController: UIViewController ,UITextFieldDelegate ,UIImageP
 //            present(imagePicker,animated: true,completion: nil)
 //        } else
 //            
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .photoLibrary
-            present(imagePicker, animated: true, completion: nil)
-            
-        }else {
-            
-            self.noCamara()
-        }
+        UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
 
     @IBOutlet weak var profileImageView: UIImageView!  {

@@ -33,6 +33,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
     }
     var activeField = UITextField?.self
     var userIdString : String? = ""
+    var tokenIdSting : String!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -48,6 +49,7 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             return
         }
         self.performSegue(withIdentifier: "homeView", sender: self)
+    
         
 //        if (self.userIdString?.isEmpty)! {
 // 
@@ -79,15 +81,31 @@ class ViewController: UIViewController ,UITextFieldDelegate {
             let  urlString = "\(baseUrl)login"
             let userString = "\(usernameTextField.text!)"
             let passwordString = "\(passwordTextField.text!)"
-            let deviceIdString = "\(UIDevice.current.identifierForVendor!.uuidString)"
             
-            print("deviceiDStirng \(deviceIdString)")
+            let tokenIdString = defaults.value(forKey: "token_id")
+            print("tokenidString \(tokenIdString)")
+            
+//            guard let usridsd = tokenIdString, !(usridsd as AnyObject).isEmpty else {
+//                print("bla bla")
+//            self.tokenIdSting = "\(UIDevice.current.identifierForVendor!.uuidString)"
+//                return
+//            }
+//            self.tokenIdSting = usridsd as! String
+//
+//            
+//            let deviceIdString = "\(UIDevice.current.identifierForVendor!.uuidString)"
+            
+            self.tokenIdSting = tokenIdString as! String! ?? "\(UIDevice.current.identifierForVendor!.uuidString)"
+            
+            print("self.todsgs \(self.tokenIdSting)")
+            
+       //     print("deviceiDStirng \(deviceIdString)")
             let deviceTypeString = "IOS"
             
             let  parameter = ["username" : userString
                 , "password" : passwordString,
                   "device_type" : deviceTypeString,
-                  "token_id" : "\(deviceIdString)"]
+                  "token_id" : "\(self.tokenIdSting!)"]
             
             print("dfd \(parameter)")
             
@@ -97,7 +115,10 @@ class ViewController: UIViewController ,UITextFieldDelegate {
                     print("Response String: \(response.result.value)")
                     
                     //to get JSON return value
-                    if let result = response.result.value {
+                    
+                    if  response.result.isSuccess {
+                        hudClass.hide()
+                        let result = response.result.value
                         let JSON = result as! NSDictionary
                         
                         let responseCode = JSON["CruzSortMe_app"] as! NSDictionary
@@ -126,15 +147,18 @@ class ViewController: UIViewController ,UITextFieldDelegate {
                             let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
                             alertVC.addAction(okAction)
                             self.present(alertVC, animated: true, completion: nil)
-                            
                         }
                         print("json \(JSON)")
                         
+                    }else {
+                         hudClass.hide()
+                         parentClass.showAlertWithApiFailure()
                     }
             }
 
             
         }else {
+            hudClass.hide()
            parentClass.showAlert()
         }
 

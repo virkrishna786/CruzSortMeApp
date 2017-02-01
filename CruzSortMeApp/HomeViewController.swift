@@ -41,6 +41,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     let cellIdentifier = "postCellIdentifier"
     var  numberofEvents : Int!
     var eventIdString : String!
+    var endValueIntegerValue  : Int = 1
 
     var  homeEventArray = [HomeArrayClass]()
     @IBOutlet weak var postTableView: UITableView!
@@ -62,7 +63,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     func sendBoolValue(bool: Bool) {
         if bool == true {
-            self.eventApiHit(string : "1")
+            self.eventApiHit(string : "\(self.endValueIntegerValue)")
         }
     }
     
@@ -75,7 +76,7 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
          
         hudClass.showInView(view: self.view)
         
-        let parameter = ["end_value": "\(string)"]
+        let parameter = ["end_value": "\(self.endValueIntegerValue)"]
         
         Alamofire.request( url, method : .post , parameters: parameter).responseJSON { (responseObject) -> Void in
             
@@ -254,7 +255,10 @@ class HomeViewController: UIViewController ,UITableViewDelegate ,UITableViewData
             {
                 if !isNewDataLoading {
                         isNewDataLoading = true
-                    eventApiHit(string : "2")
+                       self.endValueIntegerValue += 1
+                    print("self.endVlaue dksfds \(self.endValueIntegerValue)")
+                  //  self.endValueIntegerValue + = 1
+                    eventApiHit(string : "\(self.endValueIntegerValue)")
                     self.postTableView.reloadData()
                 }
             }

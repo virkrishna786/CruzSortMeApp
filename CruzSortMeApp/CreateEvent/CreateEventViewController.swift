@@ -39,21 +39,10 @@ class CreateEventViewController: UIViewController ,UIImagePickerControllerDelega
     @IBOutlet weak var eventTypeTextField: UITextField!
     @IBAction func uploadEventImageButtonAcrtion(_ sender: UIButton) {
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.cameraCaptureMode = .photo
-            imagePicker.modalPresentationStyle = .fullScreen
-            present(imagePicker,animated: true,completion: nil)
-        } else if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .photoLibrary
-            present(imagePicker, animated: true, completion: nil)
-            
-        }else {
-            
-            self.noCamara()
-        }
+        UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
     @IBOutlet weak var startDateButton: UIButton!{
         didSet {

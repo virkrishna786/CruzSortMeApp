@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RIghtBubbleCell" customModule="Visit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VFD-7M-zsd">
+                    <rect key="frame" x="316" y="8" width="40" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="3dW-vZ-DUg"/>
+                        <constraint firstAttribute="height" constant="40" id="DgY-eb-Syx"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nE-4e-qyC">
+                    <rect key="frame" x="23" y="8" width="285" height="58"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-wV-Hk3">
+                            <rect key="frame" x="8" y="6" width="275" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="-1" height="2"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RdD-wV-Hk3" secondAttribute="trailing" constant="2" id="EHr-qJ-zaM"/>
+                        <constraint firstAttribute="bottom" secondItem="RdD-wV-Hk3" secondAttribute="bottom" constant="12" id="LMF-hK-Dq7"/>
+                        <constraint firstItem="RdD-wV-Hk3" firstAttribute="top" secondItem="7nE-4e-qyC" secondAttribute="top" constant="6" id="kRs-Ik-zsQ"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="285" id="mHy-zU-U4P"/>
+                        <constraint firstItem="RdD-wV-Hk3" firstAttribute="leading" secondItem="7nE-4e-qyC" secondAttribute="leading" constant="8" id="rmV-lM-VkN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="VFD-7M-zsd" firstAttribute="leading" secondItem="7nE-4e-qyC" secondAttribute="trailing" constant="8" id="7pR-CI-kb0"/>
+                <constraint firstAttribute="trailing" secondItem="VFD-7M-zsd" secondAttribute="trailing" constant="19" id="EBh-xo-IrA"/>
+                <constraint firstItem="VFD-7M-zsd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="RFC-hG-Jyp"/>
+                <constraint firstItem="7nE-4e-qyC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="dEQ-d5-E5F"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="chatRightLabel" destination="RdD-wV-Hk3" id="MWl-8M-Gbx"/>
+                <outlet property="rightCustomView" destination="7nE-4e-qyC" id="xDi-M8-WDm"/>
+                <outlet property="rightImageView" destination="VFD-7M-zsd" id="qF9-WU-b3k"/>
+            </connections>
+            <point key="canvasLocation" x="192.5" y="4.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="maleIcon" width="46" height="46"/>
+    </resources>
+</document>

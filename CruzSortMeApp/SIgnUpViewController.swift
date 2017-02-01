@@ -108,21 +108,22 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
     }
     @IBAction func camaraButtonAction(_ sender: UIButton) {
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.cameraCaptureMode = .photo
-            imagePicker.modalPresentationStyle = .fullScreen
-            present(imagePicker,animated: true,completion: nil)
-        } else if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            imagePicker.allowsEditing = false
+//            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+//            imagePicker.cameraCaptureMode = .photo
+//            imagePicker.modalPresentationStyle = .fullScreen
+//            present(imagePicker,animated: true,completion: nil)
+//        } else if
+            UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
             imagePicker.allowsEditing = false
             imagePicker.sourceType = .photoLibrary
             present(imagePicker, animated: true, completion: nil)
             
-        }else {
-            
-            self.noCamara()
-        }
+//        }else {
+//            
+//            self.noCamara()
+//        }
     }
     @IBOutlet weak var camaraButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -234,6 +235,10 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
             gender = "female"
         }
         
+            let tokenIdString = defaults.value(forKey: "token_id") 
+            print("tokenidString \(tokenIdString)")
+  
+            
         let parameter = ["name": name,
                          "email": username,
                          "phone": phoneNumber,
@@ -241,7 +246,10 @@ class SignUpViewController: UIViewController ,UIImagePickerControllerDelegate , 
                          "gender" : gender,
                          "password": password,
                          "cpassword" : conformPassword,
-                         "device_type" : "IOS"
+                         "device_type" : "IOS",
+                         "token_id" : "\(tokenIdString!)",
+                          "lat" :    "" ,
+                          "lng" :  ""
                          ]
             
             print("param : \(parameter)")

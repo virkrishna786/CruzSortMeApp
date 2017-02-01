@@ -23,7 +23,11 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
     
     var userIdString : String!
     var  chatfriendArray = [ChatFriendListArrayClass]()
-    @IBOutlet weak var chatFriendListTableView: UITableView!
+    @IBOutlet weak var chatFriendListTableView: UITableView!{
+        didSet{
+            self.chatFriendListTableView.layer.cornerRadius = 5
+        }
+    }
     @IBAction func meneButtonAction(_ sender: UIButton) {
         
         if boolValue == 0 {
@@ -136,7 +140,7 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 150
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -158,7 +162,7 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
         
         let eventList = chatfriendArray[indexPath.row]
         self.friendIdString = eventList.chatFriendIDString!
-       // self.performSegue(withIdentifier: "eventDetail", sender: self)
+        self.performSegue(withIdentifier: "chatView", sender: self)
         
     }
     
@@ -174,11 +178,11 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "eventDetail" {
-            let eventDetailView = segue.destination as! EventDetailViewController
+        if segue.identifier == "chatView" {
+            let eventDetailView = segue.destination as! ChatViewController
             // eventDetailView.delegate = self
-            eventDetailView.eventIdString = self.friendIdString!
-            print("homepage eventIDString \(eventDetailView.eventIdString)")
+            eventDetailView.friendIdString = self.friendIdString!
+            print("homepage eventIDString \(eventDetailView.friendIdString)")
         }
 
         // Get the new view controller using segue.destinationViewController.

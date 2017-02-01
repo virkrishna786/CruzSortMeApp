@@ -61,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         print("DEVICE TOKEN = \(deviceToken)")
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         
+        defaults.set(deviceTokenString, forKey: "token_id")
+        defaults.synchronize()
         print("deviceTokenString\(deviceTokenString)")
 
 

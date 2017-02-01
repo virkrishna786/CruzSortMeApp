@@ -68,6 +68,12 @@
 		8482EA581E2754E8009D1AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA571E2754E8009D1AA7 /* AppDelegate.swift */; };
 		8482EA5A1E27559C009D1AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA591E27559C009D1AA7 /* ViewController.swift */; };
 		8482EA601E27A04F009D1AA7 /* ReviewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA5F1E27A04F009D1AA7 /* ReviewClass.swift */; };
+		8486E3CA1E419A1400CF4622 /* BubbleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8486E3C91E419A1400CF4622 /* BubbleCell.xib */; };
+		8486E3CC1E419A1F00CF4622 /* RightbubbleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8486E3CB1E419A1F00CF4622 /* RightbubbleCell.xib */; };
+		8486E3CE1E419A3F00CF4622 /* BubbleChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486E3CD1E419A3F00CF4622 /* BubbleChatCell.swift */; };
+		8486E3D01E419A4B00CF4622 /* RIghtBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486E3CF1E419A4B00CF4622 /* RIghtBubbleCell.swift */; };
+		8486E3D21E419D2C00CF4622 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486E3D11E419D2C00CF4622 /* ChatViewController.swift */; };
+		8486E3D41E419E5500CF4622 /* ChatArrayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486E3D31E419E5500CF4622 /* ChatArrayClass.swift */; };
 		84940B7F1E28A6F200F94254 /* RatingAndReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84940B7E1E28A6F200F94254 /* RatingAndReviewController.swift */; };
 		84940B811E28A92A00F94254 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84940B801E28A92A00F94254 /* FloatRatingView.swift */; };
 		84940B841E28E0A400F94254 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84940B831E28E0A400F94254 /* FriendListViewController.swift */; };
@@ -186,6 +192,12 @@
 		8482EA571E2754E8009D1AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8482EA591E27559C009D1AA7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8482EA5F1E27A04F009D1AA7 /* ReviewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewClass.swift; sourceTree = "<group>"; };
+		8486E3C91E419A1400CF4622 /* BubbleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BubbleCell.xib; sourceTree = "<group>"; };
+		8486E3CB1E419A1F00CF4622 /* RightbubbleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightbubbleCell.xib; sourceTree = "<group>"; };
+		8486E3CD1E419A3F00CF4622 /* BubbleChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleChatCell.swift; sourceTree = "<group>"; };
+		8486E3CF1E419A4B00CF4622 /* RIghtBubbleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIghtBubbleCell.swift; sourceTree = "<group>"; };
+		8486E3D11E419D2C00CF4622 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		8486E3D31E419E5500CF4622 /* ChatArrayClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatArrayClass.swift; sourceTree = "<group>"; };
 		84940B7E1E28A6F200F94254 /* RatingAndReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingAndReviewController.swift; sourceTree = "<group>"; };
 		84940B801E28A92A00F94254 /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		84940B831E28E0A400F94254 /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +326,12 @@
 		842A17C01E40C34B007D82AD /* ChatViewFolder */ = {
 			isa = PBXGroup;
 			children = (
+				8486E3CB1E419A1F00CF4622 /* RightbubbleCell.xib */,
+				8486E3CD1E419A3F00CF4622 /* BubbleChatCell.swift */,
+				8486E3CF1E419A4B00CF4622 /* RIghtBubbleCell.swift */,
+				8486E3C91E419A1400CF4622 /* BubbleCell.xib */,
+				8486E3D11E419D2C00CF4622 /* ChatViewController.swift */,
+				8486E3D31E419E5500CF4622 /* ChatArrayClass.swift */,
 			);
 			path = ChatViewFolder;
 			sourceTree = "<group>";
@@ -726,10 +744,12 @@
 				844D903A1E14D391002684BA /* Main.storyboard in Resources */,
 				84209E041E375E1700A8BCFB /* dummy.png in Resources */,
 				8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */,
+				8486E3CA1E419A1400CF4622 /* BubbleCell.xib in Resources */,
 				842C23641E3B5DD000C8480C /* WhoseAroundEventTableViewCell.xib in Resources */,
 				847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */,
 				842A17BD1E40B8D5007D82AD /* ChatFriendListCell.xib in Resources */,
 				84077D281E3C51BE0061DF1C /* FriendRequstTableViewCell.xib in Resources */,
+				8486E3CC1E419A1F00CF4622 /* RightbubbleCell.xib in Resources */,
 				8482EA451E2753E5009D1AA7 /* ReviewCell.xib in Resources */,
 				84940B881E28F32700F94254 /* FriendListCell.xib in Resources */,
 			);
@@ -902,6 +922,7 @@
 				842C235E1E3B5D2100C8480C /* WhoseAroundEventTableViewCell.swift in Sources */,
 				84E5360B1E31D6D20064A280 /* Network.swift in Sources */,
 				84E5360F1E31DF6C0064A280 /* JHProgressHUD.swift in Sources */,
+				8486E3D01E419A4B00CF4622 /* RIghtBubbleCell.swift in Sources */,
 				8482EA461E2753E5009D1AA7 /* ReviewTableViewCell.swift in Sources */,
 				842C235C1E3B5D0200C8480C /* WhoseAroundPeopleCell.swift in Sources */,
 				8482EA501E27541A009D1AA7 /* InterestViewController.swift in Sources */,
@@ -929,6 +950,7 @@
 				8482EA4E1E27541A009D1AA7 /* HomeViewController.swift in Sources */,
 				84EF9A1C1E1E64CD000E33A6 /* ForgetPasswordViewController.swift in Sources */,
 				84940B841E28E0A400F94254 /* FriendListViewController.swift in Sources */,
+				8486E3D41E419E5500CF4622 /* ChatArrayClass.swift in Sources */,
 				84C626761E38BA9C00CA1824 /* WhoseAroundViewController.swift in Sources */,
 				844D903D1E14D391002684BA /* CruzSortMeApp.xcdatamodeld in Sources */,
 				84C2C0961E36089E007B7C20 /* PeopleCell.swift in Sources */,
@@ -945,6 +967,7 @@
 				8421386F1E234B2C00A44646 /* Config.swift in Sources */,
 				84E536141E321C4F0064A280 /* GroupDetailClass.swift in Sources */,
 				84077D2D1E3CA3200061DF1C /* NotificationViewController.swift in Sources */,
+				8486E3D21E419D2C00CF4622 /* ChatViewController.swift in Sources */,
 				84940B861E28F1C100F94254 /* FriendListClass.swift in Sources */,
 				842C23601E3B5D8600C8480C /* WhoseAroundDataClass.swift in Sources */,
 				8482EA561E275441009D1AA7 /* ParentClass.swift in Sources */,
@@ -953,6 +976,7 @@
 				842EF8741E1F5D610079EB2D /* SignUpViewController.swift in Sources */,
 				84C626791E38C50B00CA1824 /* UserLocationService.swift in Sources */,
 				8482EA441E2753E5009D1AA7 /* EventDetailViewController.swift in Sources */,
+				8486E3CE1E419A3F00CF4622 /* BubbleChatCell.swift in Sources */,
 				8421386B1E234ADB00A44646 /* CommonClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
