@@ -726,7 +726,7 @@ Signup from your existing account</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeR-1r-8Lg">
-                                        <rect key="frame" x="276" y="12" width="93" height="22"/>
+                                        <rect key="frame" x="275" y="12" width="94" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="bell"/>
                                         <connections>
@@ -764,7 +764,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SsP-AN-Sku" id="PdQ-8g-fyk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1390,7 +1390,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wX5-Ih-1Cy" id="KW4-kL-5rY">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1916,7 +1916,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TfT-Iv-2UG" id="D02-1M-OWb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2003,7 +2003,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tj5-1u-aCu" id="q6I-8f-Ehf">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2159,10 +2159,23 @@ Signup from your existing account</string>
                                             <action selector="backButtonAction:" destination="l3V-C7-oHi" eventType="touchUpInside" id="k78-Vh-Ysy"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRb-de-ewk">
+                                        <rect key="frame" x="304" y="14.5" width="40" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="tQd-WW-709"/>
+                                        </constraints>
+                                        <state key="normal" image="share"/>
+                                        <connections>
+                                            <action selector="shareButtonAction:" destination="l3V-C7-oHi" eventType="touchUpInside" id="Nyq-gL-oag"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="uRb-de-ewk" secondAttribute="trailing" constant="31" id="5ad-xH-7YV"/>
                                     <constraint firstItem="vhT-zs-Jge" firstAttribute="centerY" secondItem="hsP-g5-keq" secondAttribute="centerY" id="c1V-PK-ioM"/>
+                                    <constraint firstItem="uRb-de-ewk" firstAttribute="baseline" secondItem="vhT-zs-Jge" secondAttribute="baseline" id="k2h-es-N3z"/>
                                     <constraint firstItem="vhT-zs-Jge" firstAttribute="leading" secondItem="hsP-g5-keq" secondAttribute="leading" constant="26" id="oPT-gE-xs6"/>
                                     <constraint firstItem="vhT-zs-Jge" firstAttribute="top" secondItem="hsP-g5-keq" secondAttribute="top" constant="11" id="pSY-aN-eTt"/>
                                 </constraints>
@@ -2397,6 +2410,107 @@ Signup from your existing account</string>
             </objects>
             <point key="canvasLocation" x="5664.8000000000002" y="-523.088455772114"/>
         </scene>
+        <!--Find Friend View Controller-->
+        <scene sceneID="E40-EA-0IH">
+            <objects>
+                <viewController id="qy2-1h-ejP" customClass="FindFriendViewController" customModule="CruzSortMeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Oe-Yx-u3J"/>
+                        <viewControllerLayoutGuide type="bottom" id="13p-vx-6g3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uuA-JP-yEv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="JSq-ES-HRd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfQ-06-u2n">
+                                <rect key="frame" x="16" y="80" width="343" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="searchTextField">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonAction:" destination="qy2-1h-ejP" eventType="touchUpInside" id="kF8-hl-P2H"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgT-vv-GWg">
+                                <rect key="frame" x="-1" y="23" width="375" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5et-r0-hdb">
+                                        <rect key="frame" x="39" y="11" width="40" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="0zJ-g3-pNc"/>
+                                        </constraints>
+                                        <state key="normal" image="backArrow"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="qy2-1h-ejP" eventType="touchUpInside" id="lEY-zO-2XG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5et-r0-hdb" firstAttribute="leading" secondItem="wgT-vv-GWg" secondAttribute="leading" constant="39" id="SGX-P1-7go"/>
+                                    <constraint firstItem="5et-r0-hdb" firstAttribute="centerY" secondItem="wgT-vv-GWg" secondAttribute="centerY" id="U83-L5-cjO"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJs-c3-4Tp">
+                                <rect key="frame" x="129" y="35" width="115" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="Ncq-sP-EjT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VuY-Oz-DAU">
+                                <rect key="frame" x="16" y="134" width="343" height="495"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9MF-qc-1d6">
+                                <rect key="frame" x="16" y="90" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WfQ-06-u2n" firstAttribute="trailing" secondItem="VuY-Oz-DAU" secondAttribute="trailing" id="2BB-aj-3Nj"/>
+                            <constraint firstItem="cJs-c3-4Tp" firstAttribute="top" secondItem="3Oe-Yx-u3J" secondAttribute="bottom" constant="15" id="2u4-e6-Pja"/>
+                            <constraint firstItem="WfQ-06-u2n" firstAttribute="leading" secondItem="VuY-Oz-DAU" secondAttribute="leading" id="61W-rH-Ufk"/>
+                            <constraint firstItem="wgT-vv-GWg" firstAttribute="centerY" secondItem="cJs-c3-4Tp" secondAttribute="centerY" id="7Gu-zU-QHm"/>
+                            <constraint firstItem="wgT-vv-GWg" firstAttribute="centerX" secondItem="cJs-c3-4Tp" secondAttribute="centerX" id="FF9-hX-luv"/>
+                            <constraint firstItem="wgT-vv-GWg" firstAttribute="leading" secondItem="uuA-JP-yEv" secondAttribute="leadingMargin" constant="-17" id="Hbh-xp-0dI"/>
+                            <constraint firstItem="VuY-Oz-DAU" firstAttribute="top" secondItem="wgT-vv-GWg" secondAttribute="bottom" constant="66" id="JcX-2i-dpB"/>
+                            <constraint firstItem="VuY-Oz-DAU" firstAttribute="top" secondItem="WfQ-06-u2n" secondAttribute="bottom" constant="4" id="JeN-TF-zU0"/>
+                            <constraint firstItem="VuY-Oz-DAU" firstAttribute="leading" secondItem="uuA-JP-yEv" secondAttribute="leadingMargin" id="LVf-Kb-ZNy"/>
+                            <constraint firstItem="wgT-vv-GWg" firstAttribute="top" secondItem="3Oe-Yx-u3J" secondAttribute="bottom" constant="3" id="OFu-qo-4aX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wgT-vv-GWg" secondAttribute="trailing" constant="-15" id="TSJ-jG-GWA"/>
+                            <constraint firstItem="JSq-ES-HRd" firstAttribute="top" secondItem="uuA-JP-yEv" secondAttribute="top" id="Wiz-hD-wMV"/>
+                            <constraint firstItem="JSq-ES-HRd" firstAttribute="centerX" secondItem="VuY-Oz-DAU" secondAttribute="centerX" id="Wy4-lc-w2G"/>
+                            <constraint firstItem="9MF-qc-1d6" firstAttribute="centerY" secondItem="WfQ-06-u2n" secondAttribute="centerY" id="YA2-mb-hN1"/>
+                            <constraint firstItem="WfQ-06-u2n" firstAttribute="leading" secondItem="9MF-qc-1d6" secondAttribute="leading" id="l7v-ps-N5U"/>
+                            <constraint firstItem="JSq-ES-HRd" firstAttribute="leading" secondItem="uuA-JP-yEv" secondAttribute="leading" id="mHr-5d-5Yd"/>
+                            <constraint firstItem="JSq-ES-HRd" firstAttribute="bottom" secondItem="13p-vx-6g3" secondAttribute="top" id="nS9-Td-0D5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9MF-qc-1d6" secondAttribute="trailing" constant="55" id="ndq-TU-Opb"/>
+                            <constraint firstAttribute="trailing" secondItem="JSq-ES-HRd" secondAttribute="trailing" id="ofG-Iw-1wW"/>
+                            <constraint firstItem="13p-vx-6g3" firstAttribute="top" secondItem="VuY-Oz-DAU" secondAttribute="bottom" constant="38" id="oiK-zb-Zj3"/>
+                            <constraint firstItem="VuY-Oz-DAU" firstAttribute="top" secondItem="9MF-qc-1d6" secondAttribute="bottom" constant="14" id="yxZ-jn-Sra"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chatFriendListTableView" destination="VuY-Oz-DAU" id="Lvi-mx-QTt"/>
+                        <outlet property="searchTextField" destination="9MF-qc-1d6" id="1fV-iX-BKO"/>
+                        <segue destination="TU8-Uf-ggu" kind="show" identifier="chatView" id="WY2-e3-qxb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mhv-2X-ZeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5464.8000000000002" y="-2017.2413793103449"/>
+        </scene>
         <!--Chat Friend List View Controller-->
         <scene sceneID="8q1-zn-I7L">
             <objects>
@@ -2457,11 +2571,27 @@ Signup from your existing account</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ck6-aF-qF1">
+                                <rect key="frame" x="250" y="520" width="80" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Fv8-x5-fcj"/>
+                                    <constraint firstAttribute="height" constant="80" id="P93-IT-aKO"/>
+                                </constraints>
+                                <state key="normal" image="createEventIcon">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findFriendButtonAction:" destination="QLG-Hu-nPQ" eventType="touchUpInside" id="BVN-3M-nyF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="s2R-0A-3aN" firstAttribute="leading" secondItem="f6o-xe-XYV" secondAttribute="leadingMargin" id="30Y-kv-EzZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ck6-aF-qF1" secondAttribute="trailing" constant="29" id="5CC-UE-4Ey"/>
                             <constraint firstItem="G1m-Bk-eoW" firstAttribute="leading" secondItem="f6o-xe-XYV" secondAttribute="leading" id="N7a-Mn-P2A"/>
+                            <constraint firstItem="rnT-lR-Uyy" firstAttribute="top" secondItem="Ck6-aF-qF1" secondAttribute="bottom" constant="67" id="NR6-65-Y12"/>
                             <constraint firstItem="G1m-Bk-eoW" firstAttribute="centerY" secondItem="X6r-WP-Tcf" secondAttribute="centerY" id="Och-LV-Kv4"/>
                             <constraint firstItem="s2R-0A-3aN" firstAttribute="top" secondItem="G1m-Bk-eoW" secondAttribute="bottom" constant="36" id="T9W-9d-YBi"/>
                             <constraint firstAttribute="trailing" secondItem="G1m-Bk-eoW" secondAttribute="trailing" id="Tox-i0-3W2"/>
@@ -2476,6 +2606,7 @@ Signup from your existing account</string>
                     <connections>
                         <outlet property="chatFriendListTableView" destination="s2R-0A-3aN" id="wkF-Ub-bVN"/>
                         <segue destination="TU8-Uf-ggu" kind="show" identifier="chatView" id="lgD-PB-sYX"/>
+                        <segue destination="qy2-1h-ejP" kind="show" identifier="findFriend" id="EBh-CR-nCN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cdz-Bs-kuj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2530,7 +2661,7 @@ Signup from your existing account</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCell" id="jkP-Ur-KmD">
-                                        <rect key="frame" x="10" y="0.0" width="356" height="57"/>
+                                        <rect key="frame" x="9.5" y="0.0" width="356" height="57"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="356" height="57"/>
@@ -2560,7 +2691,6 @@ Signup from your existing account</string>
                                         <state key="normal" image="backArrow"/>
                                         <connections>
                                             <action selector="backButtonAction:" destination="TU8-Uf-ggu" eventType="touchUpInside" id="Spp-eI-Ieg"/>
-                                            <action selector="meneButtonAction:" destination="QLG-Hu-nPQ" eventType="touchUpInside" id="xyj-cL-9hz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2608,11 +2738,12 @@ Signup from your existing account</string>
                     <connections>
                         <outlet property="ChatCollectionView" destination="WLH-FH-uEE" id="fgc-WP-al1"/>
                         <outlet property="chatTextField" destination="X5U-aj-T8d" id="Hak-1n-1Aq"/>
+                        <outlet property="titleLabel" destination="quG-wP-SiV" id="nl2-Nw-zdr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVX-Si-ITr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5705" y="-1305"/>
+            <point key="canvasLocation" x="5745" y="-1213"/>
         </scene>
         <!--Friend Detail View Controller-->
         <scene sceneID="PFZ-FC-H4P">
@@ -2668,7 +2799,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5vQ-k0-WW2" id="Mzw-LB-Ok5">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -3065,7 +3196,7 @@ Signup from your existing account</string>
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFe-rb-VT4" id="sSZ-gz-qHw">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -3141,11 +3272,14 @@ Signup from your existing account</string>
         <image name="passwordTextFieldImage" width="295" height="50"/>
         <image name="phoneTextFieldImage" width="295" height="50"/>
         <image name="seachBox" width="295" height="50"/>
+        <image name="searchTextField" width="295" height="50"/>
+        <image name="share" width="20" height="14"/>
         <image name="usernameTextFieldImage" width="295" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="J2I-TK-vPt"/>
+        <segue reference="UJP-kM-dvg"/>
         <segue reference="zpG-mn-9Gf"/>
-        <segue reference="Xwu-24-OMV"/>
-        <segue reference="wuS-3D-gEm"/>
+        <segue reference="lgD-PB-sYX"/>
     </inferredMetricsTieBreakers>
 </document>

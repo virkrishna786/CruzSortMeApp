@@ -14,6 +14,7 @@ import SwiftyJSON
 
 class ChatViewController: UIViewController ,UICollectionViewDelegate ,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout  ,UITextFieldDelegate {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBAction func backButtonAction(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
     }
@@ -56,6 +57,7 @@ class ChatViewController: UIViewController ,UICollectionViewDelegate ,UICollecti
         
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ChatViewController.selfViewTapped))
         self.view.addGestureRecognizer(tapGestureRecognizer)
+        self.ChatCollectionView.backgroundColor = UIColor.clear
 
         self.ChatCollectionView.register(UINib(nibName: "BubbleCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         self.ChatCollectionView.register(UINib(nibName: "RightbubbleCell", bundle: nil), forCellWithReuseIdentifier: newIdentifier)
@@ -213,6 +215,8 @@ class ChatViewController: UIViewController ,UICollectionViewDelegate ,UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = UICollectionViewCell()
+        
+        cell.backgroundColor = UIColor.clear
         print("cell\(cell)")
         
         let meesageSingle = people[indexPath.item]
@@ -248,7 +252,7 @@ class ChatViewController: UIViewController ,UICollectionViewDelegate ,UICollecti
             
             cell.chatRightLabel.sizeToFit()
             cell.chatRightLabel.layoutIfNeeded()
-            
+            cell.backgroundColor = UIColor.clear
             
             return cell
         }else {
@@ -284,7 +288,7 @@ class ChatViewController: UIViewController ,UICollectionViewDelegate ,UICollecti
             cell.leftBubbleChatLable.sizeToFit()
             cell.leftBubbleChatLable.layoutIfNeeded()
 
-            
+            cell.backgroundColor = UIColor.clear
             
            return cell
         }
@@ -309,7 +313,7 @@ class ChatViewController: UIViewController ,UICollectionViewDelegate ,UICollecti
         if currentReachabilityStatus != .notReachable {
             
             hudClass.showInView(view: self.view)
-            let url = "\(baseUrl)sendMessageThroughAPN"
+            let url = "\(baseUrl)sendMessages"
             
             hudClass.showInView(view: self.view)
             

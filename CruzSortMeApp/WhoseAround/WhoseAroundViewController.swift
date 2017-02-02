@@ -30,8 +30,8 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     
     var logitudeString : String!
     var latitudeString : String!
- 
-    let  locationManager =  CLLocationManager()
+    var flagvalue : Int! = 1
+    let locationManager =  CLLocationManager()
     var startLocation: CLLocation!
 
     @IBOutlet weak var eventDetailTableView: UITableView!
@@ -45,6 +45,9 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     var  exploreDetailArray = [WhoseAroundDataClass]()
     var peopleIdString : String!
     var eventIdString : String!
+    
+    var latestLatitude : Double!
+    var latestLongitude : Double!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,14 +85,11 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
             locationManager.startUpdatingLocation()
         }
 
-        
 
         // Do any additional setup after loading the view.
     }
   
 
-    
-    
     
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation])
@@ -102,7 +102,14 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
         let latitudeString = latestLocation.latitude
         let longitudeString = latestLocation.longitude
         
-      //  self.updateLongAndLatitude(lat: latestLocation.latitude, log: latestLocation.longitude)
+        
+        if flagvalue == 1 {
+            self.updateLongAndLatitude(lat: latestLocation.latitude, log: latestLocation.longitude)
+            flagvalue = flagvalue + 1
+        }else {
+            
+            
+        }
         print("latest latitude corndi \(latitudeString)")
         print("latestLongitude : \(longitudeString)")
         
@@ -110,14 +117,7 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     }
     
     func updateLongAndLatitude(lat: Double , log : Double) {
-//        
-//        if let latitude == lat {
-//            
-//            
-//        }else {
-//            
-//            
-//        }
+
        whoseAroundApiHit(lati: lat ,longi: log)
     }
     
@@ -129,7 +129,7 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
+        if status == .authorizedWhenInUse {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
                 if CLLocationManager.isRangingAvailable() {
                   //  startScanning()
@@ -137,7 +137,6 @@ class WhoseAroundViewController: UIViewController , UITableViewDelegate ,UITable
             }
         }
     }
-    
     
     
     

@@ -1,8 +1,8 @@
 //
-//  ChatFriendListViewController.swift
+//  FindFriendViewController.swift
 //  CruzSortMeApp
 //
-//  Created by Admin media on 1/31/17.
+//  Created by Admin media on 2/2/17.
 //  Copyright © 2017 Gopal Gupta. All rights reserved.
 //
 
@@ -12,16 +12,23 @@ import SwiftyJSON
 import AlamofireImage
 import Kingfisher
 
-
-class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITableViewDataSource {
-
-    var boolValue = 0
+class FindFriendViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
     
-    var intValue = 1
-    
-    @IBAction func findFriendButtonAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "findFriend", sender: self)
+    @IBAction func searchButtonAction(_ sender: UIButton) {
+        
+        if self.searchTextField.text !=  "" {
+            self.eventApiHit()
+        }else {
+          
+            let alertVC = UIAlertController(title: "Alert", message: "Please enter search  text ", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
+            alertVC.addAction(okAction)
+            self.present(alertVC, animated: true, completion: nil)
+
+            
+        }
     }
+    @IBOutlet weak var searchTextField: UITextField!
     let cellIdentifier = "chatFriendList"
     var  numberofEvents : Int!
     var friendIdString : String!
@@ -33,19 +40,9 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
             self.chatFriendListTableView.layer.cornerRadius = 5
         }
     }
-    @IBAction func meneButtonAction(_ sender: UIButton) {
-        
-        if boolValue == 0 {
-            appDelegate.menuTableViewController.showMenu()
-            self.view .addSubview(appDelegate.menuTableViewController.view)
-            boolValue = 1
-            
-        } else {
-            appDelegate.menuTableViewController.hideMenu()
-            self.view .addSubview(appDelegate.menuTableViewController.view)
-            boolValue = 0
-        }
 
+
+    @IBAction func backButtonAction(_ sender: UIButton) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +59,9 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
         self.chatFriendListTableView.register(UINib(nibName : "ChatFriendListCell" ,bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.navigationController?.isNavigationBarHidden = false
         
-        self.eventApiHit()
         self.addChildViewController(appDelegate.menuTableViewController)
         self.chatFriendListTableView.tableFooterView = UIView()
+        
 
 
         // Do any additional setup after loading the view.
@@ -75,11 +72,12 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
         if currentReachabilityStatus != .notReachable {
             
             hudClass.showInView(view: self.view)
-            let url = "\(baseUrl)chatLists"
+            let url = "\(baseUrl)findFriend"
             
             hudClass.showInView(view: self.view)
             
-            let parameter = ["user_id": "\(self.userIdString!)"]
+            let parameter = ["user_id": "\(self.userIdString!)",
+                "search_key" : "\(searchTextField.text!)"]
             
             Alamofire.request( url, method : .post , parameters : parameter).responseJSON { (responseObject) -> Void in
                 
@@ -123,33 +121,11 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
                 }
                 if responseObject.result.isFailure {
                     hudClass.hide()
-                    let error  = responseObject.result.error!  as NSError
-                    
-                     self.intValue = self.intValue + 1
-                    let alertVC = UIAlertController(title: "Alert", message: "Please retry to find new chat friends", preferredStyle: .alert)
-                    alertVC.addAction(UIAlertAction(title: "Call", style: UIAlertActionStyle.default, handler: {(action: UIAlertAction!) in self.myFunc(int: self.intValue)}))
-                  //  alertVC.addAction(okAction)
-                    self.present(alertVC, animated: true, completion: nil)
-                    print("failuredata \(error)")
-                    
+                    parentClass.showAlertWithApiFailure()
                 }
             }
         }else {
             parentClass.showAlert()
-        }
-    }
-    
-    func  myFunc(int: Int) {
-        
-        if int <= 3 {
-        self.eventApiHit()
-        }else {
-            
-            let alertVC = UIAlertController(title: "Alert", message: "Please add new friends ", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK",style:.default,handler: nil)
-            alertVC.addAction(okAction)
-            self.present(alertVC, animated: true, completion: nil)
-
         }
     }
     
@@ -178,7 +154,7 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
         let url = URL(string : "\(eventList.chatFriendProfileimageString!)")
         
         cell.profileImageView.kf.setImage(with: url , placeholder : UIImage(named: "dummy"))
-                cell.friendNameLabel.text = eventList.chatFriendName!
+        cell.friendNameLabel.text = eventList.chatFriendName!
         return cell
     }
     
@@ -189,7 +165,8 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
         self.performSegue(withIdentifier: "chatView", sender: self)
         
     }
-    
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -208,7 +185,6 @@ class ChatFriendListViewController: UIViewController , UITableViewDelegate ,UITa
             eventDetailView.friendIdString = self.friendIdString!
             print("homepage eventIDString \(eventDetailView.friendIdString)")
         }
-
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

@@ -51,6 +51,7 @@
 		8470453E1E2E245A002632BE /* FriendGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470453D1E2E245A002632BE /* FriendGroupCell.swift */; };
 		847045401E2E24E7002632BE /* FriendGroupCellType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */; };
 		847045441E2E2E4C002632BE /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847045431E2E2E4C002632BE /* CreateGroupViewController.swift */; };
+		847EBAAC1E434DB800BC8077 /* FindFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EBAAB1E434DB800BC8077 /* FindFriendViewController.swift */; };
 		8482EA411E2753E5009D1AA7 /* EventDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */; };
 		8482EA421E2753E5009D1AA7 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */; };
 		8482EA431E2753E5009D1AA7 /* EventDetailClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */; };
@@ -175,6 +176,7 @@
 		8470453D1E2E245A002632BE /* FriendGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendGroupCell.swift; sourceTree = "<group>"; };
 		8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendGroupCellType.xib; sourceTree = "<group>"; };
 		847045431E2E2E4C002632BE /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		847EBAAB1E434DB800BC8077 /* FindFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindFriendViewController.swift; sourceTree = "<group>"; };
 		8482EA3B1E2753E5009D1AA7 /* EventDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventDetail.xib; path = CruzSortMeApp/EventDetail.xib; sourceTree = SOURCE_ROOT; };
 		8482EA3C1E2753E5009D1AA7 /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailCell.swift; path = CruzSortMeApp/EventDetailCell.swift; sourceTree = SOURCE_ROOT; };
 		8482EA3D1E2753E5009D1AA7 /* EventDetailClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailClass.swift; path = CruzSortMeApp/EventDetailClass.swift; sourceTree = SOURCE_ROOT; };
@@ -368,6 +370,7 @@
 		844D90331E14D390002684BA /* CruzSortMeApp */ = {
 			isa = PBXGroup;
 			children = (
+				847EBAAA1E434DA100BC8077 /* FindFreinds */,
 				842A17C01E40C34B007D82AD /* ChatViewFolder */,
 				842A17B71E40B863007D82AD /* ChatMessages */,
 				841297E11E40628300D9213C /* CruzSortMeApp.entitlements */,
@@ -445,6 +448,14 @@
 				8470453F1E2E24E7002632BE /* FriendGroupCellType.xib */,
 			);
 			path = FriendGroup;
+			sourceTree = "<group>";
+		};
+		847EBAAA1E434DA100BC8077 /* FindFreinds */ = {
+			isa = PBXGroup;
+			children = (
+				847EBAAB1E434DB800BC8077 /* FindFriendViewController.swift */,
+			);
+			path = FindFreinds;
 			sourceTree = "<group>";
 		};
 		8482EA5B1E276E0C009D1AA7 /* HomeView */ = {
@@ -934,6 +945,7 @@
 				84C2C09F1E362438007B7C20 /* EditProfielViewController.swift in Sources */,
 				842C23671E3B78FB00C8480C /* MyEventViewController.swift in Sources */,
 				8482EA4F1E27541A009D1AA7 /* InterestArrayClass.swift in Sources */,
+				847EBAAC1E434DB800BC8077 /* FindFriendViewController.swift in Sources */,
 				84077D2F1E3CB4770061DF1C /* NotificationArrayClass.swift in Sources */,
 				8438680C1E2CFB410056062F /* FriendDetailCellType.swift in Sources */,
 				84B4F84F1E3329FC00FF4D3F /* AboutUsViewController.swift in Sources */,
